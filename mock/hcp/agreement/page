@@ -1,0 +1,41 @@
+{
+    "msg": "查询成功！",
+    "result": [
+        {
+            "agreementNo": "NO0000001",
+            "agreementType": "type",
+            "createdBy": "createdBy",
+            "dateAgreementEff": 1388592000000,
+            "dateAgreementEnd": 1417449600000,
+            "dateCreated": 1399258775000,
+            "dateUpdated": 1399259101000,
+            "id": "F89F5248819A3424E043171D190A786B",
+            "idHealthcareProvider": "123456",
+            "isValid": "0",
+            "payMentMode": "01,02,03,04",
+            "remarks": "remarks",
+            "startRownum": 1,
+            "updatedBy": "updatedBy"
+        },
+        {
+            "agreementNo": "20140102",
+            "agreementType": "02",
+            "createdBy": "创建人",
+            "dateAgreementEff": 1388592000000,
+            "dateAgreementEnd": 1417449600000,
+            "dateCreated": 1399366399000,
+            "dateUpdated": 1399537065000,
+            "id": "F8B8612DF97722DBE043171D190AA03A",
+            "idHealthcareProvider": "123456",
+            "isValid": "0",
+            "payMentMode": "04,02,03",
+            "remarks": "备注",
+            "startRownum": 2,
+            "updatedBy": "修改人"
+        }
+    ],
+    "state": "0",
+    "totals": {
+        "total": 2
+    }
+}

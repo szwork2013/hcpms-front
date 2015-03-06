@@ -1,0 +1,52 @@
+<div style="max-height:500px; padding-top:0">
+		<h3>
+			巡查任务 —— 巡查清单<i class="close dialogClose"></i>
+		</h3>
+		<button style="margin-left:5px" type="button" print-page template-url="views/tour/task/printtemplate.htm" class="Btn Confirm Small"
+				print-data-url="hcs/tourmanagement/tourdetail/export?tourPlanId={{tourPlanId}}">打印</button>
+		<p style="margin:5px">巡查任务名称: {{result.tourName}}&nbsp;&nbsp;&nbsp;&nbsp;巡查人: {{result.operator}}</p>
+			<div  style="overflow-y: scroll;max-height:350px;margin-top:-5px">
+			<form autocomplete="off" class="Frm" style="margin-top:-25px">
+					<p class="tableTitle">病人列表</p>
+					<table class="Table">
+						<thead>
+							<tr>
+								<th>病人姓名</th>
+								<th>病案号</th>
+								<th>入院日期</th>
+								<th>科室名称</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in result.tourInspectPatients">
+								<td>{{item.name}}</td>
+								<td>{{item.medicalRecordNo}}</td>
+								<td>{{item.dateIntoHospital}}</td>
+								<td>{{item.departmentName}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<br />
+					<p class="tableTitle">医保检查内容及评分标准</p>
+					<table class="Table">
+						<thead>
+							<tr>
+								<th style="width:100px">检查项大类</th>
+								<th style="width:120px">检查项二级分类</th>
+								<th style="width:auto">评分标准</th>
+								<th style="width: 60px">总分</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in result.tourInspectItems">
+								<td>{{item.inspectItemName}}</td>
+								<td>{{item.inspectItemDesc}}</td>
+								<td>{{item.gradeStandard}}</td>
+								<td>{{item.totalPoints}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<br />
+			</form>
+		</div>
+</div>

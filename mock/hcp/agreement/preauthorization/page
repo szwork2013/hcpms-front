@@ -1,0 +1,8 @@
+{
+	"msg":"查询成功！",
+	"result":
+		[{"age":"28","agreementId":"F8B8612DF97722DBE043171D190AA03A","amount":2,"createdBy":"创建人","dateCreated":1399862815000,"dateUpdated":1399963079000,"dateUsingPeriodEnd":1449849600000,"dateUsingPeriodStart":1393603200000,"diagnosisItem":"11112","id":"F92BF5ECD677512FE043171D190A359E","idMedicine":"3","isDomestic":"2","isValid":"0","quantity":2,"startRownum":1,"updatedBy":"xxx","usingTimes":2},
+		 {"age":"28","agreementId":"F8B8612DF97722DBE043171D190AA03A","amount":2,"createdBy":"xxx","dateCreated":1399962766000,"dateUpdated":1399962766000,"dateUsingPeriodEnd":1449849600000,"dateUsingPeriodStart":1388505600000,"diagnosisItem":"11111","id":"F9433F99239177E0E043171D190A904A","idMedicine":"2","isDomestic":"2","isValid":"0","quantity":2,"startRownum":2,"updatedBy":"xxx","usingTimes":2}],
+	"state":"0",
+	"totals":{"total":2}
+}

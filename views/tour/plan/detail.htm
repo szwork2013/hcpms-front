@@ -1,0 +1,125 @@
+<h3>巡查计划修改<i class="close dialogClose" ng-click="cleanDetailId()"></i></h3>
+    <form autocomplete="off" name="tourPlanUpdateForm" class="Frm" novalidate
+		ng-submit="updateTourPlanFun(updateTourPlan, tourPlanUpdateForm.$valid, 'detail')" >
+        <dl>
+            <dt>
+                <b><span class="red"> * </span>医院机构名称:</b>
+                <input type="text" ng-model="updateTourPlan.healthProviderName"
+                       disabled="true">
+            </dt>
+        </dl>
+        <dl class="oneRow">
+            <dt>
+                <b><span class="red"> * </span>巡查日期:</b>
+                <input required name="inspectDateFrom" type="text" ng-model="updateTourPlan.inspectDateFrom" 
+                	date-time-picker ng-disabled="finishedTimes != 0"> -
+                <input required name="inspectDateEnd" type="text" ng-model="updateTourPlan.inspectDateEnd"
+                 	date-time-picker ng-disabled="finishedTimes != 0">
+            </dt>
+            <dd ng-show="tourPlanUpdateSubmitted">
+            	<small ng-show="tourPlanUpdateForm.inspectDateFrom.$error.required">巡查日期从不能为空；</small>
+            	<small ng-show="tourPlanUpdateForm.inspectDateEnd.$error.required">巡查日期至不能为空</small>
+        	</dd>
+        </dl>
+        <dl>
+            <dt>
+                <b>巡查人:</b>
+                <select required name="operator" ng-model="updateTourPlan.operator" ng-disabled="updateTourPlan.status == 2">
+					<option value="">--请选择--</option>
+					<option value="{{item.operator}}"
+						ng-repeat="item in operatorList" ng-selected="updateTourPlan.operator == item.operator">
+						{{item.operator}}
+					</option>
+			</select>
+            </dt>
+            <dd ng-show="tourPlanUpdateSubmitted">
+				<small ng-show="tourPlanUpdateForm.operator.$error.required">巡查人不能为空</small>
+			</dd>
+        </dl>
+        <dl>
+            <dt>
+                <b>巡查计划指定人:</b>
+                <input type="text"  ng-model="updateTourPlan.constitutor" disabled="true">
+            </dt>
+        </dl>
+        <dl>
+            <dt>
+                <b><span class="red"> * </span>巡查次数:</b>
+                <input type="text" ng-model="updateTourPlan.times" disabled="true">
+            </dt>
+        </dl>
+        <dl>
+            <dt>
+                <b>巡查计划状态:</b>
+                <input type="text" ng-model="updateTourPlan.statusName" disabled="true">
+            </dt>
+        </dl>
+
+        <p class="Tc">
+			<button type="submit" class="" disabled ng-disabled="updateTourPlan.status == 2">保存</button>
+			<button type="button" class="close" ng-click="cleanDetailId()">取消</button>
+		</p>
+    </form>
+    <div ng-show="!tourDetailId" class="pd">
+        <p class="tableTitle">已完成巡查任务列表</p>
+        <div style="overflow-y: scroll;max-height: 300px;">
+            <table class="Table">
+                <thead>
+                <tr>
+                    <th>任务名称</th>
+                    <th>巡查人</th>
+                    <th>巡查日期</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in tourTaskList">
+                    <td>{{item.tourDetailName}}</td>
+                    <td>{{item.operator}}</td>
+                    <td>{{item.tourDate}}</td>
+                    <td><a title="点击查看明细" ng-click="showReulstList(item.tourDetailId)">查看</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div ng-show="tourDetailId" class="pd" style="overflow-y: scroll;max-height: 300px;padding-top:0">
+        <p class="tableTitle">巡查结果信息</p>
+        <table class="Table">
+            <thead>
+            <tr>
+                <th>巡查内容</th>
+                <th>分数</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in tourDetailList.detailList">
+                    <td>{{item.inspectItemName}}</td>
+                    <td>{{item.inspectItemScore}}</td>
+                    <td>{{item.resultDesc}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="tableTitle">病人列表</p>
+        <table class="Table">
+            <thead>
+            <tr>
+                <th>病人姓名</th>
+                <th>就诊号</th>
+                <th>住院日期</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in tourDetailList.tourInspectPatients">
+                <td>{{item.name}}</td>
+                <td>{{item.medicalRecordNo}}</td>
+                <td>{{item.dateIntoHospital}}</td>
+            </tr>
+            </tbody>
+        </table>
+            <p style="margin-top:10px">
+                <button type="button" ng-click="cleanDetailId()">返回列表</button>
+            </p>
+    </div>
+</div>

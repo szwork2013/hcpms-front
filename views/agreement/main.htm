@@ -1,0 +1,14 @@
+<div id="subTab">
+    <ul class="tab">
+        <li class="lb active" ng-click="active('detail',$event)">基本信息</li>
+        <li ng-if="UrlParams.id" ng-click="active('payment',$event)">支付方案</li>
+        <li ng-if="UrlParams.id" ng-click="active('prepayment',$event)">预授权方案</li>
+    </ul>
+</div>
+<div ng-include="'views/agreement/detail.htm?id='+UrlParams.id"
+     id="detail" ng-show="isShow === 'detail' || !isShow" ng-controller="AgreementDetailCtrl"></div>
+<div ng-include="'views/agreement/payment_detail.htm?id='+UrlParams.id"
+     id="payment" ng-show="isShow ==='payment'" ng-controller="AgreementPaymentCtrl">
+</div>
+<div ng-include="'views/agreement/prepayment.htm?id='+UrlParams.id"
+     id="prepayment" ng-show="isShow ==='prepayment'" ng-controller="AgreementPreAuthCtrl"></div>

@@ -1,0 +1,27 @@
+<style>
+.oneRow input {
+	width: 80px
+}
+</style>
+<div>
+	<table class="Table">
+		<thead>
+			<tr>
+				<th>监控项目</th>
+				<th>监控结果</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{dbname}}</td>
+				<td>{{dbstate}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<dl class="Date">
+	<dt>
+		<button type="button" class="Btn Small Confirm" ng-click="monitorList();">监控</button>
+		<button class="Btn Warning Small" ng-click="cleanList();">清除</button>
+	</dt>
+</dl>

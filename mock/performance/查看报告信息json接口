@@ -1,0 +1,28 @@
+绩效报表信息模块相关操作
+				Json中字段所对应的信息：
+				医疗机构名称       healthProName;
+				报告周期               reportDate;
+				提交时间               submitDate;
+				提交日期起           submitDateBegin;
+				提交日期止           submitDateEnd;
+				提交人                   submitter;
+				状态                       status;
+				是否有效               isValid;
+				查询的总记录数    total;
+				当前页                    page;
+				每页显示条数         pageSize
+				
+一、报告查看（分页）
+1、路径：URL = "/performance/view/page";
+2、点击"查询信息"，查询符合条件的报告信息
+3、输入Json
+Json data={'healthProName':'','submitDateBegin':'','submitDateEnd':'','page':'1','pageSize':'20'};	
+
+
+
+
+
+
+
+
+  

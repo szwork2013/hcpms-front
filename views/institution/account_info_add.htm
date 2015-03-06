@@ -1,0 +1,42 @@
+<h3>账号信息<i class="close"></i></h3>
+<form autocomplete="off" name="accountAddForm" novalidate ng-submit="saveAccountInfo(accountAddForm.$valid,'dialog')" class="Frm">
+    <dl>
+        <dt>
+            <b><span class="org"> * </span>开户行名称:</b>
+            <input name="bankname" ng-maxlength="50"  required ng-model="accountInfoDetail.bankname" type="text">
+        </dt>
+        <dd ng-show="submitted">
+            <small ng-show="accountAddForm.bankname.$error.required">开户行必录</small>
+        </dd>
+                    <dd ng-show="submitted">
+                <small  ng-show="accountAddForm.bankname.$error.maxlength">长度不能超过50个字符</small>
+            </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="org"> * </span>开户人:</b>
+            <input name="holder" ng-maxlength="32"  required ng-model="accountInfoDetail.holder" type="text">
+        </dt>
+        <dd ng-show="submitted">
+            <small ng-show="accountAddForm.holder.$error.required">开户人必录</small>
+        </dd>
+             <dd ng-show="submitted">
+                <small  ng-show="accountAddForm.holder.$error.maxlength">长度不能超过32个字符</small>
+            </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="org"> * </span>账号:</b>
+            <input name="accountno" ng-maxlength="20"  required ng-pattern='/^-?\d*$/' ng-model="accountInfoDetail.accountno" type="text">
+        </dt>
+        <dd ng-show="submitted">
+            <small ng-show="accountAddForm.accountno.$error.required">账号必录</small>
+     <small ng-show="accountAddForm.accountno.$error.pattern">账号必须是数字</small>
+      <small  ng-show="accountAddForm.accountno.$error.maxlength">长度不能超过20个字符</small>
+        </dd>
+    </dl>
+    <p class="Tc">
+        <button class="Btn Confirm" type="submit">保存</button>
+        <button class="close" id="accountCancel" type="button">取消</button>
+    </p>
+</form>

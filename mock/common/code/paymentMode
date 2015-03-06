@@ -1,0 +1,8 @@
+{"msg":"查询成功！",
+	"result":[
+		{"codename":"按总额付费","codeno":"01"},
+		{"codename":"按人头付费","codeno":"02"},
+		{"codename":"按项目付费","codeno":"03"},
+		{"codename":"按病种付费","codeno":"04"}
+	],
+	"state":"0"}

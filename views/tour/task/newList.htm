@@ -1,0 +1,98 @@
+<h3>
+	巡查任务 ——巡查任务录入<i class="close dialogClose"></i>
+</h3>
+<form autocomplete="off" name="tourDetailForm" class="Frm" style="overflow-y:scroll;max-height:500px;" novalidate
+	ng-submit="saveTourDetail(tourDetail, tourDetailForm.$valid, 'insert')">
+	<dl>
+		<dt>
+			<b><span class="red"> * </span>任务名称:</b>
+			<select required name="tourDetailId" ng-model="tourDetail.tourDetailId"
+				ng-init="tourDetail.tourDetailId == tourDetailIds[0].tourDetailId"
+			ng-options="item.tourDetailId as item.tourDetailName for item in tourDetailIds">
+			</select>
+		</dt>
+		<dd ng-show="tourDetailSubmitted">
+			<small ng-show="tourDetailForm.tourDetailId.$error.required">任务名称不能为空</small>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<b><span class="red"> * </span>巡查人:</b> <input required
+				name="operator" type="text" ng-model="tourDetail.operator" disabled="true">
+		</dt>
+		<dd ng-show="tourDetailSubmitted">
+			<small ng-show="tourDetailForm.operator.$error.required">巡查人不能为空</small>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<b><span class="red"> * </span>巡查日期:</b> <input required
+				name="tourDate" type="text" ng-model="tourDetail.tourDate"
+				date-time-picker="limitDate">
+		</dt>
+		<dd ng-show="tourDetailSubmitted">
+			<small ng-show="tourDetailForm.tourDate.$error.required">巡查日期不能为空</small>
+		</dd>
+	</dl>
+
+	<h4>巡查结果录入</h4>
+	<table class="Table">
+		<thead>
+			<tr>
+				<th>巡查内容</th>
+				<th>分数</th>
+				<th>备注</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in tourDetail.tourContents">
+				<td>						
+					<select required name="inspectItemCode"
+					ng-options="item.inspectItemId as item.inspectItemName for item in tourInspectItems"
+						ng-model="item.inspectItemCode">
+						<option value="">--请选择--</option>
+					</select><br>
+					<i style="color:#c33" ng-show="tourDetailSubmitted">
+						<small ng-show="isMaxLength(item.resultDesc) || !item.inspectItemScore || isIntegerValidateSuccess(item.inspectItemScore)">&nbsp</small>
+						<small ng-show="!item.inspectItemCode">请选择巡查内容</small>
+                           <small ng-show="isUniqueItemCode(item.inspectItemCode,item.inspectItemCode,$index)">
+                              	内容不能相同
+                           </small>
+					</i>
+				</td>
+				<td>
+					<input required name="inspectItemScore" type="text"
+								ng-model="item.inspectItemScore"><br>
+					<i  style="color:#c33" ng-show="tourDetailSubmitted">
+						<small ng-show="isMaxLength(item.resultDesc) || !item.inspectItemCode || isUniqueItemCode(item.inspectItemCode,item.inspectItemCode,$index)">&nbsp</small>
+						<small ng-show="!item.inspectItemScore">请填写分数</small>
+                           <small ng-show="isIntegerValidateSuccess(item.inspectItemScore)">必须为非负的整数，不能大于999分</small>
+					</i>
+				</td>
+				<td style="height:45px">
+                       <input type="text" ng-model="item.resultDesc" ><br>
+                       <i style="color:#c33" ng-show="tourDetailSubmitted">
+                       	   <small ng-show="!item.inspectItemCode || isUniqueItemCode(item.inspectItemCode,item.inspectItemCode,$index) || !item.inspectItemScore || isIntegerValidateSuccess(item.inspectItemScore)">&nbsp</small>
+                           <small ng-show="isMaxLength(item.resultDesc)">不能超过600个字</small>
+                       </i>
+                   </td>
+				<td>
+					<a ng-click="removeTourContent($index)" class="Small Warning">删除</a>
+					<br>
+					<i style="color:#c33" ng-show="tourDetailSubmitted">
+                     	<small ng-show="isMaxLength(item.resultDesc) || !item.inspectItemCode || isUniqueItemCode(item.inspectItemCode,item.inspectItemCode,$index) || !item.inspectItemScore || isIntegerValidateSuccess(item.inspectItemScore)">&nbsp</small>
+                     </i>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p style="padding:10px 0 10px 5px">
+		<button type="button" class="Small Confirm"
+			ng-click="insertTourContent();">新增</button>
+	</p>
+	<p class="Tc">
+		<button type="submit" class="Confirm">保存</button>
+		<button type="button" class="close">取消</button>
+	</p>
+</form>

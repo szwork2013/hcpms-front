@@ -1,0 +1,48 @@
+<h3>医疗机构信息<i class="close" ng-click="cleanSelectProvider()"></i></h3>
+<form autocomplete="off" class="Frm">
+    <dl>
+        <dt>
+            <b>医疗机构:</b>
+            <input ng-model="institutionListParam.name" type="text">
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <button ng-click="queryInstitutionList()" type="submit">查询</button>
+        </dt>
+    </dl>
+</form>
+<table class="Table">
+    <thead>
+        <tr>
+            <th>
+            </th>
+            <th>医疗机构名称</th>
+            <th>组织机构代码</th>
+            <th>医院等级</th>
+            <th>卫生机构类别</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in institutionList" >
+            <td><input name="providerId" ng-click="getSelectProvider(item)" type="radio"></td>
+            <td>{{item.name}}</td>
+            <td>{{item.orgcode}}</td>
+            <td>{{item.levName}}</td>
+            <td>{{item.orgNme}}</td>
+        </tr>
+    </tbody>
+</table>
+<dl class="Date">
+    <dd class="Paging">
+        <pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination>
+    </dd>
+</dl>
+<dt>
+    <br>
+<p class="Tc">
+    <button type="button" class="Confirm close" ng-click="setProvider()" >确定</button>
+    <button id="closeTaskDetail" ng-click="cleanSelectProvider()" class="close" type="button">取消</button>
+</p>
+<br>
+</dt>

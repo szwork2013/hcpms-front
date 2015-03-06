@@ -1,0 +1,36 @@
+<table class="Table">
+    <thead>
+    <tr>
+        <th>
+            <input id="accountInfoIdList" ng-click="getAccountInfoIdList('accountInfoIdBox')" onclick="Utils.doCheck(this,'accountInfoIdBox')" type="checkbox">
+        </th>
+        <th>开户行名称</th>
+        <th>开户人</th>
+        <th>账号</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in institutionAccountInfoList">
+            <td>
+                <input name="accountInfoIdBox" value="{{item.id}}" ng-click="getAccountInfoIdList('accountInfoIdBox')"
+                       type="checkbox" onclick="Utils.toChkSon('accountInfoIdList',this)" >
+            </td>
+            <td>{{item.bankname}}</td>
+            <td><a href="" ng-click="getAccountInfoDetail($event)" id="{{item.id}}" dialog dialog-target="accoutDialog" title="点击查看明细">{{item.holder}}</a></td>
+            <td>{{item.accountno}}</td>
+        </tr>
+    </tbody>
+</table>
+<dl class="Date">
+    <dt>
+        <a type="button"  ng-click="clean()" dialog dialog-target="accoutDialog" class="Btn Confirm Small">新增</a>
+        <button type="button" ng-disabled="!accountInfoIdList"  ng-click="deleteAccountInfo()" class="Btn Warning Small">删除</button>
+    </dt>
+    <dd class="Paging">
+        <pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination>
+    </dd>
+</dl>
+
+<div class="Pop" id="accoutDialog">
+    <div ng-include="'views/institution/account_info_add.htm'"></div>
+</div>

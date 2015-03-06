@@ -1,0 +1,7 @@
+{"msg":"查询成功！",
+"result":[{"chargeStandart":12,"chargeUnit":"test","createDate":"2014-05-06","createby":"buzd","faclityCode":"test","faclityName":"test","faclityType":"test","faclityUnit":"1111111","id":"F8B82AFEA84547B8E043171D190AEC67","isvalid":"0","origin":"test","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":1,"startTime":"2014-04-01","updateDate":"2014-05-06","updateby":"44444"},
+		{"chargeStandart":11,"chargeUnit":"test","createDate":"2014-05-06","createby":"buzd","faclityCode":"test","faclityName":"test","faclityType":"test","faclityUnit":"1111111","id":"F8B82162F5D6169FE043171D190AB498","isvalid":"0","origin":"test","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":2,"startTime":"2014-04-01","updateDate":"2014-05-06","updateby":"44444"},
+
+		{"chargeStandart":11,"chargeUnit":"test","createDate":"2014-05-06","createby":"buzd","faclityCode":"test1","faclityName":"test1","faclityType":"test1","faclityUnit":"1111111","id":"F8B82A38CA0C45FDE043171D190A6F45","isvalid":"0","origin":"test","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":3,"startTime":"2014-04-01","updateDate":"2014-05-06","updateby":"44444"}],
+"state":"0",
+"totals":{"total":3}}

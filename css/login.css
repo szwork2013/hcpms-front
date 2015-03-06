@@ -1,0 +1,21 @@
+/*登录*/
+#Login{margin-top:108px}
+#Login h1{margin-left:20px}
+#Login .rw{height:423px;background:#8ca593 url("../img/login.jpg") no-repeat center}
+#Login .main{width:980px;margin:0 auto;height:100%}
+#Login .Frm{width:420px;height:383px;margin:20px;float:right; background:rgba(255,255,255,0.8)!important;filter:Alpha(opacity=80);background:#fff;overflow:hidden;padding:0}
+#Login .Frm h3{color:#274;font-size:20px;font-weight:normal;height:60px;line-height:60px;border-bottom:2px solid #e63;text-indent:2em;position:relative;margin-bottom:20px}
+#Login .Frm dl{width:320px;position:relative;margin:0 auto;padding-bottom:20px; display:block}
+#Login .Frm dl b{float:left;width:54px;height:48px;background:url("../img/pa.png") -261px 0}
+#Login .Frm dl .icon_pwd{background-position:-261px -48px}
+#Login .Frm dl input{float:left;width:240px;padding:12px;font-size:16px;height:22px;line-height:22px}
+#Login .Frm dl .alt{font-size:16px;position:absolute;top:14px;left:66px;color:#aaa}
+
+#Login .Frm dl img{height:48px;width:128px;vertical-align:middle}
+#Login .Frm dd{position:absolute;right:2px;top:48px;line-height:22px;width:320px}
+#Login .Frm button{position:relative;margin:0 auto;width:320px;display:block}
+#Login .Frm .verify input{width:120px}
+#Login .Frm .verify .alt{left:12px}
+#Login .Frm .verify dd{margin-right:45px;width:272px}
+#Login .Frm dl span{cursor:pointer}
+.Foot{width:980px;color:#999;text-align:right;margin:0 auto;line-height:32px;clear:both}

@@ -1,0 +1,54 @@
+预授权模块相关操作
+				Json中字段所对应的信息：
+				预授权ID        							 id;
+				服务协议编号ID   							 agreementId;
+				诊疗项目ID									 diagnosisItem;		
+				药品												 idMedicine;	
+				进口/国产(Y-国产，N-进口)				 isDomestic;
+				年龄												age;		
+				金额												amount;	
+				数量												quantity;
+				使用时间起									    dateUsingPeriodStart;
+				使用时间止									    dateUsingPeriodEnd;
+				使用次数										usingTimes;
+				创建人        									 createdBy;
+				创建时间      									 dateCreated;
+				修改人       									 updatedBy;
+				修改时间       									 dateUpdated;
+				是否有效（0有效，1无效）  			 isValid;
+				查询的总记录数 								 total;
+				当前页       								     page;
+				每页显示条数  								 pageSize
+
+一、按预授权信息分页查询：
+1、路径：URL = "/hcp/agreement/preauthorization/page"；
+2、服务协议编号ID（agreementId）进行分页查询(上一页、下一页)
+3、输入Json
+Json data={'agreementId':'F8B8612DF97722DBE043171D190AA03A','page':'1','pageSize':'20'};
+
+二、点击单个诊疗项目名称将查询出当条预授权信息：
+1、路径：URL = "/hcp/agreement/preauthorization/show?id=F92BF5ECD677512FE043171D190A359E"
+2、根据按项目付费ID（id）进行查询
+3、输入参数id （按项目付费ID）
+
+三、对当条预授权信息修改：
+1、路径：URL = "/hcp/agreement/preauthorization/update"；
+2、根据当前数据id修改当条预授权信息
+3、输入Json
+Json data={'id':'F92BF5ECD677512FE043171D190A359E','diagnosisItem':'11112','idMedicine':'3','isDomestic':'2','age':'28','amount':'2','quantity':'2','dateUsingPeriodStart':'2014-01-01','dateUsingPeriodEnd':'2015-12-12','usingTimes':'2'};
+
+四、点击新增，将预授权信息添加：
+1、路径：URL = "/hcp/agreement/preauthorization/create"
+2、点击新增，将预授权信息添加
+3、输入Json
+Json data={'agreementId':'F8B8612DF97722DBE043171D190AA03A','diagnosisItem':'11111','idMedicine':'2','isDomestic':'2','age':'28','amount':'2','quantity':'2','dateUsingPeriodStart':'2014-01-01','dateUsingPeriodEnd':'2015-12-12','usingTimes':'2'};
+
+五、删除预授权信息：
+1、路径：URL = "/hcp/agreement/preauthorization/delete"；
+2、选择要删除的预授权信息，在列表中勾选按预授权信息，点击删除按钮进行删除
+3、输入Json
+Json data={'id':'F92BF3091B0D428AE043171D190AEA76'}; （当选择多个预授权信息的时候，可以将id拼接）
+
+
+
+  

@@ -1,0 +1,40 @@
+<form autocomplete="off" novalidate class="Frm">
+    <dl>
+        <dt>
+            <b>医疗机构名称:</b>
+            <input ng-model="qualityParam.healthcareProviderName" type="text">
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b>统计区间:</b>
+            <select class="s1" ng-model="qualityParam.period" style="width: 60px;" ng-change="periodChange()"  >
+                <option value="1" selected>月</option>
+                <option value="2">季</option>
+                <option value="3">年</option>
+            </select>
+            <select class="s1" ng-model="qualityParam.year" ng-change="selectLocalYear()" style="width: 90px;">
+                <option value="" selected>请选择</option>
+                <option ng-repeat="item in years" value="{{item.code}}">{{item.text}}</option>
+            </select>
+            <select class="s1" ng-show="months" ng-model="qualityParam.month" style="width: 80px;">
+                <option value="" selected>请选择</option>
+                <option ng-repeat="item in months" value="{{item.code}}">{{item.text}}</option>
+            </select>
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b>就诊类型:</b>
+            <select required name="attendanceType" ng-model="qualityParam.attendanceType"
+                    dic="codeno|codename diagType" dic-delimiter="--" dic-def-val="---请选择---"></select>
+        </dt>
+    </dl>
+    <p class="sbt">
+        <button type="submit" ng-click="createQuality()">提交并生成</button>
+    </p>
+</form>
+<div class="textContent">
+<h3>报表指标:</h3>
+<p>重复就诊率、3天内再入院率、4-14日内再入院率、15-30天内再入院率、超长期住院率（30日）、住院死亡率、治愈率、转院率、剖腹产率、三日确诊率、无菌手术切口甲级治愈率、无菌手术切口感染率、门诊出院诊断符合率、出入院诊断符合率、新生儿产伤发生率、意外事件发生率。</p>
+</div>

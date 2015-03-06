@@ -1,0 +1,7 @@
+{
+	"msg":"查询成功！",
+	"result":{
+		"agreementId":"F8B8612DF97722DBE043171D190AA03A","createdBy":"创建人","dateCreated":"2014-05-07 14:49:47","dateUpdated":"2014-05-07 14:49:47","id":"F8CAC543A5354649E043171D190A60B2","isValid":"0","lineMaximumPay":"2","lineStartToPay":"2","paystdPerpersonPeryear":"22","ratioOverallPay":"2","updatedBy":"创建人"
+	},
+	"state":"0"
+}

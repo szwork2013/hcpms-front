@@ -1,0 +1,54 @@
+{
+    "msg": "查询成功！",
+    "result": [
+        {
+            "contacts": "cyh",
+            "createDate": "2014-05-08",
+            "createby": "test1213",
+            "department": "test13",
+            "id": "F8DA380DBEFC2B65E043171D190AB292",
+            "isvalid": "0",
+            "job": "tset3",
+            "moblie": "111111113",
+            "phone": "222222222223",
+            "providerid": "F8B7CA7810023332E043171D190A3CC1",
+            "startRownum": 1,
+            "updateDate": "2014-05-08",
+            "updateby": "test1213"
+        },
+        {
+            "contacts": "tes1t21",
+            "createDate": "2014-05-08",
+            "createby": "test121",
+            "department": "test121",
+            "id": "F8DA36A08CB22504E043171D190A8322",
+            "isvalid": "0",
+            "job": "tset1",
+            "moblie": "11111111",
+            "phone": "22222222222",
+            "providerid": "F8B7CA7810023332E043171D190A3CC1",
+            "startRownum": 2,
+            "updateDate": "2014-05-08",
+            "updateby": "test121"
+        },
+        {
+            "contacts": "tes1t2",
+            "createDate": "2014-05-08",
+            "createby": "test12",
+            "department": "test12",
+            "id": "F8DA34D330E220B1E043171D190A2ED4",
+            "isvalid": "0",
+            "job": "tset",
+            "moblie": "11111111",
+            "phone": "22222222222",
+            "providerid": "F8B7CA7810023332E043171D190A3CC1",
+            "startRownum": 3,
+            "updateDate": "2014-05-08",
+            "updateby": "test12"
+        }
+    ],
+    "state": "0",
+    "totals": {
+        "total": 3
+    }
+}

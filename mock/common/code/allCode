@@ -1,0 +1,48 @@
+{
+    "msg": "查询成功！",
+    "result": {
+        "socialInsuranceType": [
+            {
+                "codename": "城镇职工基本医疗保险",
+                "codeno": "01"
+            },
+            {
+                "codename": "城镇居民基本医疗保险",
+                "codeno": "02"
+            },
+            {
+                "codename": "新农合",
+                "codeno": "03"
+            },
+            {
+                "codename": "大病医疗救助",
+                "codeno": "04"
+            },
+            {
+                "codename": "长期医疗护理保险",
+                "codeno": "05"
+            }
+        ],
+        "healthProvider": [
+            {
+                "codename": "few",
+                "codeno": "FA9622918AAE0330E043171D190AC81B"
+            },
+            {
+                "codename": "厦门大学附属中山医院",
+                "codeno": "FA745D5A8E721793E043171D190A411E"
+            },
+            {
+                "codename": "厦门市第一医院",
+                "codeno": "0303"
+            }
+        ],
+        "areas": [
+            {
+                "codename": "青岛市",
+                "codeno": "370200"
+            }
+        ]
+    },
+    "state": "0"
+}

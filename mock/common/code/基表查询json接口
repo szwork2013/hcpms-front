@@ -1,0 +1,69 @@
+Json中字段所对应的信息：
+	代码编号  codeNo;
+	代码名称 codeName;
+	代码类型 codeType;
+	
+	
+<select ng-model="agreementDetail.agreementType"
+                    dic="codeno|codename classificationType" dic-def-val="---请选择---"></select>
+                    
+一、根据相对应的代码类型查询
+1、路径：URL = "/common/code"；
+2、根据代码类型（codeType）进行分页查询
+3、输入Json
+
+
+各模块代码类型说明：
+
+一、医疗机构管理模块
+•	医院等级 					code_type：hospital_level      hosLevelType
+•	机构分类管理类型 		code_type：classification_manage   classificationType
+•	定点类型 					code_type：social_insurance_type   socialInsuranceType
+Json data={'codeType':'hosLevelType'};
+Json data={'codeType':'classificationType'};
+Json data={'codeType':'socialInsuranceType'};
+•	卫生机构类别           code_type：bse_hcpms_org_type                    orgType (待确认)
+•	经济类型               	  code_type：bse_hcpms_economic_type 		    economicType
+Json data={'codeType':'orgType'};
+Json data={'codeType':'economicType'};
+
+
+二、协议管理模块
+o	基本信息 
+	医疗机构名称 			code_type：hcpms_health_provider    healthProvider
+	协议类型 					code_type：social_insurance_type   socialInsuranceType
+o	按总额付费 
+	比例类型 					code_type：glb_bgt_ratio_type        ratioType
+o	按项目付费 
+	项目名称 
+	科室 							code_type：bse_hcpms_department    dePartment (待确认)
+
+Json data={'codeType':'healthProvider'};
+Json data={'codeType':'socialInsuranceType'};
+Json data={'codeType':'ratioType'};
+Json data={'codeType':'dePartment'};
+
+三、巡查项
+•	巡查项                   code_type：hcpms_tour_inspect_item		      tourInspectItem
+•	巡查任务编号         code_type：hcpms_tour_detail			              tourDetail （此下拉项还得多传个参数，巡查计划id【tourPlanId】）
+•	巡查计划状态         code_type：tour_task_sts		                          tourTaskSts （此下拉项还得多传个参数，【code_no】=01）
+Json data={'codeType':'tourInspectItem'};
+Json data={'codeType':'tourDetail','tourPlanId':'F8A42F2555916DB3E043171D190AD2F7'};
+Json data={'codeType':'tourTaskSts','codeNo':'01'};
+
+//诊疗项目名称、编号
+Json data={'codeType':'diagnosistreat','codeNo':'AADA0001','codeName':''};         diagnosistreat
+Json data={'codeType':'diagnosistreat','codeName':'三人间床位费','codeNo':''};
+//病种名称、编号
+Json data={'codeType':'disease','codeNo':'A00','codeName':''};         disease
+Json data={'codeType':'disease','codeName':'古典生物型霍乱','codeNo':''};
+
+//预收索
+Json data={'codeType':'healthProviderList','codeName':'厦门'};
+
+返回Json值:
+{"msg":"查询成功！",
+"result":[
+	{"codeName":"厦门大学附属中山医院","codeNo":"FA745D5A8E721793E043171D190A411E"},
+	{"codeName":"厦门市第一医院","codeNo":"0303"}],
+"state":"0"}

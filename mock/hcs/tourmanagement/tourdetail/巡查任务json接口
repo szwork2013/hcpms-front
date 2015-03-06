@@ -1,0 +1,64 @@
+JSON中字段所对应的信息：
+任务编号                    				 tourDetailId,
+巡查计划ID					 	 tourPlanId,
+巡查任务名称					 tourDetailName,
+巡查人						 operator,
+巡查日期						 tourDate，
+巡查任务状态[1-待处理，2-已完成]		 status,
+创建人						 createdUser,
+创建时间                                                          	 createdTime,
+修改人						 updatedUser,
+修改时间						 updatedTime,
+是否有效[0-有效，1-无效]			 isValid,
+检查项						 inspectItemName,
+检查说明						 inspectItemDesc,
+评分标准						 gradeStandard
+
+一、根据巡查计划ID查询出已完成的巡查任务列表：
+1、请求路径：URL = "/hcs/tourmanagement/tourdetail/finishedlist?tourplanid=F8C9EBA05AA63FBCE043171D190A9369&status=2";
+2、请求参数：tourplanid,status
+3、请求参数格式：tourplanid=F8C9EBA05AA63FBCE043171D190A9369&status=2
+
+二、根据巡查计划ID初始化录入任务结果页面的信息：
+1、请求路径：URL = "/hcs/tourmanagement/tourdetail/addinit?tourplanid=F8C9EBA05AA63FBCE043171D190A9369";
+2、请求参数：tourplanid
+3、请求参数格式：tourplanid=F8C9EBA05AA63FBCE043171D190A9369
+
+三、录入任务结果信息：
+1、请求路径：URL = "/hcs/tourmanagement/tourdetail/add";
+2、请求参数：tourDetailId,tourDate,operator,detailResults
+3、请求参数格式：	{
+				'tourDetailId':'F8C9EBA05AA73FBCE043171D190A9369', 
+				'tourDate':'2014-4-15', 
+				'operator':'wanghua',
+				'tourContents':
+				 [
+					  {
+						  'inspectResultId':'aabb',
+						  'inspectDetailId':'3344',
+						  'inspectItemCode':'1',
+						  'inspectItemScore':7
+					  },
+					  {
+						  'inspectResultId':'aabbcd',
+						  'inspectDetailId':'334411',
+						  'inspectItemCode':'2',
+						  'inspectItemScore':7
+					  }
+		     	 ]
+		     };
+
+四、打印(导出巡查任务清单)：
+1、请求路径：URL = "/hcs/tourmanagement/tourdetail/export";
+2、请求参数：无
+
+
+
+
+			  
+			  
+			  
+			  
+			  
+			  
+			  

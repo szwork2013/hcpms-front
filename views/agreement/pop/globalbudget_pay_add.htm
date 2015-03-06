@@ -1,0 +1,48 @@
+<h3>支付方式 —— 按总额付费<i class="close"></i></h3>
+<form autocomplete="off" name="gloPayDetailForm" novalidate ng-submit="saveGloPay(gloPayDetailForm.$valid,'gloDialog')" class="Frm">
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>年度总额:</b>
+            <input required name="annualAmount" ng-pattern='/^(([1-9][0-9]{0,13})|0)(\.\d{1,2})?$/' ng-model="gloPayDetail.annualAmount" type="text">
+        </dt>
+        <dd ng-show="gloSubmitted">
+            <small ng-show="gloPayDetailForm.annualAmount.$error.required">年度总额不能为空</small>
+            <small ng-show="gloPayDetailForm.annualAmount.$error.pattern">必须为小于14位且保留2位小数的正数</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>比例类型:</b>
+            <select required name="ratioType" ng-model="gloPayDetail.ratioType"
+                    ng-init="getDataByCodeType('{codeType:\'ratioType\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['ratioType']">
+                <option value="">---请选择---</option>
+            </select>
+        </dt>
+        <dd ng-show="gloSubmitted">
+            <small ng-show="gloPayDetailForm.ratioType.$error.required">比例类型必选</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b>标准比例:</b>
+            <input name="ratioStdValue" ng-pattern='/^([0])(\.\d{1,4})?$/' ng-model="gloPayDetail.ratioStdValue" type="text">
+        </dt>
+        <dd ng-show="gloSubmitted">
+            <small ng-show="gloPayDetailForm.ratioStdValue.$error.pattern">必须为小于5位且保留4位小数的正数</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b>处理比例:</b>
+            <input name="ratioUsingValue" ng-pattern='/^([0])(\.\d{1,4})?$/' ng-model="gloPayDetail.ratioUsingValue" type="text">
+        </dt>
+        <dd ng-show="gloSubmitted">
+            <small ng-show="gloPayDetailForm.ratioUsingValue.$error.pattern">必须为小于5位且保留4位小数的正数</small>
+        </dd>
+    </dl>
+    <p class="Tc">
+        <button type="submit" class="Confirm">保存</button>
+        <button id="closeTaskDetail" class="close" type="button">取消</button>
+    </p>
+</form>

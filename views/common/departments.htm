@@ -1,0 +1,19 @@
+<div class="win" style="display: block;" id="departments">
+    <h3>请选择类别:<i class="close"></i></h3>
+    <p>已选择类别:<b class="has"></b></p>
+    <ul class="list">
+        <li ng-repeat="item in choiceData" ng-mouseover="showSub()" >
+            <b>{{item.codename}}</b>
+            <div class="Dn" style="display: none;" ng-mouseout="hideSub(event)" ng-mouseover="showSub()">
+                <label ng-repeat="sub in item.sub">
+                    <input type="checkbox" value="{{sub.codeno}}" ng-click="choose(event)" text="{{sub.codename}}">{{sub.codename}}
+                </label>
+            </div>
+        </li>
+        <li class="Cb"></li>
+    </ul>
+    <p class="Tc">
+        <button type="button" class="Confirm close" ng-click="confirm()">确定</button>
+        <button type="button" class="close">取消</button>
+    </p>
+</div>

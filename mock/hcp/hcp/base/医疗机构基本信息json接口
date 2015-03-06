@@ -1,0 +1,116 @@
+医疗基本信息模块相关操作
+				Json中字段所对应的信息：
+					
+				providerid 	医疗机构标识;
+				code	医疗机构编码
+				name	医疗机构名称
+				ename	英文名称
+				license	医疗机构执业许可证
+				orgcode	组织机构代码
+				economicType	经济类型
+				economicName	经济类型名称
+				regcode	统筹区域
+				orgtype	卫生机构（组织）类别
+				orgName 卫生机构（组织）类别名称
+				manageCode	机构分类管理代码
+				pointType	定点类型
+				pointName	定点类型名称
+				province	联系地址（省级）
+				city	联系地址（地级）
+				county	联系地址区（县级）
+				addr	详细地址
+				enaddr	英文地址
+				postcode	邮编
+				contact	联系人
+				phone	电话
+				time	上下班时间
+				transit	公交线路描述
+				email	电子邮箱
+				domain	网站域名
+				regtime	成立时间
+				lealPerson	法人代表
+				hospitalLev	医院等级
+				levName 	医院等级名称
+				speciality	临床重点专科
+				createby	创建人
+				updateby	修改人
+				bednum	床位数
+				createDate	起始时间
+				updateDate	更新时间
+				isvalid	是否有效
+				
+			imgList{	
+				id 		影像id
+				name	影像名称
+				index	影像索引
+				type	影像类型
+				status	影像状态
+				 businessNo		影像所属业务
+				 createBy	创建人
+				 updateBy	修改人
+				 }
+				当前页         page;
+				每页显示条数   pageSize
+
+一、医疗基本信息详情查询：
+1、路径：URL = "/hcp/hcp/base/show"；
+2、根据医疗机构名称（name）、组织机构代码（orgcode）、医疗机构执业许可证（license）进行分页查询
+3、输入Json
+Json data={"providerid":"F8B7CA7810023332E043171D190A3CC1"};
+4、输出Json
+Json data=
+{"msg":"查询成功！",
+"result":{"addr":"diuqiu","city":"123","code":"1111111",
+			"county":"321","createDate":"2014-05-06","createby":"wo",
+			"economicType":"gaos","hospitalLev":"1",
+			"imgList":[{"businessNo":"F8B7CA7810023332E043171D190A3CC1","createBy":"test","createDate":1399518278000,"id":"F8DBBC0F42407805E043171D190A3B0E","index":"9014dfbbecd67b749d597a6da20274f4c53","isvalid":"0","name":"test图片.jpg","status":"0","type":"01","updateBy":"test","updateDate":1399518278000}],
+			"isvalid":"0","lealPerson":"xxxxx","license":"123456",
+			"manageCode":"44444","name":"testupdate","orgcode":"123456",
+			"orgtype":"buzd","pointType":"2222",
+			"providerid":"F8B7CA7810023332E043171D190A3CC1",
+			"province":"1234","regcode":"123456","regtime":"2014-04-01",
+			"speciality":"11","updateDate":"2014-05-06","updateby":"wo"},
+"state":"0"};
+
+二、医疗机构列表查询
+1、路径：URL = "/hcp/hcp/base/page"
+2、根据医疗机构名称（name）进行查询
+3、输入Json
+Json data={"name":"haoyiyuan","page":1,"pageSize":20}
+4、输出Json
+{"msg":"查询成功！",
+"result":[{"addr":"diuqiu","license":"123456","name":"haoyiyuan","orgcode":"123456","providerid":"F83B3E86D72A38C9E043171D190A0408","regcode":"123456","startRownum":1}],
+"state":"0",
+"totals":{"total":1}}
+
+三、医疗基本信息修改：
+1、路径：URL = "/hcp/hcp/base/update"；
+2、根据医疗机构标识providerid将当条信息进行修改
+3、输入Json
+Json data={"addr":"diuqiu","city":"123","code":"1111111","county":"321","createby":"wo","economicType":"gaos","hospitalLev":"1","lealPerson":"xxxxx","license":"123456","manageCode":"44444","name":"testupdate","orgcode":"123456","orgtype":"buzd","pointType":"2222","providerid":"F8B7CA7810023332E043171D190A3CC1","province":"1234","regcode":"123456","regtime":"2014-04-01","speciality":"11","updateby":"wo"}
+4、输出Json
+{"msg":"修改成功！","state":"0"}
+
+
+四、点击新增，添加医疗基本信息：
+1、路径：URL = "/hcp/hcp/base/create"
+2、点击新增，添加医疗基本信息
+3、输入Json
+Json data={"addr":"diuqiu","city":"123","code":"1111111","county":"321","economicType":"gaos","hospitalLev":"1","lealPerson":"xxxxx","license":"123456","manageCode":"44444","name":"test","orgcode":"123456","orgtype":"buzd","pointType":"2222","province":"1234","regcode":"123456","regtime":"2014-04-01","speciality":"11"}
+4、输出Json
+{"msg":"添加成功！","state":"0"}
+
+
+五、删除医疗基本信息：
+1、路径：URL = "/hcp/hcp/base/delete"；
+2、选择要删除的医疗基本信息，在列表中勾选医疗基本信息，点击删除按钮进行删除
+3、输入Json
+Json data={"ids":"'F8EF45595ACC5BFEE043171D190AB4C6','F8EF45ABC4F05CB0E043171D190A92F5','F8EF45FBDD695D99E043171D190A4EDF'"}; （当选择多个的时候，可以将id拼接）
+4、输出Json
+{"msg":"物理删除成功！","state":"0"}
+
+
+
+
+
+  

@@ -1,0 +1,128 @@
+<form autocomplete="off" autocomplete="off" name="agreementDetailForm"  novalidate ng-submit="saveAgreementDetail(agreementDetailForm.$valid)" class="Frm haveTab">
+	<dl>
+		<dt>
+			<b><span class="red"> * </span>医疗机构名称:</b>
+            <input ng-validation="{require:{msg:'医疗机构名称不能为空'}}" type="text" name="healthcareProviderName" ng-click="queryInstitutionList()" ng-model="agreementDetail.healthcareProviderName" readonly dialog dialog-target="providerDialog"></input>
+            <input type="hidden" name="idHealthcareProvider" ng-model="agreementDetail.idHealthcareProvider" readonly ></input>
+		</dt>
+        <dd ng-show="agreementDetailsubmitted">
+            <small ng-show="agreementDetailForm.errors.idHealthcareProvider">{{agreementDetailForm.errors.idHealthcareProvider}}</small>
+        </dd>
+	</dl>
+	<dl>
+		<dt>
+			<b><span class="red"> * </span>协议类型:</b>
+            <select ng-validation="{require:{msg:'协议类型必选'}}" name="agreementType" ng-model="agreementDetail.agreementType"
+                    ng-init="getDataByCodeType('{codeType:\'socialInsuranceType\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['socialInsuranceType']">
+                <option value="">---请选择---</option>
+            </select>
+		</dt>
+        <dd ng-show="agreementDetailsubmitted">
+            <small ng-show="agreementDetailForm.errors.agreementType">{{agreementDetailForm.errors.agreementType}}</small>
+        </dd>
+	</dl>
+	<dl>
+		<dt>
+			<b><span class="red"> * </span>协议生效日期:</b>
+			<input ng-validation="{require:{msg:'协议生效日期不能为空'}}" name="dateAgreementEff" date-time-picker ng-model="agreementDetail.dateAgreementEff" type="text">
+		</dt>
+        <dd ng-show="agreementDetailsubmitted">
+            <small ng-show="agreementDetailForm.errors.dateAgreementEff">{{agreementDetailForm.errors.dateAgreementEff}}</small>
+        </dd>
+	</dl>
+	<dl>
+		<dt>
+			<b><span class="red"> * </span>协议终止日期:</b>
+			<input ng-validation="{require:{msg:'协议终止日期不能为空'}}" valida-model="" name="dateAgreementEnd" date-time-picker ng-model="agreementDetail.dateAgreementEnd" type="text">
+		</dt>
+        <dd ng-show="agreementDetailsubmitted">
+            <small ng-show="agreementDetailForm.errors.dateAgreementEnd">{{agreementDetailForm.errors.dateAgreementEnd}}</small>
+        </dd>
+	</dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>统筹区域:</b>
+            <select ng-validation="{require:{msg:'统筹区域必选'}}" name="regionCode" ng-model="agreementDetail.regionCode"
+                    ng-init="getDataByCodeType('{codeType:\'areas\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['areas']">
+                <option value="">---请选择---</option>
+            </select>
+        </dt>
+        <dd ng-show="agreementDetailsubmitted">
+            <small ng-show="agreementDetailForm.errors.regionCode">{{agreementDetailForm.errors.regionCode}}</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b></b>
+        </dt>
+    </dl>
+	<dl class="oneRow">
+		<dt>
+			<b><span class="red"> * </span>支付方式:</b>
+			<p class="label">
+	            <input name="oldPayMentMode" ng-model="agreementDetail.oldPayMentMode" type="hidden">
+	            <input name="payMentMode" ng-validation="{require:{msg:'必须选择一项'}}" ng-model="agreementDetail.payMentMode" type="hidden">
+	            <label ng-repeat="paymentMode in paymentModeList">
+	                <input value="{{paymentMode.codeno}}" type="checkbox"
+	                       ng-click="setPaymentMode($event)"
+	                       ng-checked="isCheck(agreementDetail.payMentMode,paymentMode.codeno,',')" >{{paymentMode.codename}}
+	            </label>
+            </p>
+		</dt>
+        <dd ng-show="agreementDetailsubmitted">
+            <small ng-show="agreementDetailForm.errors.payMentMode">{{agreementDetailForm.errors.payMentMode}}</small>
+        </dd>
+	</dl>
+	<dl class="tea" style="width:700px">
+		<dt>
+			<b>备注:</b>
+			<textarea ng-validation="{length:{rule:'0-100',msg:'字符不能超过100'}}" name="remarks" ng-model="agreementDetail.remarks"></textarea>
+		</dt>
+		<dd ng-show="agreementDetailsubmitted">
+            <small ng-show="agreementDetailForm.errors.remarks">{{agreementDetailForm.errors.remarks}}</small>
+        </dd>
+	</dl>
+    <p class="sbt">
+            <button type="submit" class="Confirm">保存</button>
+            <button type="button" ng-disabled="isEquals(agreementDetail,oldAgreementDetail)" ng-click="resetAgreementDetail()">取消</button>
+    </p>
+</form>
+<h3 class="tableTitle">协议相关文件</h3>
+<table class="Table">
+    <thead>
+    <tr>
+        <th> <input id="imgIdList" ng-click="getImgIdList('imgIdBox')" onclick="Utils.doCheck(this,'imgIdBox')" type="checkbox"></th>
+        <th>影像名称</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in agreementDetail.imgList">
+        <td><input name="imgIdBox" ng-model="imgIdList" value="{{item.id}}" ng-click="imgIdList = getImgIdList('imgIdBox')"
+                   type="checkbox" onclick="Utils.toChkSon('imgIdList',this)" ></td>
+        <td>{{item.name}}</td>
+        <td><a href="" ng-click="getImgInfo($event,item.index,item.name)">下载</a></td>
+    </tr>
+    </tbody>
+</table>
+<form autocomplete="off" id="formUpload" method="POST" enctype="multipart/form-data"  target="upload"
+      action="/hcpms/common/uploadFile?type=02">
+    <dl class="Date">
+        <dt>
+            <div style="position:relative">
+                <input type="text" id="spanFileName" readonly="true">
+                <button type="button" class="Confirm Small">浏览</button>
+                <input type="file" ng-click="uploadFile()" onchange="document.getElementById('spanFileName').value = this.value" name="uploadFile" id="uploadFile">
+                <button type="submit" class="Confirm Small" >上传</button>
+                <button type="button" ng-disabled="!imgIdList"  ng-click="deleteImgList()" class="Warning Small">删除</button>
+            </div>
+        </dt>
+    </dl>
+</form>
+<div class="Pop" id="providerDialog">
+    <div ng-include="'views/agreement/pop/provider_add.htm'"></div>
+</div>
+<iframe id="upload" name="upload" style="display: none;"></iframe>
+<iframe id="downloadURL" height="0" width="0" src=""></iframe>

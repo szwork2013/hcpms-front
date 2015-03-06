@@ -1,0 +1,27 @@
+{
+    "msg": "查询成功！",
+    "result": [
+        {
+            "addr": "diuqiu",
+            "license": "123456",
+            "name": "haoyiyuan",
+            "orgcode": "123456",
+            "providerid": "F83B3E86D72A38C9E043171D190A0408",
+            "regcode": "123456",
+            "startRownum": 1
+        },
+        {
+                    "addr": "diuqiu",
+                    "license": "123456",
+                    "name": "haoyiyuan",
+                    "orgcode": "123456",
+                    "providerid": "F83B3E86D72A38C9E043171D190A0408",
+                    "regcode": "123456",
+                    "startRownum": 2
+                }
+    ],
+    "state": "0",
+    "totals": {
+        "total": 1
+    }
+}

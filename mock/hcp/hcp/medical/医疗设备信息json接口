@@ -1,0 +1,74 @@
+医疗设备信息模块相关操作
+				Json中字段所对应的信息：
+				物理ID	id
+				医疗机构标识	providerid
+				设备类别	faclityType
+				设备名称	faclityName
+				设备编号	faclityCode
+				进口/国产	origin
+				收费标准	chargeStandart
+				收费单位	chargeUnit
+				开始始使用时间	startTime
+				设备单位	faclityUnit
+				创建人	createby
+				修改人	updateby
+				创建时间	createDate
+				修改时间	updateDate
+				数据状态	isvalid
+				当前页         page;
+				每页显示条数   pageSize
+
+一、医疗设备信息详情查询：
+1、路径：URL = "/hcp/hcp/medical/show"；
+2、根据物理id查询详情
+3、输入Json
+Json data={"id":"F8B82162F5D6169FE043171D190AB498"}
+4、输出Json
+{"msg":"查询成功！",
+"result":{"chargeStandart":11,"chargeUnit":"test","createDate":"2014-05-06","createby":"buzd","faclityCode":"test","faclityName":"test","faclityType":"test","faclityUnit":"1111111","id":"F8B82162F5D6169FE043171D190AB498","isvalid":"0","origin":"test","providerid":"F8B7CA7810023332E043171D190A3CC1","startTime":"2014-04-01","updateDate":"2014-05-06","updateby":"44444"},
+"state":"0"}
+
+二、医疗设备列表查询
+1、路径：URL = "/hcp/hcp/medical/page"
+2、根据医疗机构标识	（providerid）进行查询
+3、输入Json
+Json data={"page":1,"pageSize":20,"providerid":"F8B7CA7810023332E043171D190A3CC1"}
+4、输出Json
+{"msg":"查询成功！",
+"result":[{"chargeStandart":12,"chargeUnit":"test","createDate":"2014-05-06","createby":"buzd","faclityCode":"test","faclityName":"test","faclityType":"test","faclityUnit":"1111111","id":"F8B82AFEA84547B8E043171D190AEC67","isvalid":"0","origin":"test","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":1,"startTime":"2014-04-01","updateDate":"2014-05-06","updateby":"44444"},
+		{"chargeStandart":11,"chargeUnit":"test","createDate":"2014-05-06","createby":"buzd","faclityCode":"test","faclityName":"test","faclityType":"test","faclityUnit":"1111111","id":"F8B82162F5D6169FE043171D190AB498","isvalid":"0","origin":"test","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":2,"startTime":"2014-04-01","updateDate":"2014-05-06","updateby":"44444"},
+		{"chargeStandart":11,"chargeUnit":"test","createDate":"2014-05-06","createby":"buzd","faclityCode":"test1","faclityName":"test1","faclityType":"test1","faclityUnit":"1111111","id":"F8B82A38CA0C45FDE043171D190A6F45","isvalid":"0","origin":"test","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":3,"startTime":"2014-04-01","updateDate":"2014-05-06","updateby":"44444"}],
+"state":"0",
+"totals":{"total":3}}
+
+三、医疗设备信息修改：
+1、路径：URL = "/hcp/hcp/medical/update"；
+2、根据物理id（id）将当条信息进行修改
+3、输入Json
+Json data={"chargeStandart":"12.0","chargeUnit":"test","createTime":"2014-04-01","createby":"buzd","economicType":"gaos","faclityCode":"test","faclityName":"test","faclityType":"test","faclityUnit":"1111111","id":"F8B82AFEA84547B8E043171D190AEC67","isvalid":"0","origin":"test","providerid":"F8B7CA7810023332E043171D190A3CC1","startTime":"2014-04-01","updateTime":"2014-04-01","updateby":"44444"}
+4、输出Json
+{"msg":"修改成功！","state":"0"}
+
+
+四、点击新增，添加医疗设备信息：
+1、路径：URL = "/hcp/hcp/medical/create"
+2、点击新增，添加联系人信息
+3、输入Json
+Json data={"chargeStandart":"11.0","chargeUnit":"test","createTime":"2014-04-01","createby":"buzd","economicType":"gaos","faclityCode":"test2","faclityName":"test2","faclityType":"test2","faclityUnit":"1111111","isvalid":"0","origin":"test","providerid":"F8B7CA7810023332E043171D190A3CC1","startTime":"2014-04-01","updateTime":"2014-04-01","updateby":"44444"}
+4、输出Json
+{"msg":"添加成功！","state":"0"}
+
+
+五、删除医疗设备信息：
+1、路径：URL = "/hcp/hcp/medical/delete"；
+2、选择要删除的医疗设备信息，在列表中勾选医疗设备信息，点击删除按钮进行删除
+3、输入Json
+Json data={"ids":"'F8EF45595ACC5BFEE043171D190AB4C6','F8EF45ABC4F05CB0E043171D190A92F5','F8EF45FBDD695D99E043171D190A4EDF'"}; （当选择多个的时候，可以将id拼接）
+4、输出Json
+{"msg":"物理删除成功！","state":"0"}
+
+
+
+
+
+  

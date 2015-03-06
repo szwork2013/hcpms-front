@@ -1,0 +1,49 @@
+按人头付费模块相关操作
+				Json中字段所对应的信息：
+				按人头付费ID        							 id;
+				服务协议编号ID   							 agreementId;
+				每人次支付标准 								 paystdPerpersonPeryear;	
+				门诊统筹支付比例							 ratioOverallPay;
+				起付线											 lineStartToPay;
+				封顶线											 lineMaximumPay;
+				创建人        									 createdBy;
+				创建时间      									 dateCreated;
+				修改人       									 updatedBy;
+				修改时间       									 dateUpdated;
+				是否有效（0有效，1无效）  			 isValid;
+				查询的总记录数 								 total;
+				当前页       								     page;
+				每页显示条数  								 pageSize
+
+一、点击单个每人次支付标准将查询出当条按人头付费信息：
+1、路径：URL = "/hcp/agreement/capitationpay/show?id=F8CAC543A5354649E043171D190A60B2"
+2、根据按总额付费ID （id）进行查询
+3、输入参数id ( 按人头付费ID )
+
+二、对当条按人头付费信息修改：
+1、路径：URL = "/hcp/agreement/capitationpay/update"；
+2、根据当前数据id修改当条按人头付费信息
+3、输入Json
+Json data={'id':'F8B8C8871F0E5EB9E043171D190A4C2A','paystdPerpersonPeryear':'2','ratioOverallPay':'2','lineStartToPay':'2','lineMaximumPay':'2'};
+
+三、点击新增，将按人头付费信息添加：
+1、路径：URL = "/hcp/agreement/capitationpay/create"
+2、点击新增，将按人头付费信息添加
+3、输入Json
+Json data={'agreementId':'F8B8612DF97722DBE043171D190AA03A','paystdPerpersonPeryear':'22','ratioOverallPay':'2','lineStartToPay':'2','lineMaximumPay':'2'};
+
+四、删除按人头付费信息：
+1、路径：URL = "/hcp/agreement/capitationpay/delete"；
+2、选择要删除的按人头付费信息，在列表中勾选按人头付费信息，点击删除按钮进行删除
+3、输入Json
+Json data={'id':'F8B8C8871F0E5EB9E043171D190A4C2A'}; （当选择多个按人头付费信息的时候，可以将id拼接）
+
+五、按人头付费信息分页查询：
+1、路径：URL = "/hcp/agreement/capitationpay/page"；
+2、服务协议编号ID（agreementId）进行分页查询(上一页、下一页)
+3、输入Json
+Json data={'agreementId':'F8B8612DF97722DBE043171D190AA03A','page':'1','pageSize':'20'};
+
+
+
+  

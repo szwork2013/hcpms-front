@@ -1,0 +1,45 @@
+按项目付费模块相关操作
+				Json中字段所对应的信息：
+				按项目付费ID        							 id;
+				服务协议编号ID   							 agreementId;
+				项目代码                                        serviceItemCode;
+				项目内涵										 serviceItemDetail;	
+				科室												 idDepartment;
+				折扣比例										 discountRatio;
+				创建人        									 createdBy;
+				创建时间      									 dateCreated;
+				修改人       									 updatedBy;
+				修改时间       									 dateUpdated;
+				是否有效（0有效，1无效）  			 isValid;
+				查询的总记录数 								 total;
+				当前页       								     page;
+				每页显示条数  								 pageSize
+
+一、按项目付费信息分页查询：
+1、路径：URL = "/hcp/agreement/serviceitempays/page";
+2、服务协议编号ID（agreementId）进行分页查询(上一页、下一页)
+3、输入Json
+Json data={'agreementId':'F8B8612DF97722DBE043171D190AA03A','page':'1','pageSize':'20'};
+
+二、点击单个项目代码将查询出当条按项目付费信息：
+1、路径：URL = "/hcp/agreement/serviceitempay/show?id=F8B8DDE3AEF14129E043171D190A3966"
+2、根据按项目付费ID（id）进行查询
+3、输入参数id ( 项目付费ID )
+
+三、对当条按项目付费信息修改：
+1、路径：URL = "/hcp/agreement/serviceitempay/update"；
+2、根据按项目付费ID（id）进行修改
+3、输入Json
+Json data={'id':'F8B8DDE3AEF14129E043171D190A3966','serviceItemCode':'111','serviceItemDetail':'33322','idDepartment':'222','discountRatio':'1'};
+
+四、点击新增，将按项目付费信息添加：
+1、路径：URL = "/hcp/agreement/serviceitempay/create"
+2、点击新增，将按项目付费信息添加
+3、输入Json
+Json data={'agreementId':'F8B8612DF97722DBE043171D190AA03A','serviceItemCode':'11122','serviceItemDetail':'33322','idDepartment':'222','discountRatio':'1'};
+
+五、删除按项目付费信息：
+1、路径：URL = "/hcp/agreement/serviceitempay/delete"；
+2、选择要删除的按项目付费信息，在列表中勾选按项目付费，点击删除按钮进行删除
+3、输入Json
+Json data={'id':'F8B8DDE3AEF14129E043171D190A3966'}; （当选择多个按项目付费信息的时候，可以将id拼接）  

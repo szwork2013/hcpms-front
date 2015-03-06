@@ -1,0 +1,7 @@
+{
+	"msg":"查询成功！",
+	"result":{
+		"agreementId":"F8B8612DF97722DBE043171D190AA03A","createdBy":"创建人","dateCreated":"2014-05-06 17:42:51","dateUpdated":"2014-05-06 17:50:27","diseaseCode":"111","id":"F8B91257CE2419A8E043171D190A1A23","isValid":"0","payAmount":"33322","payCondition":"222","updatedBy":"创建人"
+		},
+		"state":"0"
+}

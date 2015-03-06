@@ -1,0 +1,56 @@
+缁╂晥鎶ヨ〃淇℃伅妯″潡鐩稿叧鎿嶄綔
+				Json涓瓧娈垫墍瀵瑰簲鐨勪俊鎭細
+				鍖荤枟鏈烘瀯鍚嶇О        name;
+				缁勭粐鏈烘瀯浠ｇ爜        orgcode;
+				鍖婚櫌绛夌骇                hospitalLevel;
+				鍗敓鏈烘瀯绫诲埆         orgtype;
+				鎶ュ憡鍛ㄦ湡	        reprotCycle;
+				鎶ュ憡鏃堕棿	        dateReport;
+				骞�		        year;
+				鏈�/瀛ｅ害                   month;
+				鏄惁鏈夋晥锛�夋晥锛�犳晥锛�   isValid;
+				鏌ヨ鐨勬�昏褰曟暟    total;
+				褰撳墠椤�         page;
+				姣忛〉鏄剧ず鏉℃暟   pageSize
+				
+涓�銆佹煡璇㈠尰鐤楁満鏋�
+1銆佽矾寰勶細URL = "/performance/generation/page";
+2銆佺偣鍑烩�滄煡璇俊鎭�濓紝鏌ヨ绗﹀悎鏉′欢鐨勫尰鐤楁満鏋勪俊鎭�	
+3銆佽緭鍏son
+Json data={'name':'','page':'1','pageSize':'20'};	
+
+浜屻�佺敓鎴愭姤琛�
+1銆佽矾寰勶細URL = "/performance/generation/create";
+2銆佺偣鍑烩�滅敓鎴愨�濓紝鏍规嵁鏉′欢鐢熸垚PDF 鎶ュ憡	
+3銆佽緭鍏son
+Json data=[
+        {
+            "name":"鍘﹂棬澶у闄勫睘涓北鍖婚櫌",
+            "orgcode": "2007070531232131231234",
+            "hospitalLevel": "涓夌骇鐢茬瓑",
+            "orgtype": "A100",
+            "reprotCycle": "鏈�",
+            "year":"2014",
+            "month":"01",
+            "isValid": "0"
+        },
+        {
+            "name":"鍘﹂棬甯傜涓�鍖婚櫌",
+            "orgcode": "35020342660066011A1001",
+            "hospitalLevel": "涓夌骇鐢茬瓑",
+            "orgtype": "A100",
+            "reprotCycle": "瀛�",
+            "dateReport": "2014/01",
+            "reprotCycle":"鏈�",
+            "year":"2014",
+            "month":"01",
+            "isValid": "0"
+        }
+    ]
+
+
+
+
+
+
+  

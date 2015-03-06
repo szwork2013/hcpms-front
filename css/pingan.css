@@ -1,0 +1,244 @@
+/************************************************
+* 样式重置和公用类
+* 兼容IE8.0以上CSS3.0
+************************************************/
+
+body,dl,dt,dd,p,th,td,h1,h2,h3,h4,h5,h6,ol,ul,li,form,input,button,textarea{margin:0;padding:0}
+body,button,input,select,textarea{font:14px/20px Tahoma,Arial,"Microsoft Yahei","\5b8b\4f53"}
+body,a,input,button,textarea,select{color:#333}
+body{background:#fff}
+a{color:#e63;text-decoration:none}
+a:hover{color:#f50;text-decoration:underline;cursor:pointer}
+i{font-style:normal}
+img{border:0}
+table{width:100%;border-collapse:collapse;border-spacing:0}
+h1{height:60px;width:262px;background:#fff url("../img/pa.png") no-repeat}
+
+input,select,button{vertical-align:middle}
+
+textarea,
+input[type="text"],
+input[type="password"]
+{color:#555;width:226px;height:20px;border:1px solid #ddd;padding:4px 6px;display:inline-block}
+
+input[type="button"]{color:#555;width:226px;height:30px;border:1px solid #ddd;background:#eee}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus
+{border-color:#e63;outline:0}
+#spanFileName{width:150px;height:16px}
+input[type="file"]{cursor:pointer;height:24px;overflow:hidden;width:210px;left:1px;position:absolute;top:1px;*width:225px;opacity:0;filter:alpha(opacity=0)}
+
+select{width:240px;height:30px;border:1px solid #ddd}
+textarea{resize:none;height:60px;vertical-align:top;position:relative;top:2px}
+
+button,
+.Btn,
+.Confirm,
+.Warning
+{border:0;background:#999;display:inline-block;height:30px;line-height:30px;padding:0 15px;color:#fff;border-radius:3px;cursor:pointer}
+
+button[type="submit"],
+.Confirm{background:#274;margin-right:5px}
+
+.Warning{background:#e63}
+button:hover,.Btn:hover,.Confirm:hover,.Warning:hover{color:#fff;text-decoration:none;background:#777}
+button[type="submit"]:hover,.Confirm:hover{background:#092}
+.Warning:hover
+{background:#f60}
+
+.Small,.Paging button{font-size:12px;height:24px;line-height:24px;padding:0 9px}
+.Large{font-size:18px;height:44px;line-height:44px;padding:0 18px}
+
+button[disabled],
+textarea[disabled],
+input[disabled],
+select[disabled],
+[disabled]:hover,
+button[disabled]:hover,
+textarea[disabled]:hover,
+input[disabled]:hover,
+select[disabled]:hover
+.disabled,
+.disabled:hover,
+.Paging .disabled,
+.Paging .disabled:hover
+{background-color:#eee;border-color:#ddd;color:#aaa;cursor:default}
+
+
+/*弹窗多选*/
+.popChoice{background:url("../img/pa.png") no-repeat right -132px}
+.win{display:none;width:480px;padding-bottom:20px}
+.win .has{padding:0 10px 5px;border-bottom:1px solid #eee;}
+.win .has i{padding-right:14px;background:url("../img/pa.png") no-repeat right -160px;margin:0 2px;cursor:pointer}
+.win .has i:hover{color:#e73;background-position:right -178px}
+
+.win .list{list-style:none;font-size:14px;margin-top:4px}
+.win .list li{display:inline;float:left;width:118px;line-height:24px;text-align:center;cursor:pointer;margin:1px;position:relative}
+.win .list li:hover{background:#fff2e9}
+.win .list .Cb{display:block;float:none;width:100%;height:16px;cursor:default;margin:0}
+.win .list .Cb:hover{background:#fff}
+.win .Dn{background:#fffcde;border:1px solid #fc6;font-size:12px;text-align:left;position:absolute;top:2px;left:70%;white-space:nowrap;z-index:2}
+.win .Dn label{display:block;line-height:24px;padding:0 12px}
+.win .Dn label input{margin-right:3px}
+.win .Dn label:hover{background:#c93;color:#fff}
+
+/*常用控制样式*/
+.Fl,.Fr{display:inline}
+.Fl{float:left}
+.Fr{float:right}
+.Cb{clear:both}
+.Dn{display:none}
+.Tc{text-align:center}
+.Tr{text-align:right}
+.Main{margin:0 20px}
+
+/*头部菜单*/
+#topNav{height:60px;border-bottom:4px solid #e63;background:#fff;z-index:98}
+#topNav .Fl,#topNav .Fr{height:60px}
+#topNav h1{float:left}
+#topNav .Fl{list-style:none}
+#topNav .Fl li{float:left;display:inline;width:120px;text-align:center;position:relative}
+#topNav .Fl b{display:block;font-size:16px;font-weight:normal;line-height:60px;position:relative;cursor:pointer}
+#topNav .Fl .over,#topNav .Fl p a:hover{color:#274}
+#topNav .Fl b i{
+	border:4px solid;
+	border-color:#666 #fff #fff;
+	font-size:0;
+	margin-left:3px;
+	width:0;
+	height:0;
+	line-height:0;
+	position:absolute;
+	-webkit-transition:-webkit-transform .20s ease-in;
+/*
+	-moz-transition:-moz-transform .2s ease-in;
+	-o-transition:-o-transform .2 ease-in;
+*/
+	transition:transform .2 ease-in;
+	top:28px;top:29px\9;*top:6px
+}
+#topNav .Fl .over b i{border-color:#274 #fff #fff;-moz-transform:rotate(180deg);-moz-transform-origin:50% 30%;-webkit-transform:rotate(180deg);-webkit-transform-origin:50% 30%;-o-transform:rotate(180deg);-o-transform-origin:50% 30%;transform:rotate(180deg);transform-origin:50% 30%;filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);top:26px\9;*top:3px}
+#topNav .Fl p{border:1px solid #ddd;position:absolute;width:100%;background:#fff;padding:6px 0;display:none;left:0;z-index:98}
+#topNav .Fl p a{display:block;height:24px;line-height:24px;color:#333;text-decoration:none;overflow:hidden:padding:2px 3px}
+#topNav .Fl p i{width:100%;height:15px;position:absolute;top:-15px;left:0;background:url("../img/pa.png") no-repeat 46px -60px}
+#topNav .Fl .over p{display:block}
+
+#topNav .Fr{line-height:60px;margin-right:20px;position:relative}
+#topNav .Fr i{position:absolute;width:22px;height:21px;left:-30px;bottom:-4px;background:url("../img/pa.png") 0 -74px}
+
+/*头部选项卡*/
+#topTab{list-style:none;background:#f8f8f8 url("../img/pa.png") repeat-x 0 -96px;height:36px;line-height:36px;position:relative;z-index:97}
+#topTab li{color:#999;float:left;padding:1px 20px;margin:2px 1px 0;cursor:pointer;height:32px;line-height:32px;position:relative}
+#topTab .act,#topTab .act:hover{color:#e73;padding:1px 19px 0;border:1px solid #ccc;border-bottom:0;background:#fff}
+#topTab li:hover{color:#666}
+#topTab li i{position:absolute;width:15px;height:16px;right:2px;top:8px;background:url("../img/pa.png") no-repeat -199px -60px}
+#topTab li i:hover{background-position:-184px -60px}
+#topTab .act{color:#e73;padding:1px 19px 0;border:1px solid #ccc;border-bottom:0;background:#fff}
+
+/*表单*/
+.Frm{margin-top:25px;padding:25px 20px;border:1px solid #ddd}
+.Frm dl{width:428px;height:56px;font-size:12px;display:inline-block;margin-right:30px;position:relative}
+.Frm .tea{height:96px;width:100%}
+.Frm .tea textarea{width:526px;height:60px;margin:0}
+.Frm dl dt{display:block;font-size:14px}
+.Frm dl dt b{font-weight:normal;width:150px;text-align:right;display:inline-block}
+.Frm dl .alt{position:absolute;left:192px;top:5px;color:#aaa}
+.Frm dl dd{position:absolute;right:6px;height:24px;line-height:24px;text-align:right;color:#c33}
+.Frm .sbt{margin-left:153px}
+.Frm .label{display:inline-block;width:248px}
+.Frm .label label{margin:0 4px 0 2px;white-space:nowrap}
+
+.Table{width:100%;margin-top:5px;border-top:1px solid #ddd}
+.Table tr{border-bottom:1px solid #ddd;height:40px}
+.Table thead tr{background:#f1f1f1}
+.Table tbody tr:hover{background:#fffff4}
+.Table th,.Table td{padding:2px 6px;text-align:left}
+
+.Date{clear:both;padding:10px 0;height:24px}
+.Date dt{float:left}
+.Date dd{float:right}
+
+/*分页*/
+.Paging{height:24px;padding:0 10px;font-size:12px}
+.Paging p{float:left;display:inline;line-height:24px;margin:0 10px}
+.Paging i{margin:0 1px;display:inline-block;height:22px;line-height:22px;padding:0 9px;border:1px solid #ccc}
+.Paging i:hover{color:#e63;text-decoration:none;border-color:#e63;cursor:pointer}
+.Paging select{width:60px;font-size:12px;padding:3px 4px;height:24px}
+.Paging input{width:36px;padding:1px 4px;height:20px;line-height:20px;font-size:12px;border-right:0}
+.Paging button{background:#e63;border-radius:0 3px 3px 0}
+
+/*弹窗,配合JavaScript函数Pop()*/
+.Mask{width:100%;height:100%;top:0;left:0;background:#000;opacity:0.5;filter:alpha(opacity=50);cursor:default;position:absolute;z-index:100;display:none}
+.Pop{display:none;font-size:12px;background:#fff;position:fixed;top:200px;left:300px;min-width:300px;min-height:200px;z-index:108}
+.Pop h3{cursor:move;font-size:16px;font-weight:normal;line-height:40px;height:40px;text-indent:10px;color:#274;background:#f5f5f5;margin-bottom:10px;border-bottom:2px solid #e63;position:relative}
+.Pop h3 .close{background:url("../img/pa.png") no-repeat -238px -60px ;width:24px;height:24px;position:absolute;top:8px;right:10px;cursor:pointer}
+.Pop h3 .close:hover{background-position:-214px -60px}
+.Pop .Frm{margin:0;border:0;padding:20px 5px;width:600px}
+.Pop .Frm dl{width:282px;margin-right:5px}
+.Pop .Frm .tea{width:525px}
+.Pop .Frm dl b{width:120px}
+.Pop .Frm dl .alt{left:99px}
+.Pop .Frm textarea,
+.Pop .Frm input[type="text"],
+.Pop .Frm input[type="password"]
+{width:140px}
+.Pop .Frm select{width:156px}
+.Pop .Frm .sbt{margin-left:125px}
+
+.Alert{width:400px}
+.Alert .text{text-indent:2em;margin:20px;min-height:60px}
+.Alert .Tc .Confirm{margin-right:6px}
+
+/*By JeffKai*/
+.Frm .oneRow{width:960px}
+.FrmWrap{ border: 1px solid #ddd; padding:20px}
+.Frm .forTextarea{width:920px; height:110px }
+textarea{width:688px; height:90px; margin-bottom: -5px}
+
+.OptSubmit{width:150px; margin:auto;}
+.textContent{border: 1px solid #ddd;border-top:none;background-color:#f5f5f5;padding:20px}
+
+#subTab .tab{list-style:none;height:13px;margin-top:20px;}
+#subTab .tab li{cursor: pointer;float:left;display:inline;width:100px;text-align:center;height:26px; border: 1px solid #ddd;border-left:none;padding-top:6px;background-color:#f5f5f5;}
+#subTab .tab li a{color:#ccc;}
+#subTab .tab li a:hover{text-decoration:none; color:#274;}
+#subTab .tab .lb{border-left: 1px solid #ddd;}
+#subTab .tab .active{height:26px; border-top: 2px solid #274; background-color: #fff; color:#274; border-bottom:1px solid #fff; padding-top:5px}
+
+.red{color:#f00}
+.org{color:#f18900}
+.pd{padding:20px}
+.long input[type="text"]{width:688px}
+.sort select{width:77px}
+.forDate input[type="text"]{width:96px}
+.Pop .Frm .forDate input[type="text"]{width:60px}
+
+.haveTab{margin-top:20px}
+.havePadding{padding:20px}
+.printTitle{font-size:22px; font-weight:bold; text-align:center}
+.tableTitle{font-size:14px; font-weight:bold; margin-top:10px}
+.printPage{padding:50px}
+
+.spT{margin-top:20px}
+.Pop .Frm .tea textarea{width:430px}
+.Pop .Frm .sort select{width:77px}
+.Pop .Frm .oneRow{width:570px}
+
+/*欢迎页*/
+.banner{width:795px; height:318px; background:url(../img/banner.jpg) no-repeat; margin:auto; margin-top:30px}
+.banner .weltext{float:right; width:300px; margin-top:80px;margin-right:30px; line-height:25px}
+.banner .hello{font-size:18px;color:#e63}
+.banner .sys{font-size:16px; color:#274}
+.welcontent{height:58px; background-color:#e63; margin:auto; width:775px;padding-top:15px;padding-left:20px; color:#fff}
+.welcontent .title{font-weight:bold;}
+.welcontent .txt{font-size:12px}
+
+
+/*预搜索*/
+.suggest{display:none;list-style:none;border:1px solid #e73;border-top:0;background:#fff;width:238px;position:absolute;top:29px;right:34px;z-index:7}
+.suggest li{font-size:12px;padding:0 6px;color:#666;display:block;line-height:30px;cursor:pointer}
+.suggest .over{background:#eee}
+

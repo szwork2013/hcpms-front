@@ -1,0 +1,18 @@
+{
+    "result": {
+        "id": "F8DA380DBEFC2B65E043171D190AB292",
+        "moblie": "111111113",
+        "phone": "222222222223",
+        "providerid": "F8B7CA7810023332E043171D190A3CC1",
+        "updateby": "test1213",
+        "department": "test13",
+        "createby": "test1213",
+        "job": "tset3",
+        "createDate": "2014-05-08",
+        "updateDate": "2014-05-08",
+        "isvalid": "0",
+        "contacts": "cyh"
+    },
+    "state": "0",
+    "msg": "查询成功！"
+}

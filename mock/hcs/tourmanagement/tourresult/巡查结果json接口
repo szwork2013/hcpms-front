@@ -1,0 +1,28 @@
+JSON中字段所对应的信息：
+巡查结果ID                    	 inspectResultId,
+巡查任务ID					 	 inspectDetailId,
+检查内容代码					 inspectItemCode,
+检查结果得分					 inspectItemScore,
+巡查日期						 tourDate，
+创建人						 createdUser,
+创建时间                                                          	 createdTime,
+修改人						 updatedUser,
+修改时间						 updatedTime,
+是否有效[0-有效，1-无效]			 isValid
+
+一、根据巡查任务ID查询出巡查结果：
+1、请求路径：URL = "/tourmanagement/tourresult/list?tourdetailid=3344";
+2、请求参数：tourdetailid
+3、请求参数格式：tourdetailid=3344
+
+
+
+
+
+			  
+			  
+			  
+			  
+			  
+			  
+			  

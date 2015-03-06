@@ -1,0 +1,56 @@
+JSON中字段所对应的信息：
+巡查计划ID                      tourPlanID,
+医疗机构ID						 healthProviderID,
+医疗机构名称					 healthProviderName,
+巡查日期从						 inspectDateFrom,
+巡查日期至						 inpsectDateEnd,
+巡查次数						 times,
+巡查人						 operator,
+巡查计划制定人                                                           constitutor,
+巡查计划状态[1-待处理，2-已完成]		 status,
+制定时间从						 createdTimeFrom,
+制定时间至					 	 createdTimeEnd,
+创建人						 createdUser,
+创建时间                                                          	 createdTime,
+修改人						 updatedUser,
+修改时间						 updatedTime,
+是否有效[0-有效，1-无效]			 isValid
+
+一、根据巡查计划ID查询出巡查计划详细信息：
+1、请求路径：URL = "/hcs/tourmanagement/tourplan/show?tourplanid=F8B8612DF97722DBE043171D190AA03A";
+2、请求参数：tourplanid;
+3、请求参数格式：tourplanid=F8B8612DF97722DBE043171D190AA03A
+
+二、巡查计划分页查询：
+1、请求路径：URL = "/hcs/tourmanagement/tourplan/page";
+2、请求参数：inspectDateFrom,inpsectDateEnd,createdTimeFrom,createdTimeEnd,operator,healthProviderID
+3、请求参数格式：{'inspectDateFrom':'2014-01-02','inpsectDateEnd':'2014-01-02',
+			 'createdTimeFrom':'2014-01-02','createdTimeEnd':'2014-01-02','operator':'hunter',
+			 'healthProviderID':'F95304BED60B1B93E043171D190AEFE6',
+             'page':'1','pageSize':'20'}
+             
+三、新增巡查计划：
+1、请求路径：URL = "/hcs/tourmanagement/tourplan/create";
+2、请求参数：healthProviderID,healthProviderName,inspectDateFrom,inpsectDateEnd,operator,constitutor,times,status
+3、请求参数格式：{'healthProviderID':'1122', 'healthProviderName':'长江医院' 
+			  'inspectDateFrom':'2014-01-02', 'inpsectDateEnd':'2014-12-02', 'times':'4', 'operator':'tom', 
+			  'constitutor':'hunter', 'status':'1'}
+			  
+四、修改巡查计划：
+1、请求路径：URL = "/hcs/tourmanagement/tourplan/update";
+2、请求参数：inspectDateFrom,inpsectDateEnd,operator,constitutor,times,status
+3、请求参数格式：{'inspectDateFrom':'2014-01-02', 'inpsectDateEnd':'2014-12-02', 'times':'4', 'operator':'tom', 
+			  'constitutor':'hunter', 'status':'1'}
+			  
+五、删除巡查计划：
+1、请求路径：URL = "/hcs/tourmanagement/tourplan/delete";
+2、请求参数：tourPlanID
+3、请求参数格式：{'params':[{'tourPlanID':'F8A42A8FED495A5EE043171D190A7FEF'}, {'tourPlanID':'F8A42F2555916DB3E043171D190AD2F7'}]}
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  

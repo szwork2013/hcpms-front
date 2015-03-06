@@ -1,0 +1,13 @@
+<div>
+    <div>
+        <form method="POST" enctype="multipart/form-data"
+              action="/hcpms/common/uploadFile?type=02">
+            <div style="position:relative">
+                <input type="text" id="spanFileName" readonly="true">
+                <button type="button" class="Confirm Small">浏览1</button>
+                <input type="file" onchange="document.getElementById('spanFileName').value = this.value" name="uploadFile" id="uploadFile">
+            </div>
+            <button type="submit">上传</button>
+        </form>
+    </div>
+</div>

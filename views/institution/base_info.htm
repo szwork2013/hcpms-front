@@ -1,0 +1,683 @@
+<form autocomplete="off" class="Frm haveTab"  name="institutionDetailForm"
+      novalidate ng-submit="saveProviderDetail(institutionDetailForm.$valid)" >
+   <dl>
+			<dt>
+				<b><span class="red"> * </span>医疗机构名称:</b>
+				<input id="name" name="name"  ng-blur="autoSearchInstitution($event)" required ng-model="institutionDetail.name" ng-maxlength="60" type="text">
+			</dt>
+			   <dd ng-show="insSubmitted">
+			    <small  ng-show="institutionDetailForm.name.$error.maxlength">长度不能超过20个字符</small>
+            <small ng-show="institutionDetailForm.name.$error.required">机构名称不能为空</small>
+        </dd>
+         <dd><small ng-show="isAuto && isUniqueName">机构名称已存在，请重新输入！</small></dd>
+		</dl>
+        <dl>
+			<dt>
+				<b>英文名称:</b>
+				<input name = "ename"   ng-model="institutionDetail.ename" ng-maxlength="120" type="text">
+			</dt>
+	   <dd ng-show="insSubmitted">
+			    <small  ng-show="institutionDetailForm.ename.$error.maxlength">长度不能超过120个字符</small>
+        </dd>
+		</dl>
+
+	    <dl>
+        <dt>
+            <b><span class="red"> * </span>医院等级:</b>
+            <select  name = "hospitalLev" required ng-model="institutionDetail.hospitalLev"
+                               ng-init="getDataByCodeType('{codeType:\'hosLevelType\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['hosLevelType']">
+                <option value="">---请选择---</option>
+            </select>
+        </dt>
+            <dd ng-show="insSubmitted">
+                <small ng-show="institutionDetailForm.hospitalLev.$error.required">请选择医院等级</small>
+            </dd>
+    </dl>
+
+    <dl>
+        <dt>
+            <b>临床重点专科:</b>
+            <input  name="speciality" ng-model="institutionDetail.speciality"
+                    type="text" dialog dialog-target="popChoice" pop-choice="popChoice">
+        </dt>
+     
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>卫生机构类别:</b>
+            <select class="s1" ng-model="institutionDetail.orgtype1"
+                    ng-init="getDataByCodeType('{codeType:\'orgType\',orgTypeCode:\'0\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['orgType']">
+                <option value="">---请选择---</option>
+            </select>
+        </dt>
+  
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>床位数:</b>
+            <input name = "bednum"  required ng-model="institutionDetail.bednum" ng-pattern='/^([0-9]{0,12})$/'  type="text">
+        </dt>
+        <dd ng-show="insSubmitted">
+            <small  ng-show="institutionDetailForm.bednum.$error.required">床位数不能为空</small>
+        	<small ng-show="institutionDetailForm.bednum.$error.pattern">必须为小于8位正整数</small>
+        </dd>
+    </dl>
+    <dl><dt>
+   		<b></b>
+        <select class="s1" ng-model="institutionDetail.orgtype2" dic="codeno|codename orgType"
+        dic-def-val="---请选择---" dic-affect="institutionDetail.orgtype1" dic-param="{codeNo:?,orgTypeCode:'1'}">
+        </select>
+    </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>机构分类管理类型:</b>
+          	<select name = "manageCode"  required ng-model="institutionDetail.manageCode"
+         	                    ng-init="getDataByCodeType('{codeType:\'classificationType\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['classificationType']">
+                <option value="">---请选择---</option>
+         	 </select>
+        </dt>
+        <dd ng-show="insSubmitted">
+            <small  ng-show="institutionDetailForm.manageCode.$error.required">请选择机构分类管理类型</small>
+        </dd>
+    </dl>
+    <dl><dt>
+		<b></b>
+        <select name = "orgtype"  required class="s1" ng-model="institutionDetail.orgtype" dic="codeno|codename orgType"
+                dic-def-val="---请选择---" dic-affect="institutionDetail.orgtype2" dic-param="{codeNo:?,orgTypeCode:'2'}">
+        </select>
+    </dt>
+          <dd ng-show="insSubmitted">
+            <small  ng-show="institutionDetailForm.orgtype.$error.required">卫生机构类别不能为空</small>
+        </dd>
+        </dl>
+	<dl>
+        <dt>
+            <b><span class="red"> * </span>法人代表:</b>
+            <input name = "lealPerson"  required ng-model="institutionDetail.lealPerson" ng-maxlength="30" type="text">
+        </dt>
+        <dd ng-show="insSubmitted">
+           <small  ng-show="institutionDetailForm.lealPerson.$error.required">法人代表不能为空</small>
+           <small  ng-show="institutionDetailForm.lealPerson.$error.maxlength">长度不能超过30个字符</small>
+        </dd>
+    </dl>
+		    <dl>
+        <dt>
+            <b><span class="red"> * </span>成立时间:</b>
+            <input name="regtime" ng-model="institutionDetail.regtime" required type="text" date-time-picker>
+        </dt>
+                <dd ng-show="insSubmitted">
+                    <small  ng-show="institutionDetailForm.regtime.$error.required">成立时间不能为空</small>
+                </dd>
+    </dl>
+		<dl>
+			<dt>
+				<b>执业许可证:</b>
+				<input name = "license"   ng-model="institutionDetail.license" type="text">
+			</dt>
+		</dl>
+		<dl>
+			<dt>
+				<b><span class="org"> * </span>组织机构代码:</b>
+				<input name = "orgcode"  ng-maxlength=22 required ng-model="institutionDetail.orgcode" type="text">
+			</dt>
+            <dd ng-show="insSubmitted">
+                <small  ng-show="institutionDetailForm.orgcode.$error.required">组织机构代码不能为空</small>
+            <small  ng-show="institutionDetailForm.orgcode.$error.maxlength">组织机构代码长度必须小于22</small>
+            </dd>
+		</dl>
+
+	    <dl>
+        <dt>
+            <b><span class="red"> * </span>经济类型:</b>
+          	<select name = "economicType"  required ng-model="institutionDetail.economicType"
+         	       ng-init="getDataByCodeType('{codeType:\'economicType\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['economicType']">
+                <option value="">---请选择---</option>
+         	 </select>
+                
+        </dt>
+            <dd ng-show="insSubmitted">
+                <small  ng-show="institutionDetailForm.economicType.$error.required">请选择经济类型</small>
+            </dd>
+    </dl>
+		<dl>
+			<dt>
+				<b>联系人:</b>
+				<input name="contact" ng-model="institutionDetail.contact" ng-maxlength="30" type="text">
+			</dt>
+			   <dd ng-show="insSubmitted">
+            <small  ng-show="institutionDetailForm.contact.$error.maxlength">联系人长度必须小于30</small>
+            </dd>
+		</dl>
+		<dl>
+			<dt>
+				<b>联系电话:</b>
+				<input name="phone" ng-model="institutionDetail.phone" ng-maxlength="20" type="text">
+			</dt>
+			   <dd ng-show="insSubmitted">
+            <small  ng-show="institutionDetailForm.phone.$error.maxlength">联系人长度必须小于20</small>
+            </dd>
+		</dl>
+		<dl class="sort">
+			<dt>
+				<b>所在区域:</b>
+            <select class="s1" ng-model="institutionDetail.province"
+                    ng-init="getDataByCodeType('{codeType:\'region\',codeNo:\'-1\',regionType:\'1\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['region']">
+                <option value="">---省---</option>
+            </select>
+            <select class="s1" ng-model="institutionDetail.city" dic="codeno|codename region"
+                    dic-def-val="市" dic-affect="institutionDetail.province" dic-param="{codeNo:?,regionType:'2'}">
+            </select>
+            <select class="s1" ng-model="institutionDetail.county" dic="codeno|codename region"
+                    dic-def-val="区" dic-affect="institutionDetail.city" dic-param="{codeNo:?,regionType:'3'}">
+            </select>
+			</dt>
+		</dl>
+		<dl>
+			<dt>
+				<b>邮政编码:</b>
+				<input ng-model="institutionDetail.postcode" type="text">
+			</dt>
+		</dl>
+		<dl class="oneRow long">
+			<dt>
+				<b>详细地址:</b>
+				<input name="addr" ng-model="institutionDetail.addr" ng-maxlength="50" type="text">
+			</dt>
+				</dt>
+			   <dd ng-show="insSubmitted">
+            <small  ng-show="institutionDetailForm.addr.$error.maxlength">详细地址长度必须小于50</small>
+            </dd>
+		</dl>
+        <dl class="oneRow long">
+			<dt>
+				<b>英文地址:</b>
+				<input name="enaddr" ng-model="institutionDetail.enaddr" ng-maxlength="120" type="text">
+			</dt>
+				   <dd ng-show="insSubmitted">
+            <small  ng-show="institutionDetailForm.enaddr.$error.maxlength">英文地址长度必须小于120</small>
+            </dd>
+		</dl>
+		<dl>
+			<dt>
+				<b>电子邮箱:</b>
+				<input name="email" ng-model="institutionDetail.email" ng-maxlength="40" type="text">
+			</dt>
+				   <dd ng-show="insSubmitted">
+            <small  ng-show="institutionDetailForm.email.$error.maxlength">电子邮箱长度必须小于40</small>
+            </dd>
+		</dl>
+		<dl>
+			<dt>
+				<b>网站域名:</b>
+				<input name="domain" ng-model="institutionDetail.domain" ng-maxlength="120" type="text">
+			</dt>
+				   <dd ng-show="insSubmitted">
+            <small  ng-show="institutionDetailForm.domain.$error.maxlength">网站域名长度必须小于120</small>
+            </dd>
+		</dl>
+		    <dl>
+        <dt>
+            <b>上下班时间:</b>
+            <input name="time" ng-model="institutionDetail.time" maxlength="32" type="text">
+        </dt>
+        	   <dd ng-show="insSubmitted">
+            <small  ng-show="institutionDetailForm.time.$error.maxlength">上下班时间长度必须小于32</small>
+            </dd>
+    </dl>
+		<dl class="forTextarea">
+			<dt>
+				<b>公交线路描述:</b>
+				<textarea name="transit" ng-model="institutionDetail.transit" ng-maxlength="180"></textarea>
+			</dt>
+            <dd ng-show="insSubmitted">
+                <small ng-show="institutionDetailForm.transit.$error.maxlength">长度不能超过180个字符</small>
+            </dd>
+		</dl>
+        <p class="sbt">
+            <button type="submit" class="Confirm">保存</button>
+            <button type="button" ng-click="resetProvider()" ng-disabled="isEquals(institutionDetail,oldInstitutionDetail)" class="Btn" >取消</button>
+        </p>
+    </form>
+    <h3 class="tableTitle">附件信息</h3>
+<table class="Table">
+    <thead>
+    <tr>
+        <th> <input id="imgIdList" ng-click="getImgIdList('imgIdBox')" onclick="Utils.doCheck(this,'imgIdBox')" type="checkbox"></th>
+        <th>影像名称</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in institutionDetail.imgList">
+        <td><input name="imgIdBox" value="{{item.id}}" ng-click="imgIdList = getImgIdList('imgIdBox')"
+                   type="checkbox" onclick="Utils.toChkSon('imgIdList',this)" ></td>
+        <td>{{item.name}}</td>
+        <td><a href="" ng-click="getImgInfo($event,item.index,item.name)">下载</a></td>
+    </tr>
+    </tbody>
+</table>
+ <form id="formUpload" method="POST" enctype="multipart/form-data" target="upload"
+       action="/hcpms/common/uploadFile?type=01">
+    <dl class="Date">
+        <dt>
+            <div style="position:relative">
+                <input type="text" id="spanFileName" readonly="true">
+                <button type="button" class="Btn Confirm Small">浏览</button>
+                <input type="file" ng-click="uploadFile()"  onchange="document.getElementById('spanFileName').value = this.value" name="uploadFile" id="uploadFile">
+                <button type="submit" class="Btn Confirm Small" >上传</button>
+                <button type="button"  ng-disabled="!imgIdList" ng-click="deleteImgList()" class="Btn Warning Small">删除</button>
+            </div>
+        </dt>
+    </dl>
+</form>
+<iframe id="upload"  name="upload" style="display:none" >
+</iframe>
+<iframe id="downloadURL" style="display:none"></iframe>
+
+<div class="Pop"  id="popChoice">
+<!-- div ng-include="'views/common/departments.htm'"></div-->
+<div class="win" style="display: block;" >
+<h3>请选择类别:<i class="close"></i></h3>
+<p>已选择类别:<b class="has"></b></p>
+<ul class="list">
+<!-- ngRepeat: item in pcData --><li  class="ng-scope">
+    <b class="ng-binding">中医科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5001"  text="内科专业">内科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5002"  text="外科专业">外科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5003"  text="妇产科专业">妇产科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5004"  text="儿科专业">儿科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5005"  text="皮肤科专业">皮肤科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5006"  text="眼科专业">眼科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5007"  text="耳鼻咽喉科专业">耳鼻咽喉科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5008"  text="口腔科专业">口腔科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5009"  text="肿瘤科专业">肿瘤科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5010"  text="骨伤科专业">骨伤科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5011"  text="肛肠科专业">肛肠科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5012"  text="老年病科专业">老年病科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5013"  text="针灸科专业">针灸科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5014"  text="推拿科专业">推拿科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5015"  text="康复医学专业">康复医学专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5016"  text="急诊科专业">急诊科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5017"  text="预防保健科专业">预防保健科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5018"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">民族医学科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5101"  text="维吾尔医学">维吾尔医学
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5102"  text="藏医学">藏医学
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5103"  text="蒙医学">蒙医学
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5104"  text="彝医学">彝医学
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5105"  text="傣医学">傣医学
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5106"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">其它</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="5200"  text="中西医结合科">中西医结合科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0100"  text="预防保健科">预防保健科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0200"  text="全科医疗科">全科医疗科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1000"  text="眼科">眼科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1400"  text="医疗美容科">医疗美容科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1700"  text="结核病科">结核病科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1800"  text="地方病科">地方病科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1900"  text="肿瘤科">肿瘤科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2000"  text="急诊医学科">急诊医学科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2100"  text="康复医学科">康复医学科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2200"  text="运动医学科">运动医学科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2400"  text="临终关怀科">临终关怀科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2500"  text="特种医学与军事医学科">特种医学与军事医学科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2600"  text="麻醉科">麻醉科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2700"  text="疼痛科">疼痛科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2800"  text="重症医学科">重症医学科
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3100"  text="病理科">病理科
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">内科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0301"  text="呼吸内科专业">呼吸内科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0302"  text="消化内科专业">消化内科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0303"  text="神经内科专业">神经内科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0304"  text="心血管内科专业">心血管内科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0305"  text="血液内科专业">血液内科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0306"  text="肾病学专业">肾病学专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0307"  text="内分泌专业">内分泌专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0308"  text="免疫学专业">免疫学专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0309"  text="变态反应专业">变态反应专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0310"  text="老年病专业">老年病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0311"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">外科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0401"  text="普通外科专业">普通外科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0402"  text="神经外科专业">神经外科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0403"  text="骨科专业">骨科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0404"  text="泌尿外科专业">泌尿外科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0405"  text="胸外科专业">胸外科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0406"  text="心脏大血管外科专业">心脏大血管外科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0407"  text="烧伤科专业">烧伤科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0408"  text="整形外科专业">整形外科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0409"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">妇产科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0501"  text="妇科专业">妇科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0502"  text="产科专业">产科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0503"  text="计划生育专业">计划生育专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0504"  text="优生学专业">优生学专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0505"  text="生殖健康与不孕症专业">生殖健康与不孕症专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0506"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">妇女保健科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0601"  text="青春期保健专业">青春期保健专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0602"  text="围产期保健专业">围产期保健专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0603"  text="更年期保健专业">更年期保健专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0604"  text="妇女心理卫生专业">妇女心理卫生专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0605"  text="妇女营养专业">妇女营养专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0606"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">儿科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0701"  text="新生儿专业">新生儿专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0702"  text="小儿传染病专业">小儿传染病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0703"  text="小儿消化专业">小儿消化专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0704"  text="小儿呼吸专业">小儿呼吸专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0705"  text="小儿心脏病专业">小儿心脏病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0706"  text="小儿肾病专业">小儿肾病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0707"  text="小儿血液病专业">小儿血液病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0708"  text="小儿神经病学专业">小儿神经病学专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0709"  text="小儿内分泌专业">小儿内分泌专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0710"  text="小儿遗传病专业">小儿遗传病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0711"  text="小儿免疫专业">小儿免疫专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0712"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">小儿外科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0801"  text="小儿普通外科专业">小儿普通外科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0802"  text="小儿骨科专业">小儿骨科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0803"  text="小儿泌尿外科专业">小儿泌尿外科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0804"  text="小儿胸心外科专业">小儿胸心外科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0805"  text="小儿神经外科专业">小儿神经外科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0806"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">儿童保健科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0901"  text="儿童生长发育专业">儿童生长发育专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0902"  text="儿童营养专业">儿童营养专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0903"  text="儿童心理卫生专业">儿童心理卫生专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0904"  text="儿童五官保健专业">儿童五官保健专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0905"  text="儿童康复专业">儿童康复专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="0906"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">耳鼻咽喉科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1101"  text="耳科专业">耳科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1102"  text="鼻科专业">鼻科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1103"  text="咽喉科专业">咽喉科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1104"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">口腔科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1201"  text="口腔内科专业">口腔内科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1202"  text="口腔颌面外科专业">口腔颌面外科专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1203"  text="正畸专业">正畸专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1204"  text="口腔修复专业">口腔修复专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1205"  text="口腔预防保健专业">口腔预防保健专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1206"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">皮肤科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1301"  text="皮肤病专业">皮肤病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1302"  text="性传播疾病专业">性传播疾病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1303"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">精神科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1501"  text="精神病专业">精神病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1502"  text="精神卫生专业">精神卫生专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1503"  text="药物依赖专业">药物依赖专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1504"  text="精神康复专业">精神康复专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1505"  text="社区防治专业">社区防治专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1506"  text="临床心理专业">临床心理专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1507"  text="司法精神专业">司法精神专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1508"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">传染科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1601"  text="肠道传染病专业">肠道传染病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1602"  text="呼吸道传染病专业">呼吸道传染病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1603"  text="肝炎专业">肝炎专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1604"  text="虫媒传染病专业">虫媒传染病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1605"  text="动物源性传染病专业">动物源性传染病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1606"  text="蠕虫病专业">蠕虫病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="1607"  text="其它">其它
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">职业病科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2301"  text="职业中毒专业">职业中毒专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2302"  text="尘肺专业">尘肺专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2303"  text="放射病专业">放射病专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2304"  text="物理因素损伤专业">物理因素损伤专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2305"  text="职业健康监护专业">职业健康监护专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="2306"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">医学检验科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3001"  text="临床体液、血液专业">临床体液、血液专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3002"  text="临床微生物学专业">临床微生物学专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3003"  text="临床化学检验专业">临床化学检验专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3004"  text="临床免疫、血清学专业">临床免疫、血清学专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3005"  text="临床细胞分子遗传学专业">临床细胞分子遗传学专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3006"  text="其他">其他
+    </label>
+    </div>
+</li><li  class="ng-scope">
+    <b class="ng-binding">医学影像科</b>
+    <div class="Dn" style="display: none;" >
+        <label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3207"  text="脑电及脑血流图诊断专业">脑电及脑血流图诊断专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3208"  text="神经肌肉电图专业">神经肌肉电图专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3209"  text="介入放射学专业">介入放射学专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3210"  text="放射治疗专业">放射治疗专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3211"  text="其他">其他
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3201"  text="X线诊断专业">X线诊断专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3202"  text="CT诊断专业">CT诊断专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3203"  text="磁共振成像诊断专业">磁共振成像诊断专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3204"  text="核医学专业">核医学专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3205"  text="超声诊断专业">超声诊断专业
+    </label><label  class="ng-scope ng-binding">
+        <input type="checkbox" value="3206"  text="心电诊断专业">心电诊断专业
+    </label>
+    </div>
+</li>
+<li class="Cb"></li>
+</ul>
+<p class="Tc">
+    <button type="button" class="Confirm close" ng-click="confirm()">确定</button>
+    <button type="button" class="close">取消</button>
+</p>
+</div>
+</div>

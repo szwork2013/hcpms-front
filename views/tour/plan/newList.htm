@@ -1,0 +1,62 @@
+<h3>
+	 巡查计划新增<i class="close dialogClose"></i>
+</h3>
+<form autocomplete="off" name="tourPlanForm" class="Frm" novalidate
+	ng-submit="saveTourPlan(newTourPlan, tourPlanForm.$valid, 'dialog')">
+	<dl>
+		<dt>
+			<b><span class="red"> * </span>医院机构名称:</b> 
+				<select name="healthProviderID" ng-validation="{require:{msg:'医院机构名称不能为空'}}" ng-model="newTourPlan.healthProviderID"
+                        ng-options="item.providerid as item.name for item in healthProviderList">
+					<option value="">--请选择--</option>
+				</select>
+		</dt>
+		<dd ng-show="tourPlanSubmitted">
+			<small ng-show="tourPlanForm.errors.healthProviderID">{{tourPlanForm.errors.healthProviderID}}</small>
+		</dd>
+	</dl>
+	<dl class="oneRow">
+		<dt>
+			<b><span class="red"> * </span>巡查日期:</b>
+            <input ng-validation="{require:{msg:'巡查开始日期不能为空'},date:{max:'{{newTourPlan.inspectDateEnd}}',msg:'巡查开始日期不能大于巡查结束日期'}}" name="inspectDateFrom" type="text" ng-model="newTourPlan.inspectDateFrom" date-time-picker> - <input
+                ng-validation="{require:{msg:'巡查结束日期不能为空'},date:{min:'{{newTourPlan.inspectDateFrom}}',msg:'巡查结束日期不能小于巡查开始日期'}}" name="inspectDateEnd" type="text" ng-model="newTourPlan.inspectDateEnd" date-time-picker>
+		</dt>
+		<dd ng-show="tourPlanSubmitted">
+			<small ng-show="tourPlanForm.errors.inspectDateFrom">{{tourPlanForm.errors.inspectDateFrom}}</small>
+		    <small ng-show="tourPlanForm.errors.inspectDateEnd">{{tourPlanForm.errors.inspectDateEnd}}</small>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<b>巡查人:</b>
+			<select ng-validation="{require:{msg:'巡查人不能为空'}}"
+					name="operator" ng-model="newTourPlan.operator"
+                    ng-options="item.operator as item.operator for item in operatorList">
+					<option value="">--请选择--</option>
+			</select>
+		</dt>
+		<dd ng-show="tourPlanSubmitted">
+			<small ng-show="tourPlanForm.errors.operator">{{tourPlanForm.errors.operator}}</small>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<b>巡查计划制定人:</b> <input type="text" ng-model="newTourPlan.constitutor" disabled="true">
+		</dt>
+	</dl>
+	<dl>
+		<dt>
+			<b><span class="red"> * </span>巡查次数:</b>
+                <input name="times" ng-validation="{require:{msg:'巡查次数不能为空'}}"
+				type="text" ng-model="newTourPlan.times">
+		</dt>
+		<dd ng-show="tourPlanSubmitted">
+			<small ng-show="tourPlanForm.errors.times">{{tourPlanForm.errors.times}}</small>
+		</dd>
+	</dl>
+	<br />
+	<p class="Tc">
+			<button type="submit" class="Confirm">保存</button>
+			<button type="button" class="close">取消</button>
+	</p>
+</form>

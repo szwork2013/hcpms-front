@@ -1,0 +1,11 @@
+{
+	"msg":"查询成功！",
+	"result":[
+		{"codename":"青岛市南区人民医院","codeno":"F82B6F2C6DC06D48E043171D190A6457"},
+		{"codename":"haoyiyuan","codeno":"F83B3E86D72A38C9E043171D190A0408"},
+		{"codename":"test","codeno":"HEALTHCARE_01"},
+		{"codename":"fasdf","codeno":"F9C0A69838607014E043171D190A0FE5"},
+		{"codename":"testupdate","codeno":"F8B7CA7810023332E043171D190A3CC1"},
+		{"codename":"test","codeno":"F96758D75C897768E043171D190A22BD"},
+		{"codename":"宝之林","codeno":"F96D09C978545291E043171D190AEFBD"}],
+	"state":"0"}

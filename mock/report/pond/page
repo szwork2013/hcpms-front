@@ -1,0 +1,25 @@
+{
+    "msg": "查询成功！",
+    "result": [
+        {
+            "fileId":"FSDFA",
+            "fileName": "医疗费用控制指标报表",
+            "taskCondition": "统筹区域：xxx;医疗机构：九芝堂;统计区间：月;就诊类型：全部",
+            "createdDate": "2014-05-06 17:22:12",
+            "taskStatus": "处理成功",
+            "isValid": "0",
+            "updatedBy": "xxx"
+        },
+        {
+            "fileId":"FSDFA",
+            "fileName": "医疗费用控制指标报表",
+            "taskCondition": "统筹区域：xxx;医疗机构：第一人民医院;统计区间：月;就诊类型：全部",
+            "createdDate": "2014-05-06 17:22:12",
+            "taskStatus": "处理失败",
+            "isValid": "0",
+            "updatedBy": "xxx"
+        }
+    ],
+    "state": "0",
+    "totals":{"total":2}
+}

@@ -1,0 +1,20 @@
+{
+	"state":"0",
+	"msg":"查询成功！",
+	"result":{
+				"constitutor":"王华",
+				"createdTime":"2014-04-15 00:00:00",
+			  	"createdUser":"王华",
+			  	"healthProviderID":"1122",
+			  	"healthProviderName":"长江医院11",
+			    "inpsectDateEnd":"2014-12-02 00:00:00",
+			    "inspectDateFrom":"2014-01-02 00:00:00",
+			    "isValid":"0",
+			    "operator":"王华",
+			    "status":"2",
+			    "times":6,
+			    "tourPlanID":"F8A4121C6706706FE043171D190AA832",
+			    "updatedTime":"2014-04-15 12:30:11",
+			    "updatedUser":"王华"
+			 }
+}

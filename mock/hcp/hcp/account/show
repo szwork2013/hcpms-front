@@ -1,0 +1,16 @@
+{
+    "msg": "查询成功！",
+    "result": {
+        "accountno": "123132123132",
+        "bankname": "zhongguoyinhang4",
+        "createDate": "2014-05-08",
+        "createby": "test12",
+        "holder": "cyh",
+        "id": "F8E1125B298F46BFE043171D190ACFE5",
+        "isvalid": "0",
+        "providerid": "F8B7CA7810023332E043171D190A3CC1",
+        "updateDate": "2014-05-08",
+        "updateby": "test12"
+    },
+    "state": "0"
+}

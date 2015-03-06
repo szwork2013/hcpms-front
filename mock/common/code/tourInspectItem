@@ -1,0 +1,7 @@
+{
+	"msg":"查询成功！",
+	"result":[
+		{"codename":"基础管理","codeno":"1"},
+		{"codename":"病人身份管理","codeno":"2"},
+		{"codename":"满意度调查","codeno":"3"}],
+	"state":"0"}

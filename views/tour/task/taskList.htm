@@ -1,0 +1,71 @@
+<h3>巡查任务 —— 已完成巡查任务列表<i class="close dialogClose" ng-click="cleanDetailId()"></i></h3>
+<div style="overflow-y: scroll;max-height:500px;">
+    <form autocomplete="off" ng-show="!tourDetailId" class="Frm" id="taskList">
+        <table class="Table">
+            <thead>
+            <tr>
+                <th>任务名称</th>
+                <th>巡查人</th>
+                <th>巡查日期</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in tourTaskList">
+                <td>{{item.tourDetailName}}</td>
+                <td>{{item.operator}}</td>
+                <td>{{item.createdTime}}</td>
+                <td><a link="#" target="taskListDetail" title="点击查看明细" ng-click="showReulstList(item.tourDetailId)">查看</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <br/>
+        <dl>
+            <dt>
+                <button type="button" ng-click="cleanDetailId()" class="close">取消</button>
+            </dt>
+        </dl>
+    </form>
+    <form autocomplete="off" ng-show="tourDetailId" class="Frm" id="taskListDetail" >
+        <p class="tableTitle">巡查结果信息</p>
+        <table class="Table">
+            <thead>
+            <tr>
+                <th>巡查内容</th>
+                <th>分数</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in tourDetailList.detailList">
+                    <td>{{item.inspectItemName}}</td>
+                    <td>{{item.inspectItemScore}}</td>
+                    <td>{{item.resultDesc}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="tableTitle">病人列表</p>
+        <table class="Table">
+            <thead>
+            <tr>
+                <th>病人姓名</th>
+                <th>就诊号</th>
+                <th>住院日期</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in tourDetailList.tourInspectPatients">
+                    <td>{{item.name}}</td>
+                    <td>{{item.medicalRecordNo}}</td>
+                    <td>{{item.dateIntoHospital}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <dl>
+            <dt>
+                <button type="button" ng-click="cleanDetailId()">返回列表</button>
+            </dt>
+        </dl>
+     </form>
+</div>

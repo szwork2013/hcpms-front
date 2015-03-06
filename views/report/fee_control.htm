@@ -1,0 +1,45 @@
+    <form autocomplete="off" novalidate class="Frm">
+        <dl>
+            <dt>
+                <b>医疗机构名称:</b>
+                <input ng-model="feeParam.healthcareProviderName" type="text">
+            </dt>
+        </dl>
+        <dl>
+            <dt>
+                <b>统计区间:</b>
+                <select class="s1" style="width: 70px;" ng-change="periodChange()" ng-model="feeParam.period" >
+                    <option value="1" selected>月</option>
+                    <option value="2">季</option>
+                    <option value="3">年</option>
+                </select>
+                <select class="s1" ng-model="feeParam.year" ng-change="selectLocalYear()" style="width: 80px;">
+                    <option value="" selected>请选择</option>
+                    <option ng-repeat="item in years" value="{{item.code}}">{{item.text}}</option>
+                </select>
+                <select ng-show="months" class="s1" ng-model="feeParam.month" style="width: 80px;">
+                    <option value="" selected>请选择</option>
+                    <option ng-repeat="item in months" value="{{item.code}}">{{item.text}}</option>
+                </select>
+            </dt>
+        </dl>
+        <dl>
+            <dt>
+                <b>就诊类型:</b>
+                <!-- <select ng-model="feeParam.attendanceType" >
+                    <option>全部</option>
+                    <option>住院</option>
+                    <option>门诊</option>
+                </select> -->
+                <select required name="attendanceType" ng-model="feeParam.attendanceType"
+                    dic="codeno|codename diagType" dic-delimiter="--" dic-def-val="---请选择---"></select>
+            </dt>
+        </dl>
+        <p class="sbt">
+            <button type="submit" ng-click="createFee()">提交并生成</button>
+        </p>
+    </form>
+<div class="textContent">
+    <h3>报表指标:</h3>
+    <p>医疗费用总额、次均医疗费用、次均统筹费用、次均自负费用、患者自负比例、药占比、平均住院日、平均床日费、检查检验比、预算超支比例、实际赔偿金额、材料占比、病人手术率。</p>
+</div>

@@ -1,0 +1,75 @@
+ <!-- 不要自己在日期控件上加宽啊啊啊 -->
+ <form autocomplete="off" class="Frm">
+     <dl class="forDate">
+         <dt>
+             <b>巡查日期:</b>
+             <input type="text" ng-model="queryParams.inspectDateFrom" date-time-picker> — <input type="text" ng-model="queryParams.inspectDateEnd" date-time-picker>
+         </dt>
+     </dl>
+     <dl class="forDate">
+         <dt>
+             <b>制定日期:</b>
+             <input type="text" ng-model="queryParams.createdTimeFrom" date-time-picker> — <input type="text" ng-model="queryParams.createdTimeEnd" date-time-picker>
+         </dt>
+     </dl>
+     <dl>
+         <dt>
+             <b>巡查人:</b>
+             <input type="text" ng-model="queryParams.operator">
+         </dt>
+     </dl>
+     <dl>
+         <dt>
+             <b>医疗机构名称:</b>
+             <input type="text" ng-model="queryParams.healthProviderName">
+         </dt>
+     </dl>
+     <p class="sbt">
+         <button type="submit" ng-click="queryTourPlanList()">查询信息</button>
+     </p>
+ </form>
+<table class="Table">
+    <thead>
+    <tr>
+        <th><input type="checkbox" ng-model="selAll" id="selAll" onclick="Utils.doCheck(this,'tourPlan')"
+        ng-click="getTourPlanIdList('tourPlan')" ></th>
+        <th>医疗机构名称</th>
+        <th>巡查日期</th>
+        <th>次数详情</th>
+        <th>巡查人</th>
+        <th>巡查计划制定人</th>
+        <th>巡查状态</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in tourPlanList">
+        <td>
+        	<input ng-if="item.finishedTimes == 0" type="checkbox" value="{{item.tourPlanID}}" name="tourPlan"  ng-click="getTourPlanIdList('tourPlan')"
+                   onclick="Utils.toChkSon('selAll',this)" ng-checked="selAll" ></td>
+        <td><a dialog dialog-target="detailPlan" ng-click="updateTourPlanInfo(item.tourPlanID, item.finishedTimes)">{{item.healthProviderName}}</a></td>
+        <td>{{item.inspectDateFrom }}至{{item.inspectDateEnd}}</td>
+        <td>{{item.finishedTimes}}/{{item.times}}</td>
+        <td>{{item.operator}}</td>
+        <td>{{item.constitutor}}</td>
+        <td>{{item.statusName}}</td>
+    </tr>
+    </tbody>
+</table>
+<dl class="Date">
+    <dt>
+        <button class="Confirm Small" dialog dialog-target="dialog" ng-click="addTourPlanInit()">新增</button>
+        <button href="" class="Warning Small" ng-click="deleteTourPlanList();" ng-disabled="!tourPlanIdList">删除</button>
+    </dt>
+    <dd>
+        <pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination>
+    </dd>
+</dl>
+<div class="Pop"  id="dialog" style="display:none">
+    <div ng-include="'views/tour/plan/newList.htm'"></div>
+</div>
+<div class="Pop"  id="detailPlan" style="display:none;">
+    <div ng-include="'views/tour/plan/detail.htm'"></div>
+</div>
+<div class="Pop" id="detailList" style="display:none">
+    <div ng-include="'views/tour/task/taskList.htm'"></div>
+</div>

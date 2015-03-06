@@ -1,0 +1,23 @@
+{
+    "msg": "查询成功！",
+    "result": [
+        {
+            "healthProName":"厦门大学附属中山医院",
+            "reportDate": "2013年10月",
+            "submitDate": "2014-06-04 10:01:25",
+            "submitter": "HCPMSTEST",
+            "status": "处理成功",
+            "isValid": "0"
+        },
+        {
+            "healthProName":"厦门中山医院",
+            "reportDate": "2012年12月",
+            "submitDate": "2012-06-04 10:01:25",
+            "submitter": "HCPMSTEST",
+            "status": "处理成功",
+            "isValid": "0"
+        }
+    ],
+    "state": "0",
+    "totals":{"total":2}
+}

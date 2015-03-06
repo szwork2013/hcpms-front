@@ -1,0 +1,54 @@
+协议基本信息模块相关操作
+				Json中字段所对应的信息：
+				协议ID         id;
+				服务协议类型   agreementType;
+				服务协议编号   agreementNo;
+				医疗机构ID     idHealthcareProvider;
+				协议生效日期   dateAgreementEff;
+				协议终止日期   dateAgreementEnd;
+				支付方式       payMentMode;
+				备注           remarks;
+				创建人         createdBy;
+				创建时间       dateCreated;
+				修改人         updatedBy;
+				修改时间       dateUpdated;
+				是否有效（0有效，1无效）   isValid;
+				查询的总记录数 total;
+				旧的支付方式   oldPayMentMode;
+				当前页         page;
+				每页显示条数   pageSize
+
+一、协议基本信息分页查询：
+1、路径：URL = "/hcp/agreement/page"；
+2、根据医疗机构名称（idHealthcareProvider）、协议编号（agreementNo）进行分页查询
+3、输入Json
+Json data={'idHealthcareProvider':'','agreementNo':'','page':'1','pageSize':'20'};
+
+二、点击单个协议编号将查询出当条协议基本信息：
+1、路径：URL = "/hcp/agreement/show？id=F8B8612DF97722DBE043171D190AA03A"
+2、根据协议id（id）进行查询
+3、输入参数id （根据协议id）
+
+三、对当条协议基本信息修改：
+1、路径：URL = "/hcp/agreement/update"；
+2、根据协议ID将当条协议信息进行修改
+3、输入Json
+Json data={'id':'F8B8612DF97722DBE043171D190AA03A','agreementType':'类型02','agreementNo':'20140102','idHealthcareProvider':'123456','dateAgreementEff':'2014-01-02','dateAgreementEnd':'2014-12-02','payMentMode':'04,02,03','remarks':'备注','oldPayMentMode':'01'};
+
+四、点击新增，将协议基本信息添加：
+1、路径：URL = "/hcp/agreement/create"
+2、点击新增，将协议基本信息添加
+3、输入Json
+Json data={'agreementType':'类型','agreementNo':'20140102','idHealthcareProvider':'123456','dateAgreementEff':'2014-01-02','dateAgreementEnd':'2014-12-02','payMentMode':'1,2,3','remarks':'备注'};
+
+五、删除协议基本信息：
+1、路径：URL = "/hcp/agreement/delete"；
+2、选择要删除的协议基本信息，在列表中勾选协议，点击删除按钮进行删除
+3、输入Json
+Json data={'id':'F8B8612DF97722DBE043171D190AA03A,F8B8612DF97722DBE043171D190AA03B'}; （当选择多个协议的时候，可以将id拼接）
+
+
+
+
+
+  

@@ -1,0 +1,36 @@
+<h3>违规信息<i class="close"></i></h3>
+<form autocomplete="off"  name="ruleInfoDetailForm" novalidate ng-submit="saveRuleInfo(ruleInfoDetailForm.$valid,'dialog')" class="Frm">
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>违约日期:</b>
+            <input name="breachDate" required ng-model="ruleInfoDetail.breachDate" date-time-picker type="text">
+        </dt>
+          <dd ng-show="ruleSubmitted">
+                <small  ng-show="ruleInfoDetailForm.breachDate.$error.required">违约日期不能为空</small>
+            </dd>
+    </dl>
+    <dl class="tea oneRow">
+        <dt>
+            <b><span class="red"> * </span>详细内容:</b>
+            <textarea name="detail" ng-maxlength=1000 required ng-model="ruleInfoDetail.detail"></textarea>
+        </dt>
+         <dd  ng-show="ruleSubmitted">
+                <small  ng-show="ruleInfoDetailForm.detail.$error.required">详细内容不能为空</small>
+        <small  ng-show="ruleInfoDetailForm.detail.$error.maxlength">长度不能超过1000个字符</small>
+            </dd>
+    </dl>
+    <dl class="tea oneRow">
+        <dt>
+            <b><span class="red"> * </span>处理意见:</b>
+            <textarea name="opinion" mg-maxlength=1000 required ng-model="ruleInfoDetail.opinion"></textarea>
+        </dt>
+        <dd  ng-show="ruleSubmitted">
+                <small  ng-show="ruleInfoDetailForm.opinion.$error.required">处理意见不能为空</small>
+               <small  ng-show="ruleInfoDetailForm.opinion.$error.maxlength">长度不能超过1000个字符</small>
+            </dd>
+    </dl>
+    <p class="Tc">
+        <button type="submit" class="Confirm">保存</button>
+        <button class="close" id="ruleCancel" type="button">取消</button>
+    </p>
+</form>

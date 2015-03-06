@@ -1,0 +1,54 @@
+<form autocomplete="off" class="Frm haveTab">
+   <!--  <dl>
+        <dt>
+            <b>科室:</b>
+            <input ng-model="queryRelationListParams.department" type="text">
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b>联系人:</b>
+            <input ng-model="queryRelationListParams.contacts" type="text">
+        </dt>
+    </dl>
+    <p class="sbt">
+        <button  ng-click="queryRelationList()" type="submit">查询信息</button>
+    </p>
+    -->
+</form>
+<table class="Table">
+    <thead>
+    <tr>
+        <th>
+            <input id="relationIdList" ng-click="getRelationIdList('relationIdBox')" onclick="Utils.doCheck(this,'relationIdBox')" type="checkbox">
+        </th>
+        <th>科室</th>
+        <th>联系人</th>
+        <th>手机</th>
+        <th>联系电话</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in institutionRelationList">
+            <td><input name="relationIdBox" value="{{item.id}}" ng-click="getRelationIdList('relationIdBox')"
+                       type="checkbox" onclick="Utils.toChkSon('relationIdList',this)" ></td>
+           <td>{{item.department}}</td>
+           <td><a href="" ng-click="getRelationDetail($event)" id="{{item.id}}" dialog dialog-target="relDialog" title="点击查看明细" >{{item.contacts}}</a></td>
+           <td>{{item.moblie}}</td>
+           <td>{{item.phone}}</td>
+        </tr>
+    </tbody>
+</table>
+<dl class="Date">
+    <dt>
+        <button type="button" ng-click="clear()" dialog dialog-target="relDialog" class="Btn Confirm Small">新增</button>
+        <button type="button" ng-disabled="!relationIdList" ng-click="deleteRelation()" class="Btn Warning Small">删除</button>
+    </dt>
+    <dd class="Paging">
+        <pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination>
+    </dd>
+</dl>
+
+<div class="Pop" id="relDialog">
+    <div ng-include="'views/institution/relation_info_add.htm'"></div>
+</div>

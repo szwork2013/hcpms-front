@@ -1,0 +1,9 @@
+{
+	"msg":"查询成功！",
+	"result":
+		[{"agreementId":"F8B8612DF97722DBE043171D190AA03A","createdBy":"创建人","dateCreated":1399368491000,"dateUpdated":1399369176000,"discountRatio":1,"id":"F8B8DDE3AEF14129E043171D190A3966","idDepartment":"222","isValid":"0","serviceItemCode":"111","serviceItemDetail":"33322","startRownum":1,"updatedBy":"创建人"},
+		{"agreementId":"F8B8612DF97722DBE043171D190AA03A","createdBy":"创建人","dateCreated":1399368521000,"dateUpdated":1399368521000,"discountRatio":2,"id":"F8B8DFB6FD5E48DAE043171D190AA658","idDepartment":"222","isValid":"0","serviceItemCode":"11122","serviceItemDetail":"33322","startRownum":2,"updatedBy":"创建人"},
+		{"agreementId":"F8B8612DF97722DBE043171D190AA03A","createdBy":"创建人","dateCreated":1399368537000,"dateUpdated":1399368537000,"discountRatio":1,"id":"F8B8E0A7DBB84C51E043171D190A692F","idDepartment":"222","isValid":"0","serviceItemCode":"11122","serviceItemDetail":"33322","startRownum":3,"updatedBy":"创建人"}],
+	"state":"0",
+	"totals":{"total":3}
+}

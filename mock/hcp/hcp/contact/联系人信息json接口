@@ -1,0 +1,71 @@
+联系人信息模块相关操作
+				Json中字段所对应的信息：
+				物理ID	id
+				医疗机构标识	providerid
+				科室	department
+				联系人	contacts
+				手机	moblie
+				联系电话	phone
+				联系人职务	job
+				创建人	createby
+				修改人	updateby
+				创建时间	createDate
+				修改时间	updateDate
+				数据状态	isvalid
+				当前页         page;
+				每页显示条数   pageSize
+
+一、联系人信息详情查询：
+1、路径：URL = "/hcp/hcp/contact/show"；
+2、根据物理id查询详情
+3、输入Json
+Json data={"id":"F8DA380DBEFC2B65E043171D190AB292"}
+4、输出Json
+{result={id=F8DA380DBEFC2B65E043171D190AB292, moblie=111111113, phone=222222222223, providerid=F8B7CA7810023332E043171D190A3CC1, updateby=test1213, department=test13, createby=test1213, job=tset3, createDate=2014-05-08, updateDate=2014-05-08, isvalid=0, contacts=cyh}, 
+state=0,
+ msg=查询成功！}
+
+二、联系人列表查询
+1、路径：URL = "/hcp/hcp/contact/page"
+2、根据医疗机构标识	（providerid）进行查询
+3、输入Json
+Json data={"page":1,"pageSize":20,"providerid":"F8B7CA7810023332E043171D190A3CC1"}
+4、输出Json
+{"msg":"查询成功！",
+"result":[{"contacts":"cyh","createDate":"2014-05-08","createby":"test1213","department":"test13","id":"F8DA380DBEFC2B65E043171D190AB292","isvalid":"0","job":"tset3","moblie":"111111113","phone":"222222222223","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":1,"updateDate":"2014-05-08","updateby":"test1213"},
+		{"contacts":"tes1t21","createDate":"2014-05-08","createby":"test121","department":"test121","id":"F8DA36A08CB22504E043171D190A8322","isvalid":"0","job":"tset1","moblie":"11111111","phone":"22222222222","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":2,"updateDate":"2014-05-08","updateby":"test121"},
+		{"contacts":"tes1t2","createDate":"2014-05-08","createby":"test12","department":"test12","id":"F8DA34D330E220B1E043171D190A2ED4","isvalid":"0","job":"tset","moblie":"11111111","phone":"22222222222","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":3,"updateDate":"2014-05-08","updateby":"test12"}],
+"state":"0",
+"totals":{"total":3}}}
+
+三、联系人信息修改：
+1、路径：URL = "/hcp/hcp/contact/update"；
+2、根据物理id（id）将当条信息进行修改
+3、输入Json
+Json data={"contacts":"cyh","createby":"test1213","department":"test13","id":"F8DA380DBEFC2B65E043171D190AB292","job":"fdfdf","moblie":"111111113","phone":"222222222223","updateby":"test1213"}
+4、输出Json
+{"msg":"修改成功！","state":"0"}
+
+
+四、点击新增，添加联系人信息：
+1、路径：URL = "/hcp/hcp/contact/create"
+2、点击新增，添加联系人信息
+3、输入Json
+Json data={"contacts":"tes1t3","createby":"test1213","department":"test13","job":"tset3","moblie":"111111113","phone":"222222222223","providerid":"F8B7CA7810023332E043171D190A3CC1","updateby":"test1213"}
+4、输出Json
+{"msg":"添加成功！","state":"0"}
+
+
+五、删除联系人信息：
+1、路径：URL = "/hcp/hcp/contact/delete"；
+2、选择要删除的联系人信息，在列表中勾选联系人信息，点击删除按钮进行删除
+3、输入Json
+Json data={"ids":"'F8EF45595ACC5BFEE043171D190AB4C6','F8EF45ABC4F05CB0E043171D190A92F5','F8EF45FBDD695D99E043171D190A4EDF'"}; （当选择多个的时候，可以将id拼接）
+4、输出Json
+{"msg":"物理删除成功！","state":"0"}
+
+
+
+
+
+  

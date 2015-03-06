@@ -1,0 +1,14 @@
+卫生类别列表
+				Json中字段所对应的信息：
+name 名称
+code 类别代码
+
+
+二、医疗设备列表查询
+1、路径：URL = "/hcp/hcp/economicType"
+
+
+
+
+
+  

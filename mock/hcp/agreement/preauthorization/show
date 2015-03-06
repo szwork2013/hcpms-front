@@ -1,0 +1,7 @@
+{
+	"msg":"查询成功！",
+	"result":{
+		"age":"28","agreementId":"F8B8612DF97722DBE043171D190AA03A","amount":"2","createdBy":"创建人","dateCreated":"2014-05-12 10:46:55","dateUpdated":"2014-05-13 14:40:19","dateUsingPeriodEnd":"2015-12-12 00:00:00","dateUsingPeriodStart":"2014-03-01 00:00:00","diagnosisItem":"11112","id":"F92BF5ECD677512FE043171D190A359E","idMedicine":"3","isDomestic":"2","isValid":"0","quantity":"2","updatedBy":"xxx","usingTimes":"2"
+		},
+	"state":"0"
+}

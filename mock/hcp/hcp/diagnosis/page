@@ -1,0 +1,10 @@
+{"msg":"查询成功！",
+"result":[{"id":"F8F0720A5185529AE043171D190A6B2D","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":1,"treatCode":"cyh"},
+		{"id":"F8F072983BF455F6E043171D190A3865","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":2,"treatCode":"tes1t3"},
+		{"id":"F8F072CF824556D2E043171D190ABACB","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":3,"treatCode":"tes1t3"},
+		{"id":"F8F07306FD005730E043171D190A3589","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":4,"treatCode":"tes1t3"},
+		{"id":"F8F0733C7D94577EE043171D190AAD91","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":5,"treatCode":"tes1t3"},
+		{"id":"F8F07372FE9657FCE043171D190AE64A","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":6,"treatCode":"tes1t3"},
+		{"id":"F8F073ACE440588AE043171D190A34A2","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":7,"treatCode":"tes1t3"}],
+"state":"0",
+"totals":{"total":7}}

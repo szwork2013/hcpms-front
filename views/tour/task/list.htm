@@ -1,0 +1,74 @@
+<form autocomplete="off" class="Frm">
+	<dl class="forDate">
+		<dt>
+			<b>巡查日期:</b> <input type="text"
+				ng-model="queryParams.inspectDateFrom" date-time-picker> — <input
+				type="text" ng-model="queryParams.inspectDateEnd" date-time-picker>
+		</dt>
+	</dl>
+	<dl>
+		<dt>
+			<b>医疗机构名称:</b> <input type="text"
+				ng-model="queryParams.healthProviderName">
+		</dt>
+	</dl>
+	<dl class="oneRow">
+		<dt>
+			<b>计划状态:</b>
+			<select ng-model="queryParams.status">
+				<option value="">--请选择--</option>
+				<option value="1">待处理</option></option>
+				<option value="2">已完成</option></option>
+			</select>
+		</dt>
+	</dl>
+	<p class="sbt">
+		<button type="submit" ng-click="queryTourTaskList()">查询信息</button>
+	</p>
+</form>
+<table class="Table">
+	<thead>
+		<tr>
+			<th>医疗机构名称</th>
+			<th>巡查日期</th>
+			<th>次数详情</th>
+			<th>巡查人</th>
+			<th>巡查计划制定人</th>
+			<th>查询状态</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in tourPlanList">
+			<td><a dialog dialog-target="detailTask"
+				ng-click="queryTourTaskInfo(item.tourPlanID)">{{item.healthProviderName}}</a></td>
+			<td>{{item.inspectDateFrom }}至{{item.inspectDateEnd}}</td>
+			<td>{{item.finishedTimes}}/{{item.times}}</td>
+			<td>{{item.operator}}</td>
+			<td>{{item.constitutor}}</td>
+			<td>{{item.statusName}}</td>
+			<td>
+				<button type="button" class="Confirm Small" ng-click="generate(item.tourPlanID)" disabled ng-disabled="item.status == 2">生成</button>
+				<button type="button" dialog dialog-target="print" class="Confirm Small" ng-click="exportDetailPreview(item.tourPlanID)" disabled ng-disabled="item.status == 2">打印</button>
+				<button type="button" dialog dialog-target="insert" class="Confirm Small" ng-click="insertTask(item.tourPlanID)" disabled ng-disabled="item.status == 2">录入</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<dl class="Date">
+	<dd>
+		 <pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination>
+	</dd>
+</dl>
+<div class="Pop" id="detailTask">
+	<div ng-include="'views/tour/task/taskList.htm'"></div>
+</div>
+<div class="Pop" id="insert">
+	<div ng-include="'views/tour/task/newList.htm'"></div>
+</div>
+<div class="Pop" id="create">
+	<div ng-include="'views/tour/task/newList.htm'"></div>
+</div>
+<div class="Pop" id="print">
+	<div ng-include="'views/tour/task/printpreview.htm'"></div>
+</div>

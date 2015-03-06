@@ -1,0 +1,36 @@
+<form autocomplete="off" class="Frm">
+    <dl class="forDate">
+        <dt>
+            <b>提交时间:</b>
+            <input ng-model="pondListParam.createdDateBegin" type="text" date-time-picker> — <input ng-model="pondListParam.createdDateEnd" type="text" date-time-picker>
+        </dt>
+    </dl>
+    <p class="sbt">
+        <button type="submit" ng-click="queryPondList()">查询信息</button>
+    </p>
+</form>
+<table class="Table">
+    <thead>
+    <tr>
+        <th>报表名称</th>
+        <th>查询条件</th>
+        <th>提交时间</th>
+        <th>提交人</th>
+        <th>状态</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in pondList">
+            <td><a href="">{{item.fileName}}</a></td>
+            <td>{{item.taskCondition}}</td>
+            <td>{{item.createdDate}}</td>
+            <td>{{item.createdBy}}</td>
+            <td>{{item.taskStatus}}</td>
+            <td><a href="report/pond/download?fileInfoID={{item.fileInfoID}}&fileName={{item.fileName}}" title="点击查看下载">查看</a></td>
+        </tr>
+    </tbody>
+</table>
+<dl class="Date">
+    <dd><pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination></dd>
+</dl>

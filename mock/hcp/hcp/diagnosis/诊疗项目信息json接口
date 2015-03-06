@@ -1,0 +1,75 @@
+诊疗项目信息模块相关操作
+				Json中字段所对应的信息：
+				 物理ID	id
+				 医疗机构标识	providerid
+				 诊疗项目代码	treatCode
+				 科室	department
+				 价格	price
+				 限额	quota
+				 限制数量	limit
+				创建人	createby
+				修改人	updateby
+				创建时间	createDate
+				修改时间	updateDate
+				数据状态	isvalid
+				当前页         page;
+				每页显示条数   pageSize
+
+一、诊疗项目信息详情查询：
+1、路径：URL = "/hcp/hcp/diagnosis/show"；
+2、根据物理id查询详情
+3、输入Json
+Json data={"id":"F8F0720A5185529AE043171D190A6B2D"}
+4、输出Json
+{"msg":"查询成功！",
+"result":{"createDate":"2014-05-09","createby":"test1213","department":"cyh","id":"F8F0720A5185529AE043171D190A6B2D","isvalid":"0","limit":11,"price":11,"providerid":"F8B7CA7810023332E043171D190A3CC1","quota":12,"treatCode":"cyh","updateDate":"2014-05-09","updateby":"test1213"},
+"state":"0"}}
+
+二、诊疗项目列表查询
+1、路径：URL = "/hcp/hcp/diagnosis/page"
+2、根据医疗机构标识	（providerid）进行查询
+3、输入Json
+Json data={"page":1,"pageSize":20,"providerid":"F8B7CA7810023332E043171D190A3CC1"}
+4、输出Json
+{"msg":"查询成功！",
+"result":[{"id":"F8F0720A5185529AE043171D190A6B2D","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":1,"treatCode":"cyh"},
+		{"id":"F8F072983BF455F6E043171D190A3865","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":2,"treatCode":"tes1t3"},
+		{"id":"F8F072CF824556D2E043171D190ABACB","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":3,"treatCode":"tes1t3"},
+		{"id":"F8F07306FD005730E043171D190A3589","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":4,"treatCode":"tes1t3"},
+		{"id":"F8F0733C7D94577EE043171D190AAD91","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":5,"treatCode":"tes1t3"},
+		{"id":"F8F07372FE9657FCE043171D190AE64A","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":6,"treatCode":"tes1t3"},
+		{"id":"F8F073ACE440588AE043171D190A34A2","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":7,"treatCode":"tes1t3"}],
+"state":"0",
+"totals":{"total":7}}}
+
+三、诊疗项目信息修改：
+1、路径：URL = "/hcp/hcp/diagnosis/update"；
+2、根据物理id（id）将当条信息进行修改
+3、输入Json
+Json data={"createby":"test1213","department":"cyh","id":"F8F0720A5185529AE043171D190A6B2D","limit":"11","price":"11.00","quota":"12.00","treatCode":"cyh","updateby":"test1213"}
+4、输出Json
+{"msg":"修改成功！","state":"0"}
+
+
+四、点击新增，添加诊疗项目信息：
+1、路径：URL = "/hcp/hcp/diagnosis/create"
+2、点击新增，添加联系人信息
+3、输入Json
+Json data={"createby":"test1213","department":"test13","limit":"11","price":"11.00","providerid":"F8B7CA7810023332E043171D190A3CC1","quota":"12.00","treatCode":"tes1t3","updateby":"test1213"}
+4、输出Json
+{"msg":"添加成功！","state":"0"}
+
+
+五、删除诊疗项目信息：
+1、路径：URL = "/hcp/hcp/diagnosis/delete"；
+2、选择要删除的医疗设备信息，在列表中勾选医疗设备信息，点击删除按钮进行删除
+3、输入Json
+Json data={"ids":"'F8EF45595ACC5BFEE043171D190AB4C6','F8EF45ABC4F05CB0E043171D190A92F5','F8EF45FBDD695D99E043171D190A4EDF'"}; （当选择多个的时候，可以将id拼接）
+4、输出Json
+{"msg":"物理删除成功！","state":"0"}
+
+
+
+
+
+  

@@ -1,0 +1,33 @@
+<form autocomplete="off" novalidate class="Frm">
+    <dl>
+        <dt>
+            <b>医疗机构名称:</b>
+            <input ng-model="diseaseParam.healthcareProviderName" type="text">
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b>统计区间:</b>
+            <select class="s1" ng-model="diseaseParam.period" style="width: 60px;" ng-change="periodChange()"  >
+                <option value="1" selected>月</option>
+                <option value="2">季</option>
+                <option value="3">年</option>
+            </select>
+            <select class="s1" ng-model="diseaseParam.year" ng-change="selectLocalYear()" style="width: 90px;">
+                <option value="" selected>请选择</option>
+                <option ng-repeat="item in years" value="{{item.code}}">{{item.text}}</option>
+            </select>
+            <select class="s1" ng-show="months" ng-model="diseaseParam.month" style="width: 80px;">
+                <option value="" selected>请选择</option>
+                <option ng-repeat="item in months" value="{{item.code}}">{{item.text}}</option>
+            </select>
+        </dt>
+    </dl>
+    <p class="sbt">
+        <button type="submit" ng-click="createDisease()">提交并生成</button>
+    </p>
+</form>
+<div class="textContent">
+<h3>报表指标:</h3>
+<p>典型单病种发生次数、典型单病种发生总金额、典型单病种发生统筹金额、典型单病种发生自负金额。</p>
+</div>

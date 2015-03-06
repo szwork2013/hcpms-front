@@ -1,0 +1,57 @@
+<form autocomplete="off" class="Frm haveTab">
+    <dl>
+        <dt>
+            <b>类别:</b>
+            <select name="itemType" ng-model="preAuthListParam.itemType"
+                    ng-init="getDataByCodeType('{codeType:\'itemTypes\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['itemTypes']">
+                <option value="">---请选择---</option>
+            </select>
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b>编码:</b>
+            <input  name="itemCode"  ng-model="preAuthListParam.itemCode" type="text">
+        </dt>
+    </dl>
+    
+        <dl>
+        <dt>
+            <b>名称:</b>
+            <input  name="itemName"  ng-model="preAuthListParam.itemName" type="text">
+        </dt>
+    </dl>
+		<p class="sbt">
+			<button type="submit" ng-click="queryPreAuthList(preAuthListParam)">查询信息</button>
+		</p>
+	</form>
+	<table class="Table">
+		<thead>
+			<tr>
+				<th><input id="preAuthIdList" ng-click="getPreAuthList('preauthIdBox')" onclick="Utils.doCheck(this,'preauthIdBox')" type="checkbox"></th>
+				<th>类别</th>
+				<th>编码</th>
+                <th>名称</th>
+            </tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in preAuthList">
+                <td><input name="preauthIdBox" ng-model="preAuthIdList" value="{{item.id}}" ng-click="getPreAuthList('preauthIdBox')"
+                           type="checkbox" onclick="Utils.toChkSon('preAuthIdList',this)" ></td>
+                <td><a ng-click="getPreAuthDetail($event)" dialog dialog-target="dialog" id="{{item.id}}" href="">{{item.itemTypeName}}</a></td>
+                <td>{{item.itemCode}}</td>
+                <td>{{item.itemName}}</td>
+			</tr>
+		</tbody>
+	</table>
+    <dl class="Date">
+        <dt>
+            <button class="Btn Confirm Small" ng-click="clean()" dialog dialog-target="dialog">新增</button>
+            <button href="" class="Btn Warning Small" ng-disabled="!preAuthIdList" ng-click="deletePreAuth()" >删除</button>
+        </dt>
+        <dd><pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination></dd>
+    </dl>
+    <div class="Pop" id="dialog">
+        <div ng-include="'views/agreement/newprepayment.htm'"></div>
+    </div>

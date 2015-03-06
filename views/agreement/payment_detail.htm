@@ -1,0 +1,142 @@
+<div class="FrmWrap haveTab">
+    <div ng-show="agreementPayDetail.gloPayShow">
+    <span>按总额付费</span>
+        <table class="Table">
+            <thead>
+                <tr>
+                    <th> <input id="agreementeGloGetIdList" ng-click="getAgreementGloGetIdList('globalBudgetIdBox')" onclick="Utils.doCheck(this,'globalBudgetIdBox')" type="checkbox"></th>
+                    <th>年度总额</th>
+                    <th>比例类型</th>
+                    <th>标准比例</th>
+                    <th>处理比例</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in agreementPayDetail.gloPayList">
+                    <td>
+                        <input name="globalBudgetIdBox" ng-model="agreementeGloGetIdList" value="{{item.id}}" ng-click="getAgreementGloGetIdList('globalBudgetIdBox')"
+                               type="checkbox" onclick="Utils.toChkSon('agreementeGloGetIdList',this)" >
+                    </td>
+                    <td>
+                        <a ng-click="getGloGetDetail($event)" dialog dialog-target="gloDialog" title="点击查看明细" id="{{item.id}}" href="">{{item.annualAmount}}</a>
+                    </td>
+                    <td>{{item.ratioTypeName}}</td>
+                    <td>{{item.ratioStdValue}}</td>
+                    <td>{{item.ratioUsingValue}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <dl class="Date">
+            <dt>
+                <button ng-click="cleanGloGet()" class="Btn Confirm Small"  dialog dialog-target="gloDialog">新增</button>
+                <button class="Btn Warning Small"  ng-disabled="!agreementeGloGetIdList" ng-click="deleteGloGet()">删除</button>
+            </dt>
+        </dl>
+    </div>
+    <div ng-show="agreementPayDetail.capPayShow">
+    <span>按人头付费</span>
+        <table class="Table">
+            <thead>
+                <tr>
+                    <th> <input id="agreementeCapPayIdList" ng-click="getAgreementeCapPayIdList('capitationPayIdBox')" onclick="Utils.doCheck(this,'capitationPayIdBox')" type="checkbox"></th>
+                    <th>每次支付标准</th>
+                    <th>就诊类型</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in agreementPayDetail.capPayList">
+                    <td> <input name="capitationPayIdBox" ng-model="agreementeCapPayIdList" value="{{item.id}}" ng-click="getAgreementeCapPayIdList('capitationPayIdBox')"
+                                type="checkbox" onclick="Utils.toChkSon('agreementeCapPayIdList',this)" ></td>
+                    <td>
+                        <a ng-click="getCapPayDetail($event)" dialog dialog-target="capDialog" id="{{item.id}}" href="">{{item.paystdPerpersonPeryear}}</a>
+                    </td>
+                    <td>{{item.attendanceTypeName}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <dl class="Date">
+            <dt>
+                <button ng-click="cleanCapPay()" class="Btn Confirm Small" dialog dialog-target="capDialog">新增</button>
+                <button class="Btn Warning Small" ng-disabled="!agreementeCapPayIdList" ng-click="deleteCapPay()">删除</button>
+            </dt>
+        </dl>
+    </div>
+    <div ng-show="agreementPayDetail.serPayShow">
+        <span>按项目付费</span>
+        <table class="Table">
+            <thead>
+            <tr>
+                <th> <input id="agreementeSerPayIdList" ng-click="getAgreementeSerPayIdList('serviceItemPayIdBox')" onclick="Utils.doCheck(this,'serviceItemPayIdBox')" type="checkbox"></th>
+                <th>项目代码</th>
+                <th>项目名称</th>
+                <th>项目内涵</th>
+                <th>科室</th>
+                <th>折扣比例</th>
+                <th>价格</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in agreementPayDetail.serPayList">
+                <td><input name="serviceItemPayIdBox" ng-model="agreementeSerPayIdList" value="{{item.id}}" ng-click="getAgreementeSerPayIdList('serviceItemPayIdBox')"
+                           type="checkbox" onclick="Utils.toChkSon('agreementeSerPayIdList',this)" ></td>
+                <td><a ng-click="getSerPayDetail($event)" dialog dialog-target="serDialog" id="{{item.id}}" href="">{{item.serviceItemCode}}</a></td>
+                <td>{{item.serviceItemName}}</td>
+                <td>{{item.serviceItemDetail}}</td>
+                <td>{{item.idDepartmentName}}</td>
+                <td>{{item.discountRatio}}</td>
+                <td>{{item.price}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="Date">
+            <div class="Fl">
+                <button ng-click="cleanSerPay()" class="Btn Confirm Small"  dialog dialog-target="serDialog">新增</button>
+                <button class="Btn Warning Small" ng-disabled="!agreementeSerPayIdList" ng-click="deleteSerPay()">删除</button>
+            </div>
+            <div class="Fr"><pagination pg-page-info="serPgPageInfo" ng-show="serPgPageInfo"></pagination></div>
+        </div>
+    </div>
+    <div ng-show="agreementPayDetail.disPayShow">
+        <span>按病种付费</span>
+        <table class="Table">
+            <thead>
+            <tr>
+                <th> <input id="agreementeDisPayIdList" ng-click="getAgreementeDisPayIdList('dispayIdBox')" onclick="Utils.doCheck(this,'dispayIdBox')" type="checkbox"></th>
+                <th>病种代码</th>
+                <th>病种名称</th>
+                <th>支付额度</th>
+                <th>支付条件</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in agreementPayDetail.disPayList">
+                <td><input name="dispayIdBox" ng-model="agreementeDisPayIdList" value="{{item.id}}" ng-click="getAgreementeDisPayIdList('dispayIdBox')"
+                           type="checkbox" onclick="Utils.toChkSon('agreementeDisPayIdList',this)" ></td>
+                <td><a ng-click="getDisPayDetail($event)" dialog dialog-target="disDialog" id="{{item.id}}" href="">{{item.diseaseCode}}</a></td>
+                <td>{{item.diseaseName}}</td>
+                <td>{{item.payAmount}}</td>
+                <td>{{item.payCondition}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="Date">
+            <div class="Fl">
+                <button ng-click="cleanDisPay()" class="Btn Confirm Small" dialog dialog-target="disDialog">新增</button>
+                <button class="Btn Warning Small"  ng-disabled="!agreementeDisPayIdList" ng-click="deleteDisPay()" >删除</button>
+            </div>
+            <div class="Fr"><pagination pg-page-info="disPgPageInfo" ng-show="disPgPageInfo"></pagination></div>
+        </div>
+    </div>
+</div>
+<div class="Pop"  id="disDialog">
+    <div ng-include="'views/agreement/pop/disease_pay_add.htm'"></div>
+</div>
+<div class="Pop"  id="serDialog">
+    <div ng-include="'views/agreement/pop/service_item_pay_add.htm'"></div>
+</div>
+<div class="Pop"  id="gloDialog">
+    <div ng-include="'views/agreement/pop/globalbudget_pay_add.htm'"></div>
+</div>
+<div class="Pop"  id="capDialog">
+    <div ng-include="'views/agreement/pop/capitation_pay_add.htm'"></div>
+</div>

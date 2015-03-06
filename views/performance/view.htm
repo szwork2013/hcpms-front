@@ -1,0 +1,44 @@
+<form autocomplete="off" class="Frm">
+    <dl>
+        <dt>
+            <b>医疗机构名称:</b>
+            <input ng-model="viewParam.healthProName" type="text">
+        </dt>
+    </dl>
+    <dl class="forDate">
+        <dt>
+            <b>提交日期:</b>
+            <input type="text" ng-model="viewParam.submitDateBegin" date-time-picker> — <input type="text" ng-model="viewParam.submitDateEnd" date-time-picker>
+        </dt>
+    </dl>
+    <p class="sbt">
+        <button type="button" class="Confirm" ng-click="getViewList()">查询信息</button>
+    </p>
+</form>
+<table class="Table">
+    <thead>
+    <tr>
+        <th>医疗机构名称</th>
+        <th>报告期间</th>
+        <th>提交时间</th>
+        <th>提交人</th>
+        <th>状态</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in performanceViewList">
+            <td>{{item.healthProName}}</td>
+            <td>{{item.reportDate}}</td>
+            <td>{{item.submitDate}}</td>
+            <td>{{item.submitter}}</td>
+            <td>{{item.status}}</td>
+            <td><a href="performance/view/down?fileInfoID={{item.fileInfoID}}&fileName={{item.fileName}}" title="点击查看下载">下载</a></td>
+        </tr>
+    </tbody>
+</table>
+<dl class="Date">
+    <dd class="Paging">
+        <pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination>
+    </dd>
+</dl>

@@ -1,0 +1,7 @@
+{
+	"msg":"查询成功！",
+	"result":{
+		"agreementId":"F8B8612DF97722DBE043171D190AA03A","createdBy":"创建人","dateCreated":"2014-05-06 17:28:11","dateUpdated":"2014-05-06 17:39:36","discountRatio":"1","id":"F8B8DDE3AEF14129E043171D190A3966","idDepartment":"222","isValid":"0","serviceItemCode":"111","serviceItemDetail":"33322","updatedBy":"创建人"
+		},
+		"state":"0"
+}

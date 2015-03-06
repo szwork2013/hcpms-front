@@ -1,0 +1,60 @@
+<form autocomplete="off" class="Frm haveTab">
+    <dl>
+        <dt>
+            <b>姓名:</b>
+            <input ng-model="queryDoctorInfoListParams.name" type="text">
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b>执业许可证:</b>
+            <input ng-model="queryDoctorInfoListParams.jobNo" type="text">
+        </dt>
+    </dl>
+    <p class="sbt">
+        <button type="button" class="Confirm" ng-click="queryDoctorInfoList()">查询信息</button>
+    </p>
+</form>
+<table class="Table">
+    <thead>
+    <tr>
+        <th>
+            <input id="doctorInfoIdList" ng-click="getDoctorInfoIdList('doctorInfoIdBox')" onclick="Utils.doCheck(this,'doctorInfoIdBox')" type="checkbox">
+        </th>
+        <th>姓名</th>
+        <th>执业许可证</th>
+        <th>执业范围</th>
+        <th>证件号</th>
+        <th>证件类型</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in institutionDoctorInfoList">
+            <td>
+                <input name="doctorInfoIdBox" value="{{item.id}}" ng-click="getDoctorInfoIdList('doctorInfoIdBox')"
+                       type="checkbox" onclick="Utils.toChkSon('doctorInfoIdList',this)" >
+            </td>
+            <td>
+                <a href="" ng-click="getDoctorInfoDetail($event)" id="{{item.id}}" dialog dialog-target="doctorDialog" title="点击查看明细">
+                    {{item.name}}
+                </a>
+            </td>
+            <td>{{item.jobNo}}</td>
+            <td>{{item.scopeName}}</td>
+            <td>{{item.cardNo}}</td>
+            <td>{{item.passportName}}</td>
+        </tr>
+    </tbody>
+</table>
+<dl class="Date">
+    <dt>
+        <a type="button" ng-click="clean()" dialog dialog-target="doctorDialog" class="Btn Confirm Small">新增</a>
+        <button type="button" ng-disabled="!doctorInfoIdList" ng-click="deleteDoctorInfo()"  class="Btn Warning Small">删除</button>
+    </dt>
+    <dd class="Paging">
+        <pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination>
+    </dd>
+</dl>
+<div class="Pop" id="doctorDialog">
+    <div ng-include="'views/institution/doctor_info_add.htm'"></div>
+</div>

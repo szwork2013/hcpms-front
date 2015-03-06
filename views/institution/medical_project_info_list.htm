@@ -1,0 +1,46 @@
+<form autocomplete="off" class="Frm haveTab">
+    <dl>
+        <dt>
+            <b>诊疗项目编码:</b>
+            <input ng-model="medicalProjectListParam.treatCode" type="text">
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b>项目名称:</b>
+            <input ng-model="medicalProjectListParam.name" type="text">
+        </dt>
+    </dl>
+    <p class="sbt">
+        <button type="submit" ng-click="queryMedicalProjectList()">查询信息</button>
+    </p>
+</form>
+<table class="Table">
+    <thead>
+    <tr>
+        <th> <input id="medicalProjectIdList" ng-click="getMedicalProjectIdList('medicalProjectIdBox')"
+                    onclick="Utils.doCheck(this,'medicalProjectIdBox')" type="checkbox"></th>
+        <th>诊疗项目编码</th>
+        <th>诊疗项目名称</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in medicalProjectList">
+        <td><input type="checkbox" name="medicalProjectIdBox" value="{{item.id}}"
+                   ng-click="medicalProjectIdList = getMedicalProjectIdList('medicalProjectIdBox')"
+                   onclick="Utils.toChkSon('medicalProjectIdList',this)" ></td>
+        <td><a ng-click="setDialogItemId(item.id)" dialog dialog-target="medDialog" >{{item.treatCode}}</a></td>
+        <td>{{item.name}}</td>
+    </tr>
+    </tbody>
+</table>
+<dl class="Date">
+    <dt>
+        <a href="" class="Btn Confirm Small" dialog dialog-target="medDialog" ng-click="clean()">新增</a>
+        <button href="" ng-disabled="!medicalProjectIdList" class="Btn Warning Small" ng-click="deleteMedicalProjectList()" >删除</button>
+    </dt>
+    <dd><pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination></dd>
+</dl>
+<div class="Pop" id="medDialog">
+    <div ng-include="'views/institution/medical_project_info_add.htm'"></div>
+</div>

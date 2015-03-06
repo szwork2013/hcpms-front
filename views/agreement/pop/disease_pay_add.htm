@@ -1,0 +1,51 @@
+<h3>支付方式 —— 按病种付费<i class="close"></i></h3>
+<form autocomplete="off" name="disPayDetailForm" novalidate ng-submit="saveDisPay(disPayDetailForm.$valid,'disDialog')" class="Frm">
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>病种代码:</b>
+            <input ng-blur="autoSearch02($event)" required name="diseaseCode" ng-maxlength=32 ng-model="disPayDetail.diseaseCode" type="text">
+        </dt>
+        <dd ng-show="gloSubmitted04">
+            <small ng-show="disPayDetailForm.diseaseCode.$error.required">病种代码不能为空</small>
+            <small ng-show="disPayDetailForm.diseaseCode.$error.maxlength">病种代码不能超过32字</small>
+
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>病种名称:</b>
+            <input  ng-blur="autoSearch02($event)" required name="diseaseName" ng-model="disPayDetail.diseaseName" type="text">
+        </dt>
+        <dd ng-show="gloSubmitted04">
+            <small ng-show="disPayDetailForm.diseaseName.$error.required">病种名称不能为空</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>支付额度:</b>
+            <input required name="payAmount" ng-pattern='/^(([1-9][0-9]{0,13})|0)(\.\d{1,2})?$/' ng-model="disPayDetail.payAmount" type="text">
+        </dt>
+        <dd ng-show="gloSubmitted04">
+            <small ng-show="disPayDetailForm.payAmount.$error.required">支付额度不能为空</small>
+            <small ng-show="disPayDetailForm.payAmount.$error.pattern">必须为小于14位且保留2位小数的正数</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b></b>
+        </dt>
+    </dl>
+    <dl class="tea oneRow">
+        <dt>
+            <b>支付条件:</b>
+            <textarea   ng-maxlength=120  name="payCondition" ng-model="disPayDetail.payCondition"></textarea>
+        </dt>
+        <dd ng-show="gloSubmitted04">
+            <small ng-show="disPayDetailForm.payCondition.$error.maxlength">支付条件不能超过120字</small>
+        </dd>
+    </dl>
+    <p class="Tc">
+        <button type="submit" class="Confirm">保存</button>
+        <button id="closeTaskDetail" class="close" type="button">取消</button>
+    </p>
+</form>

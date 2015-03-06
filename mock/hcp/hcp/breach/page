@@ -1,0 +1,30 @@
+{
+    "msg": "查询成功！",
+    "result": [
+        {
+            "breachDate": "2014-04-05",
+            "breachid": "F8C64B4146E531A8E043171D190AEA3F",
+            "detail": "test",
+            "isvalid": "0",
+            "startRownum": 1
+        },
+        {
+            "breachDate": "2014-04-06",
+            "breachid": "F8C64EC4F227405FE043171D190AE01F",
+            "detail": "tes1t",
+            "isvalid": "0",
+            "startRownum": 2
+        },
+        {
+            "breachDate": "2014-04-06",
+            "breachid": "F8C64FABC4A24213E043171D190AF205",
+            "detail": "tes1t2",
+            "isvalid": "0",
+            "startRownum": 3
+        }
+    ],
+    "state": "0",
+    "totals": {
+        "total": 3
+    }
+}

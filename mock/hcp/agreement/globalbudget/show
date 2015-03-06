@@ -1,0 +1,7 @@
+{
+	"msg":"查询成功！",
+	"result":{
+		"agreementId":"F8B8612DF97722DBE043171D190AA03A","annualAmount":"33","createdBy":"创建人","dateCreated":"2014-05-06 17:12:15","dateUpdated":"2014-05-06 17:18:19","id":"F8B8A4ED7C9E464BE043171D190A7EC3","isValid":"0","ratioStdValue":"2","ratioType":"12356","ratioUsingValue":"2","updatedBy":"创建人"
+		},
+		"state":"0"
+}

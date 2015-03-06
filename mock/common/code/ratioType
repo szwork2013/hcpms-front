@@ -1,0 +1,6 @@
+{
+	"msg":"查询成功！",
+	"result":[
+		{"codename":"超额共担比例","codeno":"O"},
+		{"codename":"结余留用比例","codeno":"S"}],
+	"state":"0"}

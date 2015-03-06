@@ -1,0 +1,33 @@
+{
+	"msg":"导出巡查任务清单成功！",
+	"state":"0",
+	"result":
+		{
+			"tourInspectItems":
+				[
+					{
+						"createdTime":"2014-05-07",
+						"createdUser":"HCPMSTEST2969",
+						"gradeStandard":"检查人员随机抽取一名护士和一名医生，分别提问两个医保常识问题，护士和医生各占5分。答不上来者不得分，不全面者由检查人员统一意见后酌情给分。",
+						"inspectItemDesc":"医保常识的掌握情况 ",
+						"inspectItemId":"1",
+						"inspectItemName":"基础管理",
+						"totalPoints":10,
+						"updatedTime":"2014-05-07",
+						"updatedUser":"HCPMSTEST2969"
+					}
+				],
+			"tourInspectPatients":
+				[
+					{
+						"dateIntoHospital":"2014-05-16",
+						"dateOutHospital":"2014-05-20",
+						"departmentName":"耳科专业",
+						"medicalRecordNo":"111223",
+						"name":"tom",
+						"providerName":"青岛市南区人民医院"
+					}
+				],
+			"tourName":"巡查任务01"
+		}
+}

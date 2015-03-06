@@ -1,0 +1,21 @@
+{
+	"msg":"查询成功！",
+	"state":"0",
+	"tourDetailIds":[
+						{"tourDetailId":"F8C9EBA05AA73FBCE043171D190A9369"},
+						{"tourDetailId":"F8C9EBA05AA83FBCE043171D190A9369"}
+					],
+	"tourInspectItems":
+					[
+						{
+							"createdTime":1399392000000,
+							"createdUser":"hunter",
+							"gradeStandard":"检查人员随机抽取一名护士和一名医生，分别提问两个医保常识问题，护士和医生各占5分。答不上来者不得分，不全面者由检查人员统一意见后酌情给分。",
+							"inspectItemDesc":"医保常识的掌握情况 ",
+							"inspectItemId":"1",
+							"inspectItemName":"基础管理",
+							"updatedTime":1399392000000,
+							"updatedUser":"hunter"
+						}
+					]
+}

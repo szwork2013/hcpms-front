@@ -1,0 +1,35 @@
+协议基本信息模块相关操作
+				Json中字段所对应的信息：
+				协议ID         id;
+				服务协议类型   agreementType;
+				服务协议编号   agreementNo;
+				医疗机构ID     idHealthcareProvider;
+				协议生效日期   dateAgreementEff;
+				协议终止日期   dateAgreementEnd;
+				支付方式       payMentMode;
+				备注           remarks;
+				创建人         createdBy;
+				创建时间       dateCreated;
+				修改人         updatedBy;
+				修改时间       dateUpdated;
+				是否有效（0有效，1无效）   isValid;
+				查询的总记录数 total;
+				旧的支付方式   oldPayMentMode;
+				当前页         page;
+				每页显示条数   pageSize
+
+一、点击支付方案查询
+1、路径：URL = "/hcp/agreement/paymodes/page"；
+2、点击支付方案，将查出当前协议下的所有支付方式
+3、输入Json
+Json data="{'agreementId':'F8B8612DF97722DBE043171D190AA03A','payMentMode':'01,02,03,04','page':'1','pageSize':'20'}";
+4、输出Json说明
+GlobalBudget：按总额付费信息
+CapitationPay：按人头付费信息
+ServiceItemPay：按项目付费信息
+DiseasePay：按病种付费信息
+
+
+
+
+  

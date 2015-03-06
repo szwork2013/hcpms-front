@@ -1,0 +1,48 @@
+{
+    "imgList": [
+        {
+            "businessNo": "F8F3760136D975C4E0D3171D190A9053",
+            "createBy": "xxx",
+            "createDate": 1400123439000,
+            "id": "F968A2C9564B729FE043171D190AB9D1",
+            "index": "9010bb294849968498fa95246656b38adcb",
+            "isvalid": "0",
+            "name": "test图片.jpg",
+            "status": "0",
+            "type": "01",
+            "updateBy": "xxx",
+            "updateDate": 1400123439000
+        },
+        {
+            "businessNo": "F8F3760136D975C4E0D3171D190A9053",
+            "createBy": "xxx",
+            "createDate": 1400123439000,
+            "id": "F968A2C9564B729FE043171D190AB9D2",
+            "index": "9010bb294849968498fa95246656b38adcb",
+            "isvalid": "0",
+            "name": "test图片.jpg",
+            "status": "0",
+            "type": "01",
+            "updateBy": "xxx",
+            "updateDate": 1400123439000
+        }
+    ],
+    "msg": "查询成功！",
+    "result": {
+        "agreementNo": "NO2014012",
+        "agreementType": "01",
+        "createdBy": "创建人",
+        "dateAgreementEff": "2014-01-02 00:00:00",
+        "dateAgreementEnd": "2014-12-02 00:00:00",
+        "dateCreated": "2014-05-09 15:22:23",
+        "dateUpdated": "2014-05-15 13:54:15",
+        "id": "F8F3760136D975C4E0D3171D190A9053",
+        "idHealthcareProvider": "0303",
+        "isValid": "0",
+        "payMentMode": "01,02,03,04",
+        "regionCode":"370200",
+        "remarks": "备注fsafsa",
+        "updatedBy": "xxx"
+    },
+    "state": "0"
+}

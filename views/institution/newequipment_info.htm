@@ -1,0 +1,73 @@
+<h3>医疗设备信息<i class="close dialogClose"></i></h3>
+<form autocomplete="off" name="equipmenttAddForm" novalidate ng-submit="saveEquipment(equipmenttAddForm.$valid,'popId')" class="Frm" >
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>设备类别:</b>
+            <input name="faclityType" required ng-model="equipmentDetail.faclityType" type="text">
+        </dt>
+        	   <dd ng-show="equipmentSubmitted">
+            <small ng-show="equipmenttAddForm.faclityType.$error.required">设备类别不能为空</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>设备名称:</b>
+            <input name="faclityName" required ng-model="equipmentDetail.faclityName" type="text">
+        </dt>
+        	   <dd ng-show="equipmentSubmitted">
+            <small ng-show="equipmenttAddForm.faclityName.$error.required">设备名称不能为空</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>设备编号:</b>
+            <input name="faclityCode" required ng-model="equipmentDetail.faclityCode" type="text">
+        </dt>
+           <dd ng-show="equipmentSubmitted">
+            <small ng-show="equipmenttAddForm.faclityCode.$error.required">设备编号不能为空</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b>是否进口:</b>
+             <select  ng-model="equipmentDetail.origin">
+                <option value="0">是</option>
+                <option value="1">否</option>
+            </select>
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b>收费标准:</b>
+            <input name="chargeStandart" type="text" ng-pattern='/^(([1-9][0-9]{0,13})|0)(\.\d{1,2})?$/' ng-model="equipmentDetail.chargeStandart">
+        </dt>
+        <dd ng-show="equipmentSubmitted">
+            <small ng-show="equipmenttAddForm.chargeStandart.$error.pattern">必须为小于14位且保留2位小数的正数</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b>收费单位:</b>
+            <input ng-model="equipmentDetail.chargeUnit" type="text">
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b>开始使用时间:</b>
+            <input ng-model="equipmentDetail.startTime" type="text" date-time-picker>
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>设备单位:</b>
+            <input name="faclityUnit" required ng-model="equipmentDetail.faclityUnit" type="text">
+        </dt>
+         <dd ng-show="equipmentSubmitted">
+            <small ng-show="equipmenttAddForm.faclityUnit.$error.required">设备单位不能为空</small>
+        </dd>
+    </dl>
+    <p class="Tc">
+       <button type="submit"  class="Confirm">保存</button>
+       <button class="close" id="equipmentCancel" type="button">取消</button>
+    </p>
+    </form>

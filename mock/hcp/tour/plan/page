@@ -1,0 +1,40 @@
+{	
+	"state":"0",
+	"msg":"查询成功！",
+	"totals":{"total":2},
+	"result":[
+				{
+					"constitutor":"hunter",
+					 "createdTime":"2014-04-15 00:00:00",
+					 "createdUser":"jackson",
+					 "healthProviderID":"1122",
+					 "healthProviderName":"长江医院",
+					 "inpsectDateEnd":"2014-04-15 00:00:00",
+					 "inspectDateFrom":"2014-04-15 00:00:00",
+					 "isValid":"0",
+					 "operator":"tom",
+					 "startRownum":1,
+					 "status":"2",
+					 "times":6,
+					 "tourPlanID":"F8A4312A05C174EEE043171D190AEC06",
+					 "updatedTime":"2014-04-15 00:00:00",
+					 "updatedUser":"jackson"
+				 },
+				 {
+					"constitutor":"hunter",
+					"createdTime":"2014-04-15 00:00:00",
+					"createdUser":"jackson",
+					"healthProviderID":"1122",
+					"healthProviderName":"长江医院",
+					"inpsectDateEnd":"2014-04-15 00:00:00",
+					"inspectDateFrom":"2014-04-15 00:00:00",
+					"isValid":"0","operator":"tom",
+					"startRownum":2,
+					"status":"2",
+					"times":6,
+					"tourPlanID":"F8A434A0F0F801E6E043171D190A729D",
+					"updatedTime":"2014-04-15 00:00:00",
+					"updatedUser":"jackson"
+				 }
+			 ]
+}

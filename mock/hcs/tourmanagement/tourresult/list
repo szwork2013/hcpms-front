@@ -1,0 +1,38 @@
+{
+    "state": "0",
+    "msg": "查询成功！",
+    "result": {
+        "detailList": [
+            {
+                "createdTime": "2014-05-07 00:00:00",
+                "createdUser": "hunter",
+                "inspectDetailId": "3344",
+                "inspectItemCode": "1",
+                "inspectItemScore": 10,
+                "inspectResultId": "123213",
+                "updatedTime": "2014-05-07 00:00:00",
+                "updatedUser": "hunter"
+            },
+            {
+                "createdTime": "2014-04-15 00:00:00",
+                "createdUser": "jackson33",
+                "inspectDetailId": "3344",
+                "inspectItemCode": "1",
+                "inspectItemScore": 7,
+                "inspectResultId": "aabb",
+                "updatedTime": "2014-04-15 12:30:11",
+                "updatedUser": "jackson22"
+            }
+        ],
+        "tourInspectPatients": [
+            {
+                "dateIntoHospital": "2014-05-16 00:00:00",
+                "dateOutHospital": "2014-05-20 00:00:00",
+                "departmentName": "耳科专业",
+                "medicalRecordNo": "333",
+                "name": "jack3",
+                "providerName": "青岛市南区人民医院"
+            }
+        ]
+    }
+}

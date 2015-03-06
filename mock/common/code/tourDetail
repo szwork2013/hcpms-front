@@ -1,0 +1,6 @@
+{
+	"msg":"查询成功！",
+	"result":[
+		{"codename":"巡查任务3(长江医院)","codeno":"F8C9EBA05AA93FBCE043171D190A9369"},
+		{"codename":"巡查任务4(长江医院)","codeno":"F8C9EBA05AAA3FBCE043171D190A9369"}],
+	"state":"0"} 

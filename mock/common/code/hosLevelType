@@ -1,0 +1,15 @@
+{
+	"msg":"查询成功！",
+	"result":[
+		{"codename":"三级特等","codeno":"01"},
+		{"codename":"三级甲等","codeno":"02"},
+		{"codename":"三级乙等","codeno":"03"},
+		{"codename":"三级丙等","codeno":"04"},
+		{"codename":"二级甲等","codeno":"05"},
+		{"codename":"二级乙等","codeno":"06"},
+		{"codename":"二级丙等","codeno":"07"},
+		{"codename":"一级甲等","codeno":"08"},
+		{"codename":"一级乙等","codeno":"09"},
+		{"codename":"一级丙等","codeno":"10"},
+		{"codename":"无等级","codeno":"11"}],
+	"state":"0"}

@@ -1,0 +1,71 @@
+账户基本信息模块相关操作
+				Json中字段所对应的信息：
+				物理ID	id
+				医疗机构标识	providerid
+				开户行名称	bankname
+				开户人	holder
+				账号	accountno
+				创建人	createby
+				修改人	updateby
+				创建时间	createDate
+				修改时间	updateDate
+				数据状态	isvalid
+				当前页         page;
+				每页显示条数   pageSize
+
+一、账户基本信息详情查询：
+1、路径：URL = "/hcp/hcp/account/show"；
+2、根据物理id查询详情
+3、输入Json
+Json data={"id":"F8E1125B298F46BFE043171D190ACFE5"}
+4、输出Json
+Json data=
+{"msg":"查询成功！",
+"result":{"accountno":"123132123132","bankname":"zhongguoyinhang4","createDate":"2014-05-08","createby":"test12","holder":"cyh","id":"F8E1125B298F46BFE043171D190ACFE5","isvalid":"0","providerid":"F8B7CA7810023332E043171D190A3CC1","updateDate":"2014-05-08","updateby":"test12"},
+"state":"0"}
+
+二、账户列表查询
+1、路径：URL = "/hcp/hcp/account/page"
+2、根据医疗机构标识	（providerid）进行查询
+3、输入Json
+Json data={"page":1,"pageSize":20,"providerid":"F8B7CA7810023332E043171D190A3CC1"}
+4、输出Json
+{"msg":"查询成功！",
+"result":
+		[{"accountno":"123132123132","bankname":"zhongguoyinhang4","holder":"cyh","id":"F8E1125B298F46BFE043171D190ACFE5","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":1},
+		{"accountno":"1111111112","bankname":"zhongguoyinhang1","holder":"tes1t1","id":"F8E119872DC25E41E043171D190AC3C7","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":2},
+		{"accountno":"1111111114","bankname":"zhongguoyinhang4","holder":"tes1t4","id":"F8E11A8FF6D764ABE043171D190A8673","providerid":"F8B7CA7810023332E043171D190A3CC1","startRownum":3}],
+"state":"0",
+"totals":{"total":3}}
+
+三、账户信息修改：
+1、路径：URL = "/hcp/hcp/account/update"；
+2、根据物理id将当条信息进行修改
+3、输入Json
+Json data={"accountno":"123132123132","bankname":"zhongguoyinhang4","createby":"test14","holder":"cyh","id":"F8E1125B298F46BFE043171D190ACFE5","updateby":"test14"}
+4、输出Json
+{"msg":"修改成功！","state":"0"}
+
+
+四、点击新增，添加账户信息：
+1、路径：URL = "/hcp/hcp/account/create"
+2、点击新增，添加账户信息
+3、输入Json
+Json data={"accountno":"1111111114","bankname":"zhongguoyinhang4","createby":"test14","holder":"tes1t4","providerid":"F8B7CA7810023332E043171D190A3CC1","updateby":"test14"}
+4、输出Json
+{"msg":"添加成功！","state":"0"}
+
+
+五、删除账户信息：
+1、路径：URL = "/hcp/hcp/account/delete"；
+2、选择要删除的账户信息，在列表中勾选账户信息，点击删除按钮进行删除
+3、输入Json
+Json data={"ids":"'F8EF45595ACC5BFEE043171D190AB4C6','F8EF45ABC4F05CB0E043171D190A92F5','F8EF45FBDD695D99E043171D190A4EDF'"}; （当选择多个的时候，可以将id拼接）
+4、输出Json
+{"msg":"物理删除成功！","state":"0"}
+
+
+
+
+
+  

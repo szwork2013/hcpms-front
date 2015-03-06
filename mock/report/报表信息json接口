@@ -1,0 +1,44 @@
+绩效报表信息模块相关操作
+				Json中字段所对应的信息：
+				统筹区域         regionName;
+				医疗机构         healthcareProviderName;
+				统计区间         period;
+				就诊类型         attendanceType;
+				提交时间起     createdDateBegin;
+				提交时间止     createdDateEnd;
+				提交人		createdBy;
+				报表名称		fileName;
+				文件ID		fileInfoID;
+				查询条件		taskCondition;
+				提交时间		createdDate;
+				状态			taskStatus;
+				是否有效（0有效，1无效）   isValid;
+				查询的总记录数    total;
+				当前页         page;
+				每页显示条数   pageSize
+				
+一、生成报表--医疗费用控制指标报表
+1、路径：URL = "/report/fee/create";
+2、点击提交并生成，后台执行即时任务，生成报表	
+3、输入Json
+Json data={'regionName':'','healthcareProviderName':'','period':'','attendanceType':''};	
+
+二、报表池查看
+1、路径：URL = "/report/pond/page";
+2、点击报表池，查询生成报表的任务信息
+3、输入Json
+Json data={'createdDateBegin':'','createdDateEnd':'','createdBy':'','page':'1','pageSize':'20'};
+
+三、生成报表--医疗质量管理指标报表
+1、路径：URL = "/report/quality/create";
+2、点击查看，查询生成报表的任务信息
+3、输入Json
+Json data={'regionName':'','healthcareProviderName':'','period':'','attendanceType':''};
+
+
+
+
+
+
+
+  

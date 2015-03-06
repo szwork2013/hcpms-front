@@ -1,0 +1,48 @@
+按病种付费模块相关操作
+				Json中字段所对应的信息：
+				按病种付费ID        							 id;
+				服务协议编号ID   							 agreementId;
+				病种代码										 diseaseCode;
+				支付额度										 payAmount;	
+				支付条件										 payCondition;
+				创建人        									 createdBy;
+				创建时间      									 dateCreated;
+				修改人       									 updatedBy;
+				修改时间       									 dateUpdated;
+				是否有效（0有效，1无效）  			 isValid;
+				查询的总记录数 								 total;
+				当前页       								     page;
+				每页显示条数  								 pageSize
+
+一、按病种付费信息分页查询：
+1、路径：URL = "/hcp/agreement/diseasepays/page"；
+2、服务协议编号ID（agreementId）进行分页查询(上一页、下一页)
+3、输入Json
+Json data={'agreementId':'F8B8612DF97722DBE043171D190AA03A','page':'1','pageSize':'20'};
+
+二、点击单个病种代码将查询出当条按病种付费信息：
+1、路径：URL = "/hcp/agreement/diseasepay/show?id=F8B8DDE3AEF14129E043171D190A3966"
+2、根据按病种付费ID（id）进行查询
+3、输入参数id ( 按病种付费ID )
+
+三、对当条按病种付费信息修改：
+1、路径：URL = "/hcp/agreement/diseasepay/update"；
+2、根据当前数据id修改当条按病种付费信息
+3、输入Json
+Json data={'id':'F8B91257CE2419A8E043171D190A1A23','diseaseCode':'111','payAmount':'33322','payCondition':'222'};
+
+四、点击新增，将按病种付费信息添加：
+1、路径：URL = "/hcp/agreement/diseasepay/create"
+2、点击新增，将按病种付费信息添加
+3、输入Json
+Json data={'agreementId':'F8B8612DF97722DBE043171D190AA03A','diseaseCode':'11122','payAmount':'2','payCondition':'222'};
+
+五、删除按病种付费信息：
+1、路径：URL = "/hcp/agreement/diseasepay/delete"；
+2、选择要删除的按病种付费信息，在列表中勾选按病种付费信息，点击删除按钮进行删除
+3、输入Json
+Json data={'id':'F8B91257CE2419A8E043171D190A1A23'}; （当选择多个按病种付费信息的时候，可以将id拼接）
+
+
+
+  

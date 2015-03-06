@@ -1,0 +1,69 @@
+<h3>医生信息<i class="close"></i></h3>
+<form autocomplete="off" name="doctorDetailForm" novalidate ng-submit="saveDoctorInfo(doctorDetailForm.$valid,'dialog')" class="Frm">
+    <dl>
+        <dt>
+            <b><span class="org"> * </span>姓名:</b>
+            <input name="name" required ng-model="doctorInfoDetail.name" ng-maxlength="32" type="text">
+        </dt>
+         <dd ng-show="doctorsubmitted">
+                <small  ng-show="doctorDetailForm.name.$error.required">姓名不能为空</small>
+                 <small  ng-show="doctorDetailForm.name.$error.maxlength">长度不能超过32个字符</small>
+            </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b></b>
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="org"> * </span>执业许可证:</b>
+            <input name="jobNo" ng-maxlength="50" required ng-model="doctorInfoDetail.jobNo" type="text">
+        </dt>
+        <dd ng-show="doctorsubmitted">
+                <small  ng-show="doctorDetailForm.jobNo.$error.required">执业许可证不能为空</small>
+             <small  ng-show="doctorDetailForm.jobNo.$error.maxlength">长度不能超过50个字符</small>
+            </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="org"> * </span>执业范围:</b>
+               	<select name = "cardScope"  required ng-model="doctorInfoDetail.cardScope"
+                       ng-init="getDataByCodeType('{codeType:\'jobType\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['jobType']">
+                <option value="">---请选择---</option>
+         	 </select>
+  
+        </dt>
+        <dd ng-show="doctorsubmitted">
+                <small  ng-show="doctorDetailForm.cardScope.$error.required">执业范围不能为空</small>
+            </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="org"> * </span>证件号码:</b>
+            <input name="cardNo" required ng-maxlength="20" ng-model="doctorInfoDetail.cardNo" type="text">
+        </dt>
+        <dd ng-show="doctorsubmitted">
+                <small  ng-show="doctorDetailForm.cardNo.$error.required">证件号码不能为空</small>
+            <small  ng-show="doctorDetailForm.cardNo.$error.maxlength">长度不能超过20个字符</small>
+            </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="org"> * </span>证件类型:</b>
+                <select name = "type"  required ng-model="doctorInfoDetail.type"
+                     ng-init="getDataByCodeType('{codeType:\'idType\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['idType']">
+                <option value="">---请选择---</option>
+                </select>
+        </dt>
+        <dd ng-show="doctorsubmitted">
+            <small  ng-show="doctorDetailForm.type.$error.required">证件类型不能为空</small>
+        </dd>
+    </dl>
+    <p class='Tc'>
+        <button class="Btn Confirm" type="submit">保存</button>
+        <button class="close" id="doctorCancel" type="button">取消</button>
+    </p>
+</form>

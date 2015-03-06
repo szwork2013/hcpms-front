@@ -1,0 +1,68 @@
+<!doctype html>
+<html id="ng-app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>中国平安_医院网络管理系统</title>
+    <link rel="stylesheet" href="css/pingan.css?v=0.2">
+    <link rel="stylesheet" href="css/datetime.css?v=0.1">
+</head>
+<body ng-controller="AppController">
+<div id="div-header" ng-include="'views/base/header.htm'"></div>
+<div id="topTab">
+    <li id="ng-tab-welcome" class="act">首页</li>
+</div>
+<div id="filling">
+    <div id="welcome" ng-include="'views/welcome.htm'" class="main"></div>
+    <div id="institution" class="main ">
+        <div ng-view="institution" auto-hide="true"></div>
+    </div>
+    <div id="agreement" class="main">
+        <div ng-view="agreement" auto-hide="true"></div>
+    </div>
+    <div id="tourPlan" class="main">
+        <div ng-view="tourPlan" auto-hide="true"></div>
+    </div>
+    <div id="tourTask" class="main">
+        <div ng-view="tourTask" auto-hide="true"></div>
+    </div>
+    <div id="performanceGeneration" class="main">
+        <div ng-view="performanceGeneration" auto-hide="true"></div>
+    </div>
+    <div id="performanceView" class="main">
+        <div ng-view="performanceView" auto-hide="true"></div>
+    </div>
+    <div id="reportPond" class="main">
+        <div ng-view="reportPond" auto-hide="true"></div>
+    </div>
+    <div id="reportDisease" class="main">
+        <div ng-view="reportDisease" auto-hide="true"></div>
+    </div>
+    <div id="reportFeeControl" class="main">
+        <div ng-view="reportFeeControl" auto-hide="true"></div>
+    </div>
+    <div id="reportQualityControl" class="main">
+        <div ng-view="reportQualityControl" auto-hide="true"></div>
+    </div>
+    <div id="monitor" class="main">
+        <div ng-view="monitor" auto-hide="true"></div>
+    </div>
+    <div id="view" class="main">
+        <div ng-view="view" auto-hide="true"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/sea.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+
+<!--[IF lte IE 8]>
+<script>
+    document.createElement("ng-include");
+    document.createElement("ng-view");
+    document.createElement("navigation");
+</script>
+<![endif]-->
+
+</body>
+</html>

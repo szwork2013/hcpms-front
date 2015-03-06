@@ -1,0 +1,27 @@
+{
+    "msg": "查询成功！",
+    "result": [
+        {
+            "name":"厦门大学附属中山医院",
+            "orgcode": "2007070531232131231234",
+            "hospitalLevel": "三级甲等",
+            "orgtype": "A100",
+            "reprotCycle": "",
+            "year":"2014",
+            "month": "05",
+            "isValid": "0"
+        },
+        {
+            "name":"厦门市第一医院",
+            "orgcode": "35020342660066011A1001",
+            "hospitalLevel": "三级甲等",
+            "orgtype": "A100",
+            "reprotCycle": "",
+            "year":"2014",
+            "month": "01",
+            "isValid": "0"
+        }
+    ],
+    "state": "0",
+    "totals":{"total":2}
+}

@@ -1,0 +1,53 @@
+<form autocomplete="off" class="Frm haveTab">
+   <!--   <dl>
+        <dt>
+            <b>违约记录内容:</b>
+            <input ng-model="queryRuleInfoListParams.providerid" type="hidden">
+            <input ng-model="queryRuleInfoListParams.detail" type="text">
+        </dt>
+    </dl>
+    <dl>
+        <dt class="forDate">
+            <b>违约时间:</b>
+            <input ng-model="queryRuleInfoListParams.startDate" date-time-picker type="text"> — <input ng-model="queryRuleInfoListParams.endDate" date-time-picker type="text">
+        </dt>
+    </dl>
+    <p class="sbt">
+        <button type="submit" ng-click="queryRuleInfoList()">查询信息</button>
+    </p>
+    -->
+</form>
+<table class="Table">
+    <thead>
+    <tr>
+        <th>
+            <input id="ruleInfoIdList" ng-click="getRuleInfoIdList('ruleInfoIdBox')" onclick="Utils.doCheck(this,'ruleInfoIdBox')" type="checkbox">
+        </th>
+        <th>违约记录内容</th>
+         <th>处理意见</th>
+        <th>违约时间</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in institutionRuleInfoList">
+            <td><input name="ruleInfoIdBox" value="{{item.breachid}}" ng-click="getRuleInfoIdList('ruleInfoIdBox')"
+                       type="checkbox" onclick="Utils.toChkSon('ruleInfoIdList',this)" ></td>
+            <td><a ng-click="getRuleInfoDetail($event)" id="{{item.breachid}}" dialog dialog-target="dialog" title="点击查看明细" >{{item.detail}}</a></td>
+            <td>{{item.opinion}}</td>
+            <td>{{item.breachDate}}</td>
+        </tr>
+    </tbody>
+</table>
+<dl class="Date">
+    <dt>
+        <a type="button" ng-click="clean()" dialog dialog-target="dialog" class="Btn Confirm Small">新增</a>
+        <button type="button" ng-disabled="!ruleInfoIdList" ng-click="deleteRuleInfo()" class="Btn Warning Small">删除</button>
+    </dt>
+    <dd class="Paging">
+        <pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination>
+    </dd>
+</dl>
+
+<div class="Pop" id="dialog">
+    <div ng-include="'views/institution/rule_info_add.htm'"></div>
+</div>

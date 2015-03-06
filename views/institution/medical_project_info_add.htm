@@ -1,0 +1,162 @@
+<h3>诊疗项目<i class="close"></i></h3>
+<div style="overflow-y:scroll;max-height:400px;">
+<form autocomplete="off" name="medicalAddForm" novalidate ng-submit="saveMedicalDetail(medicalAddForm.$valid,'dialog')" class="Frm" style="width:650px;" >
+    <dl>
+        <dt>
+            <b>诊疗项目编码:</b>
+            <input id="treatCode" ng-blur="autoSearchMedical($event)" name="treatCode" ng-maxlength="32" required type="text" ng-model="medicalProjectDetail.treatCode" >
+        </dt>
+        <dd ng-show="submitted">
+            <small ng-show="medicalAddForm.treatCode.$error.required">诊疗项目编码必录</small>
+        <small  ng-show="medicalAddForm.treatCode.$error.maxlength">长度不能超过20个字符</small>
+        </dd>
+        
+        <dd><small ng-show="isAuto && isUniqueProjectCode">项目编码已存在，请重新输入！</small></dd>
+    </dl>
+    <dl>
+        <dt>
+            <b>项目名称:</b>
+            <input name="name" ng-maxlength="80" type="text" ng-model="medicalProjectDetail.name">
+        </dt>
+         <dd ng-show="submitted">
+        <small  ng-show="medicalAddForm.name.$error.maxlength">长度不能超过80个字符</small>
+        </dd>
+    </dl>
+    
+        <dl>
+        <dt>
+             <b>一次性耗材:</b>
+            <input name="consumables" type="text" ng-maxlength="600" ng-model="medicalProjectDetail.consumables">
+        </dt>
+           <dd ng-show="submitted">
+        <small  ng-show="medicalAddForm.consumables.$error.maxlength">长度不能超过600个字符</small>
+        </dd>
+        </dl>
+        <dl>
+        <dt>
+            <b>除外必需:</b>
+            <input name="necessary" type="text" ng-maxlength="600" ng-model="medicalProjectDetail.necessary">
+        </dt>
+             <dd ng-show="submitted">
+        <small  ng-show="medicalAddForm.necessary.$error.maxlength">长度不能超过600个字符</small>
+        </dd>
+    </dl>
+        <dl>
+        <dt>
+            <b>除外可选:</b>
+            <input name="optional" type="text" ng-maxlength="600" ng-model="medicalProjectDetail.optional">
+        </dt>
+                <dd ng-show="submitted">
+        <small  ng-show="medicalAddForm.optional.$error.maxlength">长度不能超过600个字符</small>
+        </dd>
+    </dl>
+        <dl>
+        <dt>
+            <b>低值耗材:</b>
+            <input name="supplies" type="text" ng-maxlength="3" ng-model="medicalProjectDetail.supplies">
+        </dt>
+                  <dd ng-show="submitted">
+        <small  ng-show="medicalAddForm.supplies.$error.maxlength">长度不能超过3个字符</small>
+        </dd>
+    </dl>
+        <dl>
+        <dt>
+            <b>人力消耗耗时:</b>
+            <input name="consumption" type="text" ng-maxlength="30" ng-model="medicalProjectDetail.consumption">
+        </dt>
+                  <dd ng-show="submitted">
+        <small  ng-show="medicalAddForm.consumption.$error.maxlength">长度不能超过30个字符</small>
+        </dd>
+    </dl>
+        <dl>
+        <dt>
+            <b>技术含量:</b>
+            <input name="technical" type="text" ng-maxlength="3" ng-model="medicalProjectDetail.technical">
+        </dt>
+                 <dd ng-show="submitted">
+        <small  ng-show="medicalAddForm.technical.$error.maxlength">长度不能超过3个字符</small>
+        </dd>
+    </dl>
+        <dl>
+        <dt>
+            <b>风险程度:</b>
+            <input name="risk" type="text" ng-maxlength="3" ng-model="medicalProjectDetail.risk">
+        </dt>
+                  <dd ng-show="submitted">
+        <small  ng-show="medicalAddForm.risk.$error.maxlength">长度不能超过3个字符</small>
+        </dd>
+    </dl>
+        <dl>
+        <dt>
+            <b>计价单位:</b>
+            <input name="unit" type="text" ng-maxlength="60" ng-model="medicalProjectDetail.unit">
+        </dt>
+                   <dd ng-show="submitted">
+        <small  ng-show="medicalAddForm.unit.$error.maxlength">长度不能超过60个字符</small>
+        </dd>
+    </dl>
+        <dl>
+        <dt>
+            <b>计价说明:</b>
+            <input name="declare" type="text" ng-maxlength="600" ng-model="medicalProjectDetail.declare">
+        </dt>
+                      <dd ng-show="submitted">
+        <small  ng-show="medicalAddForm.declare.$error.maxlength">长度不能超过600个字符</small>
+        </dd>
+    </dl>
+        <dl>
+        <dt>
+            <b>项目编号:</b>
+            <input name="itemCode" type="text" ng-maxlength="100" ng-model="medicalProjectDetail.itemCode">
+        </dt>
+                         <dd ng-show="submitted">
+        <small  ng-show="medicalAddForm.declare.$error.maxlength">长度不能超过100个字符</small>
+        </dd>
+    </dl>
+    
+
+    <dl>
+        <dt>
+            <b>科室:</b>
+            <input name="department" type="text"  ng-model="medicalProjectDetail.department">
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b>价格:</b>
+            <input name="price" type="text" ng-pattern='/^(([1-9][0-9]{0,13})|0)(\.\d{1,2})?$/' ng-model="medicalProjectDetail.price">
+        </dt>
+        <dd ng-show="submitted">
+            <small ng-show="medicalAddForm.price.$error.pattern">必须为小于14位且保留2位小数的正数</small>
+        </dd>
+    </dl>
+       <dl>
+        <dt>
+            <b>限额:</b>
+            <input name="quota" type="text" ng-pattern='/^(([1-9][0-9]{1,13})|0)(\.\d{1,2})?$/' ng-model="medicalProjectDetail.quota">
+        </dt>
+        <dd ng-show="submitted">
+           <small ng-show="medicalAddForm.quota.$error.pattern">必须为小于14位且保留2位小数的正数</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b>限制数量:</b>
+            <input name="limit" type="text" ng-pattern='/^([0-9]{0,12})$/' ng-model="medicalProjectDetail.limit">
+        </dt>
+        <dd ng-show="submitted">
+            <small ng-show="medicalAddForm.limit.$error.pattern">必须为小于12位正数</small>
+        </dd>
+    </dl>
+        <dl class="oneRow" style="height:140px">
+        <dt>
+            <b>项目内涵:</b>
+              <textarea ng-model="medicalProjectDetail.connotation" style="width: 430px; height: 106px"></textarea>
+        </dt>
+    </dl>
+    <p class="Tc">
+        <button type="submit" class="Confirm">保存</button>
+        <button class="close" id="medicalCancel" type="button">取消</button>
+    </p>
+</form>
+</div>

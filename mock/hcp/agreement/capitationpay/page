@@ -1,0 +1,32 @@
+{
+    "msg": "查询成功！",
+    "result": [
+        {
+            "agreementId": "F8B8612DF97722DBE043171D190AA03A",
+            "createdBy": "创建人",
+            "dateCreated": "2014-05-06 17:22:12",
+            "dateUpdated": "2014-05-15 17:07:07",
+            "id": "F8B8C8871F0E5EB9E043171D190A4C2A",
+            "isValid": "0",
+            "lineMaximumPay": "2",
+            "lineStartToPay": "2",
+            "paystdPerpersonPeryear": "11",
+            "ratioOverallPay": "1",
+            "updatedBy": "xxx"
+        },
+        {
+            "agreementId": "F8B8612DF97722DBE043171D190AA03A",
+            "createdBy": "xxx",
+            "dateCreated": "2014-05-15 17:22:43",
+            "dateUpdated": "2014-05-15 17:22:43",
+            "id": "F96DD65E11B43358E043171D190A2F81",
+            "isValid": "0",
+            "lineMaximumPay": "2",
+            "lineStartToPay": "2",
+            "paystdPerpersonPeryear": "22",
+            "ratioOverallPay": "2",
+            "updatedBy": "xxx"
+        }
+    ],
+    "state": "0"
+}

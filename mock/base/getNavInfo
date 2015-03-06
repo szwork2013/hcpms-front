@@ -1,0 +1,78 @@
+{
+    "msg": "查询成功！",
+    "username": "HCPMSTEST",
+    "state": "0",
+    "org": "[310000,32000]",
+    "menu": [
+        {
+            "text": "健康服务",
+            "subNavs": [
+                {
+                    "text": "医院机构管理",
+                    "href": "#/institution/list",
+                    "module":"institution"
+                },
+                {
+                    "text": "协议管理",
+                    "href": "#/agreement/list",
+                    "module":"agreement"
+                }
+            ]
+        },
+        {
+            "text": "绩效管理",
+            "subNavs": [
+                {
+                    "text": "报告生成",
+                    "href": "#/performance/generation",
+                     "module":"performanceGeneration"
+                },
+                {
+                    "text": "报告查看",
+                    "href": "#/performance/view",
+                     "module":"view"
+                }
+            ]
+        },
+        {
+            "text": "医疗服务",
+            "subNavs": [
+                {
+                    "text": "巡查计划管理",
+                    "href": "#/tour/plan/list",
+                     "module":"tourPlan"
+                },
+                {
+                    "text": "巡查任务管理",
+                    "href": "#/tour/task/list",
+                    "module":"tourTask"
+                }
+            ]
+        },
+        {
+            "text": "统计报表",
+            "subNavs": [
+                {
+                    "text": "报表池",
+                    "href": "#/report/pond",
+                     "module":"reportPond"
+                },
+                {
+                    "text": "医疗费用控制指标",
+                    "href": "#/report/fee_control",
+                     "module":"fee_control"
+                },
+                {
+                    "text": "医疗质量管理指标",
+                    "href": "#/report/quality_control",
+                     "module":"quality_control"
+                },
+                {
+                    "text": "单病种指标",
+                    "href": "#/report/disease",
+                   "module":"disease"
+                }
+            ]
+        }
+    ]
+}

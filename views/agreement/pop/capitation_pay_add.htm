@@ -1,0 +1,30 @@
+<h3>支付方式 —— 按人头付费<i class="close" ng-click="clean"></i></h3>
+<form autocomplete="off" name="capPayDetailForm"  novalidate ng-submit="saveCapPay(capPayDetailForm.$valid,'capDialog')" class="Frm">
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>每人次支付标准:</b>
+            <input required name="paystdPerpersonPeryear" ng-pattern='/^(([1-9][0-9]{0,13})|0)(\.\d{1,2})?$/' ng-model="capPayDetail.paystdPerpersonPeryear" type="text">
+        </dt>
+        <dd ng-show="gloSubmitted02">
+            <small ng-show="capPayDetailForm.paystdPerpersonPeryear.$error.required">每人次支付标准不能为空</small>
+            <small ng-show="capPayDetailForm.paystdPerpersonPeryear.$error.pattern">必须为小于14位且保留2位小数的正数</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>就诊类型:</b>
+            <select required name="attendanceType" ng-model="capPayDetail.attendanceType"
+                    ng-init="getDataByCodeType('{codeType:\'diagType\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['diagType']">
+                <option value="">---请选择---</option>
+            </select>
+        </dt>
+        <dd ng-show="gloSubmitted02">
+            <small ng-show="capPayDetailForm.attendanceType.$error.required">就诊类型必选</small>
+        </dd>
+    </dl>
+    <p class="Tc">
+        <button type="submit" class="Confirm">保存</button>
+        <button id="closeTaskDetail" ng-click="clean()" class="close" type="button">取消</button>
+    </p>
+</form>

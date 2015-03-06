@@ -1,0 +1,59 @@
+<form autocomplete="off" class="Frm">
+    <dl>
+        <dt>
+            <b>医疗机构名称:</b>
+            <input ng-model="performanceParam.name" type="text">
+        </dt>
+    </dl>
+    <p class="sbt">
+        <button type="button" class="Confirm" ng-click="getPerformanceList()">查询信息</button>
+    </p>
+</form>
+<table class="Table">
+    <thead>
+        <tr>
+            <th><input id="generationIdList" ng-click="getGenerationIdList('generationIdBox')" onclick="Utils.doCheck(this,'generationIdBox')" type="checkbox"></th>
+            <th>医疗机构名称</th>
+            <th>组织机构代码</th>
+            <th>医院等级</th>
+            <th>卫生机构类别</th>
+            <th>选择周期</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in performanceList">
+            <td>
+                <input name="generationIdBox" ng-model="generationIdList" value="{{$index}}" ng-click="getGenerationIdList('generationIdBox')"
+                            type="checkbox" onclick="Utils.toChkSon('generationIdList',this)" >
+            </td>
+            <td>{{item.name}}</td>
+            <td>{{item.orgcode}}</td>
+            <td>{{item.hospitalLevelName}}</td>
+            <td>{{item.orgtype}}</td>
+            <td class="sort">
+                <select class="s1" ng-model="item.reprotCycle" ng-change="periodChange($index,item.reprotCycle)" >
+                    <option value="" selected>请选择</option>
+                    <option value="1">月</option>
+                    <option value="2">季</option>
+                    <option value="3">年</option>
+                </select>
+                <select ie-select-fix="years[$index]" class="s1" ng-model="item.year" ng-change="selectLocalYear($index,item.year)"
+                        ng-options="year.code as year.text for year in years[$index]">
+                   <option value="" selected>请选择</option>
+                </select>
+                <select ie-select-fix="months[$index]" class="s1" ng-show="item.reprotCycle != '3'" ng-model="item.month"
+                        ng-options="month.code as month.text for month in months[$index]">
+                   <option value="" selected>请选择</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<dl class="Date">
+    <dt>
+        <button class="Btn Confirm Small" ng-click="createList()">生成</button>
+    </dt>
+    <dd class="Paging">
+        <pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination>
+    </dd>
+</dl>

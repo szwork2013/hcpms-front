@@ -1,0 +1,8 @@
+{	
+	"msg":"查询成功！",
+	"result":[
+		{"codename":"非营利性医疗机构","codeno":"1"},{
+		"codename":"营利性医疗机构","codeno":"2"},
+		{"codename":"其他卫生机构","codeno":"9"}],
+	"state":"0"
+}

@@ -1,0 +1,36 @@
+{
+    "msg": "查询成功！",
+    "result": [
+        {
+            "cardNo": "123132123132",
+            "jobNo": "123132123132",
+            "name": "zhongguoyinhang4",
+            "cardScope": "cyh",
+            "id": "F8E1125B298F46BFE043171D190ACFE5",
+            "providerid": "F8B7CA7810023332E043171D190A3CC1",
+            "type": 1
+        },
+        {
+            "cardNo": "123132123132",
+            "jobNo": "123132123132",
+            "name": "zhongguoyinhang4",
+            "cardScope": "cyh",
+            "id": "F8E1125B298F46BFE043171D190ACFE5",
+            "providerid": "F8B7CA7810023332E043171D190A3CC1",
+            "type": 1
+        },
+        {
+            "cardNo": "123132123132",
+            "jobNo": "123132123132",
+            "name": "zhongguoyinhang4",
+            "cardScope": "cyh",
+            "id": "F8E1125B298F46BFE043171D190ACFE5",
+            "providerid": "F8B7CA7810023332E043171D190A3CC1",
+            "type": 1
+        }
+    ],
+    "state": "0",
+    "totals": {
+        "total": 3
+    }
+}

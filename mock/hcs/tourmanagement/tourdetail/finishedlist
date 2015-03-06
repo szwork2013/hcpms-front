@@ -1,0 +1,29 @@
+{
+	"state":"0",
+	"msg":"查询成功！",
+	"result":
+			[
+				{
+					"createdTime":"2014-04-15 00:00:00",
+					"createdUser":"jackson",
+					"operator":"tom",
+					"status":"2",
+					"tourDetailId":"F8C9EBA05AA93FBCE043171D190A9369",
+					"tourDetailName":"巡查任务3(长江医院)",
+					"tourPlanId":"F8C9EBA05AA63FBCE043171D190A9369",
+					"updatedTime":"2014-04-15 12:30:11",
+					"updatedUser":"jackson"
+				},
+				{
+					"createdTime":"2014-04-15 00:00:00",
+					"createdUser":"jackson",
+					"operator":"tom",
+					"status":"2",
+					"tourDetailId":"F8C9EBA05AAA3FBCE043171D190A9369",
+					"tourDetailName":"巡查任务4(长江医院)",
+					"tourPlanId":"F8C9EBA05AA63FBCE043171D190A9369",
+					"updatedTime":"2014-04-15 12:30:11",
+					"updatedUser":"jackson"
+				}
+			]
+}

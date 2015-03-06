@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="css/pingan.css?v=0.2">
+<div class="PopwinContent">
+	<h3>
+		巡查任务 —— 巡查清单<i class="close dialogClose"></i>
+	</h3>
+	<form autocomplete="off" class="Frm" style="width: 800px;">
+		<table class="Table">
+			<tbody>
+				<tr>
+					<td style="text-align:center"><p>巡查任务名称: {{result.tourName}}&nbsp;&nbsp;&nbsp;&nbsp;巡查人: {{result.operator}}</p></td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="tableTitle" style="font-size:18px">病人信息</p>
+		<table class="Table">
+			<thead>
+				<tr>
+					<th>病人姓名</th>
+					<th>病案号</th>
+					<th>入院日期</th>
+					<th>科室名称</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in printData.tourInspectPatients">
+					<td>{{item.name}}</td>
+					<td>{{item.medicalRecordNo}}</td>
+					<td>{{item.dateIntoHospital}}</td>
+					<td>{{item.departmentName}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<p class="tableTitle" style="font-size:18px">医保检查内容及评分标准</p>
+		<table class="Table">
+			<thead>
+				<tr>
+					<th style="width:15%">检查项大类</th>
+					<th style="width:20%">检查项二级分类</th>
+					<th style="width:55%">评分标准</th>
+					<th style="width:10%">总分</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in printData.tourInspectItems">
+					<td>{{item.inspectItemName}}</td>
+					<td>{{item.inspectItemDesc}}</td>
+					<td>{{item.gradeStandard}}</td>
+					<td>{{item.totalPoints}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+	</form>
+</div>

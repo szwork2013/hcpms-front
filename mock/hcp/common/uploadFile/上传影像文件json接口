@@ -1,0 +1,40 @@
+上传影像文件
+				Json中字段所对应的信息：
+	id  文件id
+	name 文件名称
+	index 文件索引
+	type	文件类型
+	status	文件状态
+	businessNo	业务号
+	createBy
+	updateBy
+	 downloadFlag	是否下载
+
+一、上传影像文件
+1、路径：URL = "/commom/uploadFile"
+2、上传影像
+3、输入Json
+Json data={"businessNo":"F8B82162F5D6169FE043171D190AB498","name":"test图片.jpg","type":"01"}
+deleteFile
+二、下载影像文件
+1、路径：URL = "/commom/downloadFile"
+2、下载影像文件
+3、输入Json
+Json data={"downloadFlag":"Y","index":"901b5a4cce7dda645379b5e4f5fa91dfd24","name":"test图片1.jpg"}
+
+三、删除影像文件
+1、路径：URL = "/commom/deleteFile"
+2、下载影像文件
+3、输入Json
+Json data= {"id":"901b5a4cce7dda645379b5e4f5fa91dfd24"}
+
+四、查询文件列表
+1、路径：URL = "/common/file/list"
+2、下载影像文件
+3、输入Json
+Json data= {"businessNo":"901b5a4cce7dda645379b5e4f5fa91dfd24"}
+
+
+
+
+  

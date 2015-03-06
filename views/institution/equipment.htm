@@ -1,0 +1,51 @@
+<form autocomplete="off" class="Frm haveTab">
+    <dl>
+        <dt>
+            <b>医疗设备名称:</b>
+            <input ng-model="queryEquipmentListParams.faclityName" type="text">
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b>医疗设备编号:</b>
+            <input ng-model="queryEquipmentListParams.faclityCode" type="text">
+        </dt>
+    </dl>
+    <p class="sbt">
+        <button type="submit" ng-click="queryEquipmentList()">查询信息</button>
+    </p>
+</form>
+<table class="Table">
+    <thead>
+    <tr>
+        <th> <input id="equipmentIdList" ng-click="getEquipmentIdList('equipmentIdBox')" onclick="Utils.doCheck(this,'equipmentIdBox')" type="checkbox"></th>
+        <th>设备编号</th>
+        <th>设备名称</th>
+        <th>单位</th>
+        <th>设备类别</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in equipmentList">
+        <td><input name="equipmentIdBox" value="{{item.id}}" ng-click="equipmentIdList = getEquipmentIdList('equipmentIdBox')"
+                   type="checkbox" onclick="Utils.toChkSon('equipmentIdList',this)" ></td>
+        <td>{{item.faclityCode}}</td>
+        <td><a href="" ng-click="getEquipmentDetail($event)" id="{{item.id}}" dialog dialog-target="popId" title="点击查看明细" >{{item.faclityName}}</a></td>
+        <td>{{item.faclityUnit}}</td>
+        <td>{{item.faclityType}}</td>
+    </tr>
+    </tbody>
+</table>
+<dl class="Date">
+    <dt>
+        <a type="button" ng-click="clean()" dialog dialog-target="popId" class="Btn Confirm Small">新增</a>
+        <button type="button"  ng-disabled="!equipmentIdList" ng-click="deleteEquipmentList()" class="Btn Warning Small">删除</button>
+    </dt>
+    <dd class="Paging">
+        <pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination>
+    </dd>
+</dl>
+
+<div class="Pop" id="popId">
+    <div ng-include="'views/institution/newequipment_info.htm'"></div>
+</div>

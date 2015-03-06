@@ -1,0 +1,68 @@
+<h3>支付方式 —— 按项目付费<i class="close"></i></h3>
+<form autocomplete="off" name="serPayDetailForm" novalidate ng-submit="saveSerPay(serPayDetailForm.$valid,'serDialog')" class="Frm">
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>项目代码:</b>
+            <input ng-blur="autoSearch($event)" ng-validation="{require:{msg:'项目代码不能为空'},length:{rule:'0-32',msg:'字符不能超过32'}}" name="serviceItemCode" ng-model="serPayDetail.serviceItemCode" type="text">
+        </dt>
+        <dd ng-show="gloSubmitted03">
+            <small ng-show="serPayDetailForm.errors.serviceItemCode">{{serPayDetailForm.errors.serviceItemCode}}</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>项目名称:</b>
+            <input ng-blur="autoSearch($event)" ng-validation="{require:{msg:'项目名称不能为空'}}" name="serviceItemName" ng-model="serPayDetail.serviceItemName" type="text">
+        </dt>
+        <dd ng-show="gloSubmitted03">
+            <small ng-show="serPayDetailForm.errors.serviceItemName">{{serPayDetailForm.errors.serviceItemName}}</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>价格:</b>
+            <input name="price" ng-validation="{require:{msg:'项目代码不能为空'},number:{rule:'0,14',decimal:2,msg:'必须为小于14位且保留2位小数的数字'}}" ng-model="serPayDetail.price" type="text">
+        </dt>
+        <dd ng-show="gloSubmitted03">
+            <small ng-show="serPayDetailForm.errors.price">{{serPayDetailForm.errors.price}}</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b>折扣比例:</b>
+            <input name="discountRatio" ng-validation="{number:{rule:'/^-?([0])(\.\d{1,4})?$/',msg:'必须为小于5位且保留4位小数的数字'}}" ng-model="serPayDetail.discountRatio" type="text">
+        </dt>
+        <dd ng-show="gloSubmitted03">
+            <small ng-show="serPayDetailForm.errors.discountRatio">{{serPayDetailForm.errors.discountRatio}}</small>
+        </dd>
+    </dl>
+    <dl class="sort">
+        <dt>
+            <b><span class="red"> * </span>科室:</b>
+            <select class="sl" ng-model="serPayDetail.departmentOne"
+                    ng-init="getDataByCodeType('{codeType:\'dePartment\',codeNo:\'aaaa\',departmentType:\'2\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['dePartment']">
+                <option value="">---请选择---</option>
+            </select>
+            <select class="sl" ng-validation="{require:{msg:'科室必选'}}" name="departmentTwo" ng-model="serPayDetail.departmentTwo" dic="codeno|codename dePartment"
+                    dic-def-val="---请选择---" dic-affect="serPayDetail.departmentOne" dic-param="{codeNo:?,departmentType:'3'}">
+            </select>
+        </dt>
+        <dd ng-show="gloSubmitted03">
+            <small ng-show="serPayDetailForm.errors.departmentTwo">{{serPayDetailForm.errors.departmentTwo}}</small>
+        </dd>
+    </dl>
+    <dl class="tea oneRow">
+        <dt>
+            <b>项目内涵:</b>
+            <textarea ng-validation="{length:{rule:'0-300',msg:'项目内涵不能超过300字'}}" name="serviceItemDetail" ng-model="serPayDetail.serviceItemDetail"></textarea>
+        </dt>
+        <dd ng-show="gloSubmitted03">
+            <small ng-show="serPayDetailForm.errors.serviceItemDetail">{{serPayDetailForm.errors.serviceItemDetail}}</small>
+        </dd>
+    </dl>
+    <p class="Tc">
+        <button type="submit" class="Confirm">保存</button>
+        <button id="closeTaskDetail" class="close" type="button" class="Btn">取消</button>
+    </p>
+</form>

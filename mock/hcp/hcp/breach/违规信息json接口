@@ -1,0 +1,71 @@
+违规信息模块相关操作
+				Json中字段所对应的信息：
+				物理ID	breachid
+				医疗机构标识	providerid
+				违约日期	breachDate
+				开始日期	startDate
+				结束日期	endDate
+				内容	detail
+				处理意见	opinion
+				创建人	createby
+				修改人	updateby
+				创建时间	createDate
+				修改时间	updateDate
+				数据状态	isvalid
+				当前页         page;
+				每页显示条数   pageSize
+
+一、违规基本信息详情查询：
+1、路径：URL = "/hcp/hcp/breach/show"；
+2、根据物理id查询详情
+3、输入Json
+Json data={"breachid":"F8C64B4146E531A8E043171D190AEA3F"}
+4、输出Json
+{"msg":"查询成功！",
+"result":{"breachDate":"2014-04-05","detail":"test","opinion":"test"}
+,"state":"0"}}
+
+二、违规列表查询
+1、路径：URL = "/hcp/hcp/breach/page"
+2、根据医疗机构标识	（providerid）进行查询
+3、输入Json
+Json data={"page":1,"pageSize":20,"providerid":"F8B7CA7810023332E043171D190A3CC1"}
+4、输出Json
+{"msg":"查询成功！",
+"result":[{"breachDate":"2014-04-05","breachid":"F8C64B4146E531A8E043171D190AEA3F","detail":"test","isvalid":"0","startRownum":1},
+			{"breachDate":"2014-04-06","breachid":"F8C64EC4F227405FE043171D190AE01F","detail":"tes1t","isvalid":"0","startRownum":2},
+			{"breachDate":"2014-04-06","breachid":"F8C64FABC4A24213E043171D190AF205","detail":"tes1t2","isvalid":"0","startRownum":3}],
+"state":"0",
+"totals":{"total":3}}
+
+三、违规信息修改：
+1、路径：URL = "/hcp/hcp/breach/update"；
+2、根据物理id（breachid）将当条信息进行修改
+3、输入Json
+Json data={"breachDate":"2014-04-06","breachid":"F8C64B4146E531A8E043171D190AEA3F","createby":"test121","detail":"tes1t21","opinion":"test121","updateby":"test121"}
+4、输出Json
+{"msg":"修改成功！","state":"0"}
+
+
+四、点击新增，添加违规信息：
+1、路径：URL = "/hcp/hcp/breach/create"
+2、点击新增，添加违规信息
+3、输入Json
+Json data={"breachDate":"2014-04-06","createby":"test12","detail":"tes1t2","opinion":"test12","providerid":"F8B7CA7810023332E043171D190A3CC1","updateby":"test12"}
+4、输出Json
+{"msg":"添加成功！","state":"0"}
+
+
+五、删除违规信息：
+1、路径：URL = "/hcp/hcp/breach/delete"；
+2、选择要删除的违规信息，在列表中勾选违规信息，点击删除按钮进行删除
+3、输入Json
+Json data={"ids":"'F8EF45595ACC5BFEE043171D190AB4C6','F8EF45ABC4F05CB0E043171D190A92F5','F8EF45FBDD695D99E043171D190A4EDF'"}; （当选择多个的时候，可以将id拼接）
+4、输出Json
+{"msg":"物理删除成功！","state":"0"}
+
+
+
+
+
+  

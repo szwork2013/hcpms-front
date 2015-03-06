@@ -1,0 +1,86 @@
+<h3>预授权方案<i class="close dialogClose"></i></h3>
+<form autocomplete="off" name="preAuthDetailForm" novalidate ng-submit="savepreAuth(preAuthDetailForm.$valid,'dialog')" class="Frm">
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>类别:</b>
+            <select required name="itemType" ng-model="preAuthDetail.itemType"
+                    ng-init="getDataByCodeType('{codeType:\'itemTypes\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['itemTypes']">
+                <option value="">---请选择---</option>
+            </select>
+        </dt>
+        <dd ng-show="gloSubmitted05">
+            <small ng-show="preAuthDetailForm.itemType.$error.required">类别必选</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b>是否进口:</b>
+            <select  ng-model="preAuthDetail.isDomestic">
+                <option value="Y">是</option>
+                <option value="N">否</option>
+            </select>
+        </dt>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>编码:</b>
+            <input  ng-blur="autoSearch03($event)" required name="itemCode" ng-maxlength=32 ng-model="preAuthDetail.itemCode" type="text">
+        </dt>
+        <dd ng-show="gloSubmitted05">
+            <small ng-show="preAuthDetailForm.itemCode.$error.required">编码不能为空</small>
+            <small ng-show="preAuthDetailForm.itemCode.$error.maxlength">编码不能超过32字</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b><span class="red"> * </span>名称:</b>
+            <input  ng-blur="autoSearch03($event)" required name="itemName" ng-maxlength=60 ng-model="preAuthDetail.itemName" type="text">
+        </dt>
+        <dd ng-show="gloSubmitted05">
+            <small ng-show="preAuthDetailForm.itemName.$error.required">名称不能为空</small>
+            <small ng-show="preAuthDetailForm.itemName.$error.maxlength">名称不能超过60字</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b>年龄:</b>
+            <input name="age" ng-model="preAuthDetail.age" ng-pattern='/^[1-9]*[1-9][0-9]*$/' ng-maxlength=15 type="text">
+        </dt>
+        <dd ng-show="gloSubmitted05">
+            <small ng-show="preAuthDetailForm.age.$error.maxlength">年龄不能超过15字</small>
+             <small ng-show="preAuthDetailForm.age.$error.pattern">年必须为正整数</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b>金额:</b>
+            <input name="amount" ng-model="preAuthDetail.amount" ng-pattern='/^(([1-9][0-9]{0,13})|0)(\.\d{1,2})?$/' type="text">
+        </dt>
+        <dd ng-show="gloSubmitted05">
+            <small ng-show="preAuthDetailForm.amount.$error.pattern">必须为小于14位且保留2位小数的正数</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b>数量:</b>
+            <input  name="quantity" ng-model="preAuthDetail.quantity" ng-pattern='/^(([1-9][0-9]{0,13}))$/' type="text">
+        </dt>
+        <dd ng-show="gloSubmitted05">
+            <small ng-show="preAuthDetailForm.quantity.$error.pattern">必须为小于14位的正整数</small>
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            <b>使用次数:</b>
+            <input name="usingTimes" ng-model="preAuthDetail.usingTimes" ng-pattern='/^(([1-9][0-9]{0,9}))$/' type="text">
+        </dt>
+        <dd ng-show="gloSubmitted05">
+            <small ng-show="preAuthDetailForm.usingTimes.$error.pattern">必须为小于10位的正整数</small>
+        </dd>
+    </dl>
+<p class="Tc">
+    <button type="submit" class="Confirm">保存</button>
+    <button id="closeTaskDetail" class="close" type="button">取消</button>
+</p>
+</form>

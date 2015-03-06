@@ -1,0 +1,25 @@
+<div id="subTab">
+    <ul class="tab">
+        <li class="lb active" ng-click="active('baseInfo',$event)">基本信息</li>
+        <li ng-click="active('equipment',$event)">医疗设备</li>
+        <li ng-click="active('ruleInfo',$event)">违规信息</li>
+        <li  ng-click="active('relationInfo',$event)">联系信息</li>
+        <li  ng-click="active('accountInfo',$event)">账号信息</li>
+        <li  ng-click="active('medicalList',$event)">诊疗项目</li>
+        <li ng-click="active('doctorInfo',$event)">医生信息</li>
+    </ul>
+</div>
+<div ng-include="'views/institution/base_info.htm?id='+UrlParams.id"
+     id="base_info" ng-show="isShow === 'baseInfo' || !isShow" ng-controller="InstitutionDetailCtrl"></div>
+<div ng-include="'views/institution/equipment.htm?id='+UrlParams.id"
+     id="equipment" ng-show="isShow ==='equipment'" ng-controller="EquipmentDetailCtrl"></div>
+<div ng-include="'views/institution/rule_info.htm?id='+UrlParams.id"
+     id="rule_info" ng-show="isShow ==='ruleInfo'" ng-controller="InstitutionRuleInfoCtrl"></div>
+<div ng-include="'views/institution/relation_info.htm?id='+UrlParams.id"
+     id="relation_info" ng-show="isShow ==='relationInfo'" ng-controller="InstitutionRelationCtrl"></div>
+<div ng-include="'views/institution/account_info.htm?id='+UrlParams.id"
+     id="account_info" ng-show="isShow ==='accountInfo'" ng-controller="InstitutionAccountInfoCtrl"></div>
+<div ng-include="'views/institution/medical_project_info_list.htm?id='+UrlParams.id"
+     id="medical_list" ng-show="isShow ==='medicalList'" ng-controller="MedicalProjectListCtrl"></div>
+<div ng-include="'views/institution/doctor_info.htm?id='+UrlParams.id"
+     id="doctor_info" ng-show="isShow ==='doctorInfo'" ng-controller="InstitutionDoctorInfoCtrl"></div>

@@ -1,0 +1,59 @@
+<form autocomplete="off" class="Frm">
+        <dl>
+            <dt>
+                <b>医疗机构名称:</b>
+                <input ng-model="institutionListParam.name" type="text">
+            </dt>
+        </dl>
+        <dl>
+            <dt>
+                <b>组织机构代码:</b>
+                <input ng-model="institutionListParam.orgcode" type="text">
+            </dt>
+        </dl>
+        <dl>
+            <dt>
+                <b>执业许可证:</b>
+                <input ng-model="institutionListParam.license" type="text">
+            </dt>
+        </dl>
+		<p class="sbt">
+            <button type="submit" ng-click="queryInstitutionList()">查询信息</button>
+        </p>
+    </form>
+    <table class="Table">
+        <thead>
+            <tr>
+                <th> <input id="institutionIdList" ng-click="getInstitutionIdList('institutionIdBox')" onclick="Utils.doCheck(this,'institutionIdBox')" type="checkbox"></th>
+                <th>医疗机构名称</th>
+                <th>组织机构代码</th>
+                <th>医院等级</th>
+                <th>卫生机构类别</th>
+                <th>成立时间</th>
+                <th>法人</th>
+                <th>地址</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in institutionList">
+                <td><input name="institutionIdBox" value="{{item.providerid}}" ng-click="getInstitutionIdList('institutionIdBox')"
+                           type="checkbox" onclick="Utils.toChkSon('institutionIdList',this)" ></td>
+                <td><a href="#/institution/main?id={{item.providerid}}">{{item.name}}</a></td>
+                <td>{{item.orgcode}}</td>
+                 <td>{{item.levName}}</td>
+                <td>{{item.orgNme}}</td>
+                <td>{{item.regtime}}</td>
+                <td>{{item.lealPerson}}</td>
+                <td>{{item.addr}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <dl class="Date">
+        <dt>
+            <a href="#/institution/main?id=" class="Btn Confirm Small">新增</a>
+  			<button  ng-disabled="!institutionIdList"  ng-click="deleteInstitutionList()" class="Btn Warning Small">删除</button>
+        </dt>
+        <dd><pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination></dd>
+    </dl>
+
+

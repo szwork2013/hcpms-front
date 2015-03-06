@@ -1,0 +1,113 @@
+{
+    "msg": "查询成功！",
+    "result": [
+        {
+            "agreementId": "F8B8612DF97722DBE043171D190AA03A",
+            "createdBy": "创建人",
+            "dateCreated": 1399369371000,
+            "dateUpdated": 1399369827000,
+            "diseaseCode": "111",
+            "id": "F8B91257CE2419A8E043171D190A1A23",
+            "isValid": "0",
+            "payAmount": 33322,
+            "payCondition": "222",
+            "startRownum": 1,
+            "updatedBy": "创建人"
+        },
+        {
+            "agreementId": "F8B8612DF97722DBE043171D190AA03A",
+            "createdBy": "创建人",
+            "dateCreated": 1399369402000,
+            "dateUpdated": 1399369402000,
+            "diseaseCode": "11122",
+            "id": "F8B91438A29C20CCE043171D190A6CB2",
+            "isValid": "0",
+            "payAmount": 1,
+            "payCondition": "222",
+            "startRownum": 2,
+            "updatedBy": "创建人"
+        },
+        {
+            "agreementId": "F8B8612DF97722DBE043171D190AA03A",
+            "createdBy": "创建人",
+            "dateCreated": 1399369371000,
+            "dateUpdated": 1399369827000,
+            "diseaseCode": "111",
+            "id": "F8B91257CE2419A8E043171D190A1A23",
+            "isValid": "0",
+            "payAmount": 33322,
+            "payCondition": "222",
+            "startRownum": 1,
+            "updatedBy": "创建人"
+        },
+        {
+            "agreementId": "F8B8612DF97722DBE043171D190AA03A",
+            "createdBy": "创建人",
+            "dateCreated": 1399369402000,
+            "dateUpdated": 1399369402000,
+            "diseaseCode": "11122",
+            "id": "F8B91438A29C20CCE043171D190A6CB2",
+            "isValid": "0",
+            "payAmount": 1,
+            "payCondition": "222",
+            "startRownum": 2,
+            "updatedBy": "创建人"
+        },
+        {
+            "agreementId": "F8B8612DF97722DBE043171D190AA03A",
+            "createdBy": "创建人",
+            "dateCreated": 1399369371000,
+            "dateUpdated": 1399369827000,
+            "diseaseCode": "111",
+            "id": "F8B91257CE2419A8E043171D190A1A23",
+            "isValid": "0",
+            "payAmount": 33322,
+            "payCondition": "222",
+            "startRownum": 1,
+            "updatedBy": "创建人"
+        },
+        {
+            "agreementId": "F8B8612DF97722DBE043171D190AA03A",
+            "createdBy": "创建人",
+            "dateCreated": 1399369402000,
+            "dateUpdated": 1399369402000,
+            "diseaseCode": "11122",
+            "id": "F8B91438A29C20CCE043171D190A6CB2",
+            "isValid": "0",
+            "payAmount": 1,
+            "payCondition": "222",
+            "startRownum": 2,
+            "updatedBy": "创建人"
+        },
+        {
+            "agreementId": "F8B8612DF97722DBE043171D190AA03A",
+            "createdBy": "创建人",
+            "dateCreated": 1399369371000,
+            "dateUpdated": 1399369827000,
+            "diseaseCode": "111",
+            "id": "F8B91257CE2419A8E043171D190A1A23",
+            "isValid": "0",
+            "payAmount": 33322,
+            "payCondition": "222",
+            "startRownum": 1,
+            "updatedBy": "创建人"
+        },
+        {
+            "agreementId": "F8B8612DF97722DBE043171D190AA03A",
+            "createdBy": "创建人",
+            "dateCreated": 1399369402000,
+            "dateUpdated": 1399369402000,
+            "diseaseCode": "11122",
+            "id": "F8B91438A29C20CCE043171D190A6CB2",
+            "isValid": "0",
+            "payAmount": 1,
+            "payCondition": "222",
+            "startRownum": 2,
+            "updatedBy": "创建人"
+        }
+    ],
+    "state": "0",
+    "totals": {
+        "total": 3
+    }
+}

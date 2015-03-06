@@ -1,0 +1,64 @@
+<form autocomplete="off" class="Frm">
+	<dl>
+		<dt>
+			<b>医疗机构名称:</b>
+            <input name="healthcareProviderName" auto-type="healthProviderList" auto-complete ng-model="agreementListParam.healthcareProviderName" type="text">
+		</dt>
+	</dl>
+	<dl>
+		<dt>
+			<b>协议编号:</b>
+			<input name="agreementNo" ng-model="agreementListParam.agreementNo" type="text">
+		</dt>
+	</dl>
+	<dl>
+		<dt>
+			<b>统筹区域:</b>
+            <select name="regionCode" ng-model="agreementListParam.regionCode"
+                    ng-init="getDataByCodeType('{codeType:\'areas\'}')"
+                    ng-options="c.codeno as c.codename for c in dictionaryMap['areas']">
+                <option value="">---请选择---</option>
+            </select>
+		</dt>
+	</dl>
+	<p class="sbt">
+		<button ng-click="queryAgreementList()" type="submit">查询信息</button>
+	</p>
+</form>
+<table class="Table">
+	<thead>
+		<tr>
+			<th>
+                <input id="agreementIdList" ng-click="getAgreementIdList('agreementIdBox')" onclick="Utils.doCheck(this,'agreementIdBox')" type="checkbox">
+            </th>
+			<th>医疗机构名称</th>
+			<th>协议编号</th>
+			<th>协议类型</th>
+            <th>协议生效日期</th>
+            <th>协议终止日期</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in agreementList">
+            <td><input name="agreementIdBox" ng-model="agreementIdList" value="{{item.id}}" ng-click="getAgreementIdList('agreementIdBox')"
+                       type="checkbox" onclick="Utils.toChkSon('agreementIdList',this)" ></td>
+            <td>{{item.healthcareProviderName}}</td>
+            <td><a ng-href="#/agreement/main?id={{item.id}}" href="">{{item.agreementNo}}</a></td>
+            <td>{{item.agreementTypeName}}</td>
+            <td>{{item.dateAgreementEff}}</td>
+            <td>{{item.dateAgreementEnd}}</td>
+        </tr>
+	</tbody>
+</table>
+<dl class="Date">
+	<dt>
+		<a type="button"  href="#/agreement/main?id=" ng-click="cleanAgreement()" class="Btn Confirm Small">新增</a>
+		<button  class="Btn Warning Small" ng-disabled="!agreementIdList" ng-click="deleteAgreementList()" >删除</button>
+	</dt>
+	<dd class="Paging">
+        <pagination pg-page-info="pageInfo" ng-show="pageInfo"></pagination>
+    </dd>
+</dl>
+<div class="Pop"  id="dialog" style="display:none;height: 700px;">
+    <div ng-include="'views/agreement/newagreementInfo.htm'"></div>
+</div>
